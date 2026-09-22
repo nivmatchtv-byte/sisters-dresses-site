@@ -1,0 +1,997 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Sisters’ Dresses | Ателье и гардеробный консьерж</title>
+<meta name="description" content="Sisters’ Dresses — курортное ателье в Дананге, Вьетнам.">
+<meta name="theme-color" content="#14301F">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Jost:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px);
+  padding-bottom:env(safe-area-inset-bottom,0px);
+  --bg:#FFFFFF; --bg-soft:#F6F2E8; --ink:#14301F; --ink-soft:#54645A; --line:#E3DDCF;
+  --gold:#A87C33; --gold-ink:#84601F;
+  --promo-bg:#14301F; --promo-ink:#F6F1E4;
+  --btn-bg:#14301F; --btn-ink:#F6F1E4;
+  --logo-filter:none;
+  --serif:"Cormorant Garamond","Iowan Old Style",Georgia,serif;
+  --sans:"Jost","Helvetica Neue",Arial,sans-serif;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --bg:#0F1A13; --bg-soft:#15241A; --ink:#F1ECDF; --ink-soft:#B4BCB0; --line:#2B3B30;
+    --gold:#C9A45C; --gold-ink:#D2AE6A;
+    --promo-bg:#1D3A28; --promo-ink:#F6F1E4;
+    --btn-bg:#E9E1CC; --btn-ink:#14301F;
+    --logo-filter:brightness(0) invert(1);
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#0F1A13; --bg-soft:#15241A; --ink:#F1ECDF; --ink-soft:#B4BCB0; --line:#2B3B30;
+  --gold:#C9A45C; --gold-ink:#D2AE6A;
+  --promo-bg:#1D3A28; --promo-ink:#F6F1E4;
+  --btn-bg:#E9E1CC; --btn-ink:#14301F;
+  --logo-filter:brightness(0) invert(1);
+}
+html{scroll-padding-top:calc(env(safe-area-inset-top,0px) + 120px);-webkit-text-size-adjust:100%}
+*,*::before,*::after{box-sizing:inherit}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 16px/1.55 var(--sans);-webkit-font-smoothing:antialiased}
+img{max-width:100%}
+a{color:inherit}
+button{font:inherit;color:inherit;background:none;border:0;padding:0;cursor:pointer}
+ul{list-style:none;margin:0;padding:0}
+:focus-visible{outline:2px solid var(--gold);outline-offset:3px}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.skip{position:absolute;left:12px;top:-60px;background:var(--btn-bg);color:var(--btn-ink);padding:10px 16px;z-index:200}
+.skip:focus{top:8px}
+
+/* promo bar */
+.promo{background:var(--promo-bg);color:var(--promo-ink);text-align:center;font-size:14px;padding:9px 16px;letter-spacing:.02em}
+.promo button{margin-left:12px;text-decoration:underline;text-underline-offset:3px}
+
+/* header */
+.site{position:sticky;top:env(safe-area-inset-top,0px);z-index:60;background:var(--bg);border-bottom:1px solid var(--line)}
+.bar{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:16px;padding:14px clamp(16px,3vw,40px) 10px}
+.bar-l,.bar-r{display:flex;align-items:center;gap:18px}
+.bar-r{justify-content:flex-end}
+.util-l{display:flex;gap:22px;align-items:center;font-size:14px}
+.util-l select{font:inherit;color:inherit;background:transparent;border:0;border-bottom:1px solid var(--line);padding:2px 2px}
+.util-l select option{color:#14301F}
+.brand{display:block;text-decoration:none}
+.logo-word{display:block;width:clamp(170px,19vw,240px);aspect-ratio:700/88;background:var(--l-word) center/contain no-repeat;filter:var(--logo-filter)}
+.icon{display:inline-grid;place-items:center;width:40px;height:40px;position:relative;border-radius:50%}
+.icon svg{width:22px;height:22px;stroke:currentColor;fill:none;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round}
+.icon .count{position:absolute;top:3px;right:1px;min-width:17px;height:17px;border-radius:9px;background:var(--btn-bg);color:var(--btn-ink);font-size:11px;line-height:17px;text-align:center}
+.burger{display:none}
+
+/* nav + mega */
+.nav{position:relative;border-top:1px solid transparent}
+.nav>ul{display:flex;justify-content:center;gap:clamp(18px,2.6vw,40px);padding:0 24px}
+.nav-link{display:block;padding:12px 2px 13px;font-size:15px;letter-spacing:.03em;text-decoration:none;border-bottom:1px solid transparent}
+.nav-item:hover>.nav-link,.nav-item:focus-within>.nav-link{border-bottom-color:var(--gold)}
+.mega{position:absolute;left:0;right:0;top:100%;background:var(--bg);border-bottom:1px solid var(--line);box-shadow:0 18px 30px -22px rgba(0,0,0,.35);visibility:hidden;opacity:0;transition:opacity .16s ease}
+.nav-item:hover>.mega,.nav-item:focus-within>.mega{visibility:visible;opacity:1}
+.mega-in{display:flex;gap:clamp(32px,6vw,90px);max-width:1180px;margin:0 auto;padding:30px 32px 36px}
+.mega h3{font:600 15px/1.3 var(--sans);margin:0 0 12px;letter-spacing:.02em}
+.mega li a{display:block;padding:5px 0;text-decoration:none;color:var(--ink-soft);font-size:15px}
+.mega li a:hover{color:var(--ink);text-decoration:underline;text-underline-offset:4px}
+.mega .feat{display:flex;gap:14px;margin-left:auto}
+.feat a{display:block;width:150px;text-decoration:none;font-size:14px}
+.feat .ph{aspect-ratio:3/4;background:var(--img) var(--pos,50% 25%)/cover;margin-bottom:8px}
+
+/* search */
+.search{border-top:1px solid var(--line);padding:14px clamp(16px,3vw,40px);display:flex;gap:12px;align-items:center}
+.search[hidden]{display:none}
+.search input{flex:1;font:inherit;font-size:17px;padding:10px 2px;color:var(--ink);background:transparent;border:0;border-bottom:1px solid var(--ink)}
+
+/* hero: one full photo */
+.hero{position:relative;isolation:isolate;display:flex;align-items:center;min-height:clamp(560px,calc(100svh - 130px),880px);color:#fff;background:#0A1710}
+.hero-bg{position:absolute;inset:0;z-index:-1;background:var(--img) var(--pos,58% 30%)/cover no-repeat}
+.hero-bg::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(5,12,8,.5),rgba(5,12,8,0) 55%)}
+.hero-copy{padding:0 clamp(24px,6vw,96px);max-width:min(640px,62%)}
+.hero h1{font:500 clamp(42px,5.6vw,84px)/1.02 var(--serif);margin:0 0 14px;text-shadow:0 2px 28px rgba(0,0,0,.35)}
+.hero .sub{font:400 clamp(20px,2vw,28px)/1.25 var(--serif);margin:0 0 30px}
+.hero .rule{display:block;width:76px;height:1px;background:#C9A45C;margin:0 0 22px}
+.hero-cta{display:inline-flex;align-items:center;gap:12px;color:#fff;text-decoration:none;font-size:14px;letter-spacing:.14em;text-transform:uppercase}
+.hero-cta svg{width:22px;height:12px;stroke:currentColor;fill:none;stroke-width:1.5}
+.hero-cta:hover span{text-decoration:underline;text-underline-offset:6px}
+
+/* rubrics */
+.rubrics{display:grid;grid-template-columns:repeat(4,1fr)}
+.tile{position:relative;display:block;aspect-ratio:3/4;overflow:hidden;color:#fff;text-decoration:none}
+.tile .ph{position:absolute;inset:0;background:var(--img) var(--pos,50% 30%)/cover}
+.tile::after{content:"";position:absolute;left:0;right:0;bottom:0;height:45%;background:linear-gradient(to top,rgba(8,20,12,.68),rgba(8,20,12,0))}
+.tile p{position:absolute;left:0;right:0;bottom:clamp(18px,2.6vw,36px);z-index:2;margin:0;padding:0 14px;text-align:center;text-shadow:0 2px 20px rgba(0,0,0,.35)}
+.tile .nm{display:block;font:500 clamp(22px,2.4vw,34px)/1.1 var(--serif)}
+.tile .go{display:block;margin-top:10px;font:400 14px/1 var(--sans);letter-spacing:.04em;text-decoration:underline;text-underline-offset:5px}
+
+/* language select */
+.lang{font:inherit;font-size:14px;color:inherit;background:transparent;border:1px solid var(--line);padding:7px 6px;margin-right:6px;border-radius:0}
+.lang option{color:#14301F}
+
+/* article pages */
+.page{padding:clamp(28px,5vw,64px) clamp(20px,5vw,72px) clamp(56px,7vw,110px)}
+.page-in{max-width:1180px;margin:0 auto;display:grid;grid-template-columns:minmax(0,1fr) minmax(280px,380px);gap:clamp(32px,6vw,96px);align-items:start}
+.prose{max-width:64ch;font-size:18px;line-height:1.75}
+.prose .back{display:inline-block;margin-bottom:26px;font-size:15px;color:var(--ink-soft);text-decoration:none}
+.prose .back:hover{color:var(--ink);text-decoration:underline;text-underline-offset:4px}
+.prose h1{font:500 clamp(38px,5vw,64px)/1.05 var(--serif);margin:0 0 30px;outline:none}
+.prose h2{font:500 clamp(27px,3vw,36px)/1.15 var(--serif);margin:46px 0 14px}
+.prose p{margin:0 0 1.15em}
+.prose .sal{font:500 clamp(26px,3vw,34px)/1.2 var(--serif);margin-bottom:22px}
+.prose .lines{font-family:var(--serif);font-size:clamp(21px,2.1vw,25px);line-height:1.5;margin:1.4em 0}
+.prose .quote{font:500 clamp(28px,3.4vw,42px)/1.2 var(--serif);margin:1.4em 0;padding-left:20px;border-left:2px solid var(--gold)}
+.prose .sig{font:500 clamp(24px,2.6vw,30px)/1.35 var(--serif);margin-top:2em}
+.prose .more{margin-top:56px;padding-top:22px;border-top:1px solid var(--line)}
+.prose .more a{font-size:16px;letter-spacing:.02em;text-underline-offset:5px}
+.page-wide{max-width:1100px;margin:0 auto}
+.gal{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:44px 0 0}
+.gal .tile{aspect-ratio:4/5}
+.names h2{font:500 clamp(28px,3.4vw,40px)/1.1 var(--serif);margin:0 0 20px}
+.name-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+.name-card{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;aspect-ratio:3/4;background:var(--bg-soft);text-decoration:none;text-align:center;padding:16px}
+.name-card .mono{display:block;width:54px;aspect-ratio:260/267;background:var(--l-mono) center/contain no-repeat;filter:var(--logo-filter)}
+.name-card .nm{font:500 clamp(20px,2vw,26px)/1.15 var(--serif)}
+.name-card:hover .nm{text-decoration:underline;text-underline-offset:5px}
+.fab-banner{position:relative;display:block;aspect-ratio:3/1;overflow:hidden;color:#fff;text-decoration:none;margin-top:12px}
+.fab-banner .ph{position:absolute;inset:0;background:var(--img) var(--pos,50% 50%)/cover}
+.fab-banner::after{content:"";position:absolute;inset:0;background:rgba(8,20,12,.34)}
+.fab-banner p{position:absolute;left:0;right:0;top:50%;transform:translateY(-50%);z-index:2;margin:0;padding:0 16px;text-align:center;text-shadow:0 2px 22px rgba(0,0,0,.4)}
+.fab-banner .nm{display:block;font:500 clamp(26px,4vw,52px)/1.1 var(--serif)}
+.fab-banner .go{display:block;margin-top:12px;font:400 14px/1 var(--sans);letter-spacing:.04em;text-decoration:underline;text-underline-offset:5px}
+.fab-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:40px}
+.fab{display:block;width:100%;aspect-ratio:1;padding:0;border:0;background:none;cursor:zoom-in}
+.fab .ph{display:block;width:100%;height:100%;background:var(--img) center/cover}
+.fab:hover .ph{opacity:.9}
+.lb{position:fixed;inset:0;z-index:120;background:rgba(6,14,9,.97);display:grid;place-items:center;visibility:hidden;opacity:0;transition:opacity .15s}
+.lb.on{visibility:visible;opacity:1}
+.lb-img{width:min(92vw,78svh,900px);aspect-ratio:1;background:var(--img) center/cover}
+.lb-cap{position:absolute;left:0;right:0;bottom:calc(env(safe-area-inset-bottom,0px) + 16px);margin:0;text-align:center;color:#EFE8D8;font-size:15px}
+.lb-x{position:absolute;top:calc(env(safe-area-inset-top,0px) + 10px);right:10px;color:#fff;z-index:2}
+.lb-nav{position:absolute;top:50%;transform:translateY(-50%);width:48px;height:48px;border-radius:50%;color:#fff;background:rgba(255,255,255,.14);display:grid;place-items:center;z-index:2}
+.lb-nav svg{width:24px;height:24px;stroke:currentColor;fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.lb-nav.prev{left:clamp(6px,2vw,28px)}
+.lb-nav.next{right:clamp(6px,2vw,28px)}
+.pv .price{font:500 clamp(24px,2.6vw,32px)/1.2 var(--serif);margin:1.3em 0 1.3em}
+.predict{border-top:1px solid var(--line);padding-top:20px;margin-top:8px}
+.predict .pl{font-size:15px;color:var(--ink-soft);margin:0 0 6px}
+.predict .pt{font:500 clamp(22px,2.4vw,28px)/1.3 var(--serif);margin:0}
+.pv-vh{margin:22px 0 8px;font-size:15px;color:var(--ink-soft)}
+.setbox{margin:1.4em 0 1.2em;border-top:1px solid var(--line);padding-top:18px}
+.setbox .sh{font:500 clamp(22px,2.4vw,28px)/1.2 var(--serif);margin:0 0 6px}
+.setlist{margin:0 0 14px}
+.setlist li{display:flex;justify-content:space-between;gap:16px;align-items:baseline;padding:9px 0;border-bottom:1px solid var(--line);font-size:16px;line-height:1.4}
+.setlist li span:last-child{white-space:nowrap;font-family:var(--serif);font-size:20px}
+.setlist small{display:block;color:var(--gold-ink);font-size:14px}
+.crumb{margin:0 0 26px}
+.crumb .back{display:inline-block;font-size:15px;color:var(--ink-soft);text-decoration:none}
+.crumb .back:hover{color:var(--ink);text-decoration:underline;text-underline-offset:4px}
+.pv{display:grid;grid-template-columns:minmax(0,.85fr) minmax(0,1.15fr);gap:clamp(28px,5vw,80px);align-items:start}
+.pv-main{aspect-ratio:4/5;background:#fff var(--img) center/contain no-repeat}
+.pv-main.cover{background:#fff var(--img) var(--pos,50% 30%)/cover no-repeat}
+.pv-thumbs{display:grid;grid-template-columns:repeat(auto-fill,minmax(54px,1fr));gap:8px;margin-top:10px}
+.pv-thumbs button{aspect-ratio:1;padding:0;border:1px solid var(--line);background:#fff var(--img) center/contain no-repeat}
+.pv-thumbs button.cover{background:#fff var(--img) var(--pos,50% 30%)/cover no-repeat}
+.pv-thumbs button[aria-current="true"]{outline:2px solid var(--gold);outline-offset:1px}
+.page-photo{position:sticky;top:calc(env(safe-area-inset-top,0px) + 150px);aspect-ratio:3/4;background:var(--img) var(--pos,50% 30%)/cover}
+
+/* newsletter */
+.news{background:var(--bg-soft);padding:clamp(48px,7vw,90px) 20px;text-align:center}
+.news-in{max-width:520px;margin:0 auto}
+.news h2{font:500 clamp(30px,4vw,44px)/1.1 var(--serif);margin:0 0 10px}
+.news p.lead{margin:0 0 26px;color:var(--ink-soft)}
+.form{display:grid;gap:14px;text-align:left}
+.field label{display:block;font-size:14px;margin-bottom:5px;color:var(--ink-soft)}
+.field input[type=email],.field input[type=date],.field input[type=tel]{width:100%;font:inherit;font-size:16px;padding:12px 14px;color:var(--ink);background:var(--bg);border:1px solid var(--line);border-radius:0}
+.field input:focus{outline:2px solid var(--gold);outline-offset:1px}
+.check{display:flex;gap:10px;align-items:center;font-size:15px}
+.check input{width:18px;height:18px;accent-color:var(--gold)}
+.btn{display:block;width:100%;background:var(--btn-bg);color:var(--btn-ink);padding:14px 20px;font-size:16px;letter-spacing:.04em;text-align:center;text-decoration:none}
+.btn:hover{opacity:.92}
+.fine{font-size:12.5px;line-height:1.5;color:var(--ink-soft);margin:6px 0 0}
+.fine a{text-underline-offset:3px}
+.err{color:#B3261E;font-size:14px;min-height:0;margin:0}
+:root[data-theme="dark"] .err{color:#FF9C94}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .err{color:#FF9C94}}
+.done{display:none;padding:10px 0}
+.done h3{font:500 30px/1.1 var(--serif);margin:0 0 8px}
+.code{display:inline-block;margin-top:12px;border:1px dashed var(--gold);padding:10px 22px;font-size:20px;letter-spacing:.14em}
+.is-done .form{display:none}
+.is-done .done{display:block}
+
+/* footer */
+footer{padding:clamp(40px,6vw,72px) clamp(16px,4vw,56px) 28px}
+.f-grid{display:grid;grid-template-columns:1.2fr 1fr 1fr 1fr;gap:clamp(24px,4vw,64px);max-width:1280px;margin:0 auto}
+.f-brand .logo-mono{width:78px;aspect-ratio:260/267;background:var(--l-mono) center/contain no-repeat;filter:var(--logo-filter);margin-bottom:14px}
+.f-brand p{margin:0 0 6px;color:var(--ink-soft);font-size:15px}
+.social{display:inline-flex;align-items:center;gap:10px;margin-top:10px;text-decoration:none;font-size:15px}
+.social svg{width:24px;height:24px;stroke:currentColor;fill:none;stroke-width:1.6}
+.social:hover span{text-decoration:underline;text-underline-offset:4px}
+.fcol summary{list-style:none;cursor:pointer;font:600 16px/1.3 var(--sans);padding:6px 0 12px;display:flex;justify-content:space-between}
+.fcol summary::-webkit-details-marker{display:none}
+.fcol summary::after{content:"+";font-weight:400;font-size:20px;line-height:1}
+.fcol[open] summary::after{content:"–"}
+.fcol li a{display:block;padding:5px 0;text-decoration:none;color:var(--ink-soft);font-size:15px}
+.fcol li a:hover{color:var(--ink);text-decoration:underline;text-underline-offset:4px}
+.legal{max-width:1280px;margin:36px auto 0;padding-top:20px;border-top:1px solid var(--line);display:flex;flex-wrap:wrap;gap:8px 26px;font-size:13.5px;color:var(--ink-soft)}
+.legal a{text-decoration:none}
+.legal a:hover{text-decoration:underline}
+.legal .copy-r{margin-left:auto}
+
+/* layers */
+.scrim{position:fixed;inset:0;background:rgba(6,14,9,.55);z-index:90;opacity:0;visibility:hidden;transition:opacity .2s}
+.scrim.on{opacity:1;visibility:visible}
+.drawer{position:fixed;top:0;bottom:0;width:min(420px,92vw);background:var(--bg);z-index:100;padding:calc(env(safe-area-inset-top,0px) + 18px) 22px calc(env(safe-area-inset-bottom,0px) + 22px);overflow:auto;transition:transform .25s ease;visibility:hidden}
+.drawer.l{left:0;transform:translateX(-102%)}
+.drawer.r{right:0;transform:translateX(102%)}
+.drawer.on{transform:none;visibility:visible}
+.drawer-h{display:flex;justify-content:space-between;align-items:center;margin-bottom:14px}
+.drawer h2{font:500 28px/1 var(--serif);margin:0}
+.mob-nav details{border-bottom:1px solid var(--line)}
+.mob-nav summary{list-style:none;cursor:pointer;padding:16px 2px;font-size:17px;display:flex;justify-content:space-between}
+.mob-nav summary::-webkit-details-marker{display:none}
+.mob-nav summary::after{content:"+";font-size:20px;line-height:1}
+.mob-nav details[open] summary::after{content:"–"}
+.mob-nav ul{padding:0 2px 14px}
+.mob-nav li a{display:block;padding:8px 0;text-decoration:none;color:var(--ink-soft)}
+.mob-nav .sub{font:600 14px/1 var(--sans);margin:10px 0 2px;color:var(--ink)}
+.empty{color:var(--ink-soft);margin:18px 0 24px}
+
+.modal{position:fixed;inset:0;z-index:110;background:rgba(6,14,9,.55);display:grid;place-items:center;padding:calc(env(safe-area-inset-top,0px) + 16px) 16px calc(env(safe-area-inset-bottom,0px) + 16px);visibility:hidden;opacity:0;transition:opacity .25s}
+.modal.on{visibility:visible;opacity:1}
+.dialog{position:relative;display:grid;grid-template-columns:.9fr 1.1fr;width:min(820px,100%);max-height:100%;overflow:auto;background:var(--bg);box-shadow:0 30px 80px -20px rgba(0,0,0,.5)}
+.dialog .ph{background:var(--i-evening) 50% 30%/cover;min-height:100%}
+.dialog .body{padding:clamp(26px,4vw,44px)}
+.dialog .logo-mono{width:54px;aspect-ratio:260/267;background:var(--l-mono) center/contain no-repeat;filter:var(--logo-filter);margin-bottom:12px}
+.dialog h2{font:500 clamp(30px,4vw,40px)/1.05 var(--serif);margin:0 0 8px}
+.dialog .x{position:absolute;top:8px;right:8px;z-index:2;background:var(--bg)}
+.link-btn{display:block;width:100%;margin-top:12px;text-align:center;text-decoration:underline;text-underline-offset:4px;color:var(--ink-soft);font-size:15px}
+
+.toast{position:fixed;left:50%;bottom:calc(env(safe-area-inset-bottom,0px) + 22px);transform:translate(-50%,20px);background:var(--btn-bg);color:var(--btn-ink);padding:12px 20px;font-size:15px;z-index:130;opacity:0;visibility:hidden;transition:opacity .2s,transform .2s;max-width:calc(100vw - 32px);text-align:center}
+.toast.on{opacity:1;visibility:visible;transform:translate(-50%,0)}
+
+/* responsive */
+@media (max-width:1000px){
+  .burger{display:inline-grid}
+  .nav,.util-l{display:none}
+  .bar{padding:8px 12px}
+  .bar-l{gap:4px}
+  .lang{padding:6px 2px;margin-right:0}
+  .bar-r{gap:0}
+  .bar-r .hide-m{display:none}
+  .logo-word{width:min(190px,46vw)}
+  .f-grid{grid-template-columns:1fr}
+  .f-brand{margin-bottom:10px}
+  .fcol{border-top:1px solid var(--line)}
+  .legal .copy-r{margin-left:0;width:100%}
+  html{scroll-padding-top:calc(env(safe-area-inset-top,0px) + 70px)}
+}
+@media (min-width:1001px){
+  .fcol summary{pointer-events:none}
+  .fcol summary::after{display:none}
+}
+@media (max-width:1000px){
+  .rubrics{grid-template-columns:1fr 1fr}
+  .hero-copy{max-width:72%}
+  .page{padding-top:0}
+  .page-in{grid-template-columns:1fr;gap:28px}
+  .page-photo{order:-1;position:relative;top:auto;aspect-ratio:var(--ar,4/3);margin:0 calc(-1 * clamp(20px,5vw,72px))}
+  .prose{font-size:17px}
+  .name-grid{grid-template-columns:1fr 1fr}
+  .pv{grid-template-columns:1fr;gap:28px}
+  .fab-grid{grid-template-columns:1fr 1fr}
+  .fab-banner{aspect-ratio:2/1}
+  .gal{gap:8px}
+  .page-photo{background-position:var(--posm,50% 10%)}
+}
+@media (max-width:760px){
+  .hero{display:block;min-height:0;background:var(--promo-bg)}
+  .hero-bg{position:relative;inset:auto;z-index:auto;aspect-ratio:4/5}
+  .hero-bg::after{display:none}
+  .hero-copy{max-width:none;padding:28px 20px 38px}
+  .hero h1{font-size:42px}
+  .hero .sub{margin-bottom:22px}
+  .tile .nm{font-size:22px}
+  .tile .go{font-size:13px}
+  .dialog{grid-template-columns:1fr}
+  .dialog .ph{min-height:150px;height:150px}
+}
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{transition:none!important;scroll-behavior:auto!important}
+}
+</style>
+<style id="assets">
+:root{--i-hero:url(images/hero.jpg);--i-coconut:url(images/coconut.jpg);--i-boat:url(images/boat.jpg);--i-evening:url(images/evening.jpg);--i-man:url(images/man.jpg);--i-hoian:url(images/hoian.jpg);--i-jungle:url(images/jungle.jpg);--i-red:url(images/red.jpg);--i-pants:url(images/pants.jpg);--i-drink:url(images/drink.jpg);--i-s1:url(images/s1.jpg);--i-s2:url(images/s2.jpg);--i-s3:url(images/s3.jpg);--i-s4:url(images/s4.jpg);--i-s5:url(images/s5.jpg);--i-s6:url(images/s6.jpg);--i-fbanner:url(images/fbanner.jpg);--i-ir1:url(images/ir1.jpg);--i-ir2:url(images/ir2.jpg);--i-ir3:url(images/ir3.jpg);--i-lm:url(images/lm.jpg);--i-ld1:url(images/ld1.jpg);--i-ld2:url(images/ld2.jpg);--i-ld3:url(images/ld3.jpg);--i-mm:url(images/mm.jpg);--i-mi1:url(images/mi1.jpg);--i-mi2:url(images/mi2.jpg);--i-mi3:url(images/mi3.jpg);--i-dove:url(images/dove.jpg);--i-kd1:url(images/kd1.jpg);--i-kd2:url(images/kd2.jpg);--i-kd3:url(images/kd3.jpg);--i-lm2:url(images/lm2.jpg);--i-le1:url(images/le1.jpg);--i-le2:url(images/le2.jpg);--i-le3:url(images/le3.jpg);--i-ol1:url(images/ol1.jpg);--i-ol2:url(images/ol2.jpg);--i-ol3:url(images/ol3.jpg);--i-ov01:url(images/ov01.jpg);--i-ov02:url(images/ov02.jpg);--i-ov03:url(images/ov03.jpg);--i-ov04:url(images/ov04.jpg);--i-ov05:url(images/ov05.jpg);--i-ov06:url(images/ov06.jpg);--i-ov07:url(images/ov07.jpg);--i-ov08:url(images/ov08.jpg);--i-ov09:url(images/ov09.jpg);--i-ov10:url(images/ov10.jpg);--i-ov11:url(images/ov11.jpg);--i-ov12:url(images/ov12.jpg);--i-ov13:url(images/ov13.jpg);--i-ov14:url(images/ov14.jpg);--i-ov15:url(images/ov15.jpg);--i-ov16:url(images/ov16.jpg);--i-ov17:url(images/ov17.jpg);--i-ov18:url(images/ov18.jpg);--i-ov19:url(images/ov19.jpg);--i-ov20:url(images/ov20.jpg);--i-vc01:url(images/vc01.jpg);--i-vc02:url(images/vc02.jpg);--i-vc03:url(images/vc03.jpg);--i-vc04:url(images/vc04.jpg);--i-vc05:url(images/vc05.jpg);--i-vc06:url(images/vc06.jpg);--i-vc07:url(images/vc07.jpg);--i-vc08:url(images/vc08.jpg);--i-vc09:url(images/vc09.jpg);--i-vc10:url(images/vc10.jpg);--i-vc11:url(images/vc11.jpg);--i-vc12:url(images/vc12.jpg);--i-vc13:url(images/vc13.jpg);--i-vc14:url(images/vc14.jpg);--i-vc15:url(images/vc15.jpg);--i-sv1:url(images/sv1.jpg);--i-sv2:url(images/sv2.jpg);--i-sv3:url(images/sv3.jpg);--i-sv4:url(images/sv4.jpg);--i-sv5:url(images/sv5.jpg);--i-sv6:url(images/sv6.jpg);--i-sv7:url(images/sv7.jpg);--i-sv8:url(images/sv8.jpg);--i-sv9:url(images/sv9.jpg);--i-sv10:url(images/sv10.jpg);--i-sv11:url(images/sv11.jpg);--i-sv12:url(images/sv12.jpg);--i-fab1:url(images/fab1.jpg);--i-fab2:url(images/fab2.jpg);--i-fab3:url(images/fab3.jpg);--i-fab4:url(images/fab4.jpg);--i-fab5:url(images/fab5.jpg);--i-fab6:url(images/fab6.jpg);--i-fab7:url(images/fab7.jpg);--i-fab8:url(images/fab8.jpg);--i-fab9:url(images/fab9.jpg);--i-fab10:url(images/fab10.jpg);--i-fab11:url(images/fab11.jpg);--i-fab12:url(images/fab12.jpg);--i-fab13:url(images/fab13.jpg);--i-fab14:url(images/fab14.jpg);--i-fab15:url(images/fab15.jpg);--i-fab16:url(images/fab16.jpg);--i-fab17:url(images/fab17.jpg);--i-fab18:url(images/fab18.jpg);--i-fab19:url(images/fab19.jpg);--i-fab20:url(images/fab20.jpg);--i-fab21:url(images/fab21.jpg);--i-fab22:url(images/fab22.jpg);--i-fab23:url(images/fab23.jpg);--i-fab24:url(images/fab24.jpg);--i-fab25:url(images/fab25.jpg);--l-word:url(images/logo-word.png);--l-mono:url(images/logo-mono.png);}
+</style>
+</head>
+<body id="top">
+<a class="skip" href="#content" data-i18n="skip"></a>
+
+<div class="promo"><span data-i18n="promo"></span><button type="button" data-pop data-i18n="promo_btn"></button></div>
+
+<header class="site">
+  <div class="bar">
+    <div class="bar-l">
+      <button class="icon burger" type="button" data-i18n-aria="menu_open" data-open="menu"><svg viewBox="0 0 24 24"><path d="M3 7h18M3 12h18M3 17h18"/></svg></button>
+      <div class="util-l">
+        <label><span data-i18n="country"></span> <select data-i18n-aria="country_l"><option data-i18n="c_vn"></option><option data-i18n="c_int"></option></select></label>
+        <a href="#" data-soon data-i18n="help"></a>
+      </div>
+    </div>
+    <a class="brand" href="#top" data-i18n-aria="home"><span class="logo-word" role="img" aria-label="Sisters’ Dresses"></span></a>
+    <div class="bar-r">
+      <select class="lang" id="lang" data-i18n-aria="lang_label"><option value="ru">RU</option><option value="en">EN</option><option value="vi">VI</option></select>
+      <button class="icon" type="button" data-i18n-aria="search" data-search><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="6.5"/><path d="M16 16l4.5 4.5"/></svg></button>
+      <button class="icon hide-m" type="button" data-i18n-aria="wishlist" data-soon-btn="toast_wish"><svg viewBox="0 0 24 24"><path d="M12 20s-7.5-4.6-7.5-10A4.3 4.3 0 0 1 12 7.6 4.3 4.3 0 0 1 19.5 10c0 5.4-7.5 10-7.5 10z"/></svg></button>
+      <button class="icon hide-m" type="button" data-i18n-aria="account" data-soon-btn="toast_acc"><svg viewBox="0 0 24 24"><circle cx="12" cy="8.5" r="3.6"/><path d="M4.8 20c.9-3.6 3.7-5.3 7.2-5.3s6.3 1.7 7.2 5.3"/></svg></button>
+      <button class="icon" type="button" data-i18n-aria="cart_aria" data-open="cart"><svg viewBox="0 0 24 24"><path d="M5 8h14l-1 12H6L5 8z"/><path d="M9 8V6.5a3 3 0 0 1 6 0V8"/></svg><span class="count">0</span></button>
+    </div>
+  </div>
+  <nav class="nav" data-i18n-aria="main_nav"><ul id="navlist"></ul></nav>
+  <div class="search" id="searchbox" hidden>
+    <input type="search" id="q" data-i18n-ph="search_ph" data-i18n-aria="search">
+    <button class="icon" type="button" data-i18n-aria="search_close" data-search><svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+  </div>
+</header>
+
+<div id="content" tabindex="-1">
+<main id="main">
+
+  <section class="hero">
+    <div class="hero-bg" role="img" data-i18n-aria="hero_alt" style="--img:var(--i-hero);--pos:58% 30%"></div>
+    <div class="hero-copy">
+      <h1 data-i18n="hero_h1"></h1>
+      <p class="sub" data-i18n="hero_sub"></p>
+      <span class="rule"></span>
+      <a class="hero-cta" href="#" data-soon><span data-i18n="hero_cta"></span><svg viewBox="0 0 22 12"><path d="M0 6h20M15 1l5 5-5 5"/></svg></a>
+    </div>
+  </section>
+
+  <section class="rubrics" data-i18n-aria="rubrics_label">
+    <a class="tile" href="#/little">
+      <div class="ph" role="img" data-i18n-aria="alt_r1" style="--img:var(--i-coconut);--pos:50% 30%"></div>
+      <p><span class="nm" data-i18n="r1"></span><span class="go" data-i18n="shop_now"></span></p>
+    </a>
+    <a class="tile" href="#/middle">
+      <div class="ph" role="img" data-i18n-aria="alt_r2" style="--img:var(--i-boat);--pos:50% 50%"></div>
+      <p><span class="nm" data-i18n="r2"></span><span class="go" data-i18n="shop_now"></span></p>
+    </a>
+    <a class="tile" href="#" data-soon>
+      <div class="ph" role="img" data-i18n-aria="alt_r3" style="--img:var(--i-evening);--pos:50% 35%"></div>
+      <p><span class="nm" data-i18n="r3"></span><span class="go" data-i18n="shop_now"></span></p>
+    </a>
+    <a class="tile" href="#" data-soon>
+      <div class="ph" role="img" data-i18n-aria="alt_r4" style="--img:var(--i-man);--pos:50% 30%"></div>
+      <p><span class="nm" data-i18n="r4"></span><span class="go" data-i18n="shop_now"></span></p>
+    </a>
+  </section>
+
+  <section class="news" id="signup" aria-labelledby="news-h">
+    <div class="news-in" id="newsbox">
+      <h2 id="news-h" data-i18n="news_h"></h2>
+      <p class="lead" data-i18n="news_lead"></p>
+      <form class="form" id="newsform" novalidate>
+        <div class="field"><label for="n-email" data-i18n="email"></label><input id="n-email" type="email" autocomplete="email" required></div>
+        <div class="field"><label for="n-bd" data-i18n="birth_opt"></label><input id="n-bd" type="date" autocomplete="bday"></div>
+        <label class="check"><input type="checkbox" id="n-sms"> <span data-i18n="sms"></span></label>
+        <div class="field" id="n-phone-wrap" hidden><label for="n-phone" data-i18n="phone"></label><input id="n-phone" type="tel" autocomplete="tel"></div>
+        <p class="err" role="alert" id="n-err"></p>
+        <button class="btn" type="submit" data-i18n="news_btn"></button>
+        <p class="fine" data-i18n-html="fine_html"></p>
+      </form>
+      <div class="done" role="status">
+        <h3 data-i18n="thanks"></h3>
+        <p data-i18n="code_intro"></p>
+        <span class="code">WELCOME10</span>
+      </div>
+    </div>
+  </section>
+</main>
+<main id="page" class="page" hidden></main>
+</div>
+
+<footer>
+  <div class="f-grid">
+    <div class="f-brand">
+      <div class="logo-mono" role="img" data-i18n-aria="mono_alt"></div>
+      <p data-i18n="f_tag"></p>
+      <p data-i18n="f_city"></p>
+      <a class="social" href="https://www.instagram.com/sisters_dresses_danang" target="_blank" rel="noopener" data-i18n-aria="f_insta">
+        <svg viewBox="0 0 24 24"><rect x="3.5" y="3.5" width="17" height="17" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r=".6" fill="currentColor"/></svg><span>@sisters_dresses_danang</span>
+      </a>
+    </div>
+    <details class="fcol"><summary data-i18n="f_help"></summary>
+      <ul><li><a href="#" data-soon data-i18n="f_contact"></a></li><li><a href="#" data-soon data-i18n="f_order"></a></li><li><a href="#" data-soon data-i18n="f_sizing"></a></li><li><a href="#" data-soon data-i18n="f_damage"></a></li><li><a href="#" data-soon data-i18n="f_price"></a></li><li><a href="#" data-soon data-i18n="f_faq"></a></li></ul></details>
+    <details class="fcol"><summary data-i18n="f_ship"></summary>
+      <ul><li><a href="#" data-soon data-i18n="f_status"></a></li><li><a href="#" data-soon data-i18n="f_delivery"></a></li><li><a href="#" data-soon data-i18n="f_restr"></a></li><li><a href="#" data-soon data-i18n="f_returns"></a></li></ul></details>
+    <details class="fcol"><summary data-i18n="f_about"></summary>
+      <ul><li><a href="#/brand" data-i18n="l_brand"></a></li><li><a href="#/letter" data-i18n="l_letter"></a></li><li><a href="#" data-soon data-i18n="f_stores"></a></li><li><a href="#" data-soon data-i18n="f_access"></a></li></ul></details>
+  </div>
+  <div class="legal">
+    <a href="#" data-soon data-i18n="l_cookies"></a><a href="#" data-soon data-i18n="l_privacy"></a><a href="#" data-soon data-i18n="l_terms"></a>
+    <span class="copy-r" data-i18n="copyr"></span>
+  </div>
+</footer>
+
+<div class="scrim" id="scrim"></div>
+
+<aside class="drawer l" id="menu" aria-hidden="true" data-i18n-aria="menu_h">
+  <div class="drawer-h"><h2 data-i18n="menu_h"></h2><button class="icon" type="button" data-i18n-aria="close_menu" data-close><svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg></button></div>
+  <div class="mob-nav" id="mobnav"></div>
+</aside>
+
+<aside class="drawer r" id="cart" aria-hidden="true" data-i18n-aria="cart_h">
+  <div class="drawer-h"><h2 data-i18n="cart_h"></h2><button class="icon" type="button" data-i18n-aria="close_cart" data-close><svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg></button></div>
+  <p class="empty" data-i18n="cart_empty"></p>
+  <button class="btn" type="button" data-close data-i18n="continue"></button>
+</aside>
+
+<div class="modal" id="pop" role="dialog" aria-modal="true" aria-labelledby="pop-h" aria-hidden="true">
+  <div class="dialog">
+    <button class="icon x" type="button" data-i18n-aria="close" data-close><svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+    <div class="ph" role="img" data-i18n-aria="pop_img_alt"></div>
+    <div class="body" id="popbox">
+      <div class="logo-mono" role="img" data-i18n-aria="mono_alt"></div>
+      <h2 id="pop-h" data-i18n="pop_h"></h2>
+      <p class="fine" style="margin:0 0 18px;font-size:15px" data-i18n="pop_p"></p>
+      <form class="form" id="popform" novalidate>
+        <div class="field"><label for="p-email" data-i18n="email"></label><input id="p-email" type="email" autocomplete="email" required></div>
+        <div class="field"><label for="p-bd" data-i18n="birth_opt"></label><input id="p-bd" type="date" autocomplete="bday"></div>
+        <p class="err" role="alert" id="p-err"></p>
+        <button class="btn" type="submit" data-i18n="pop_btn"></button>
+        <p class="fine" data-i18n-html="fine_html"></p>
+      </form>
+      <div class="done" role="status">
+        <h3 data-i18n="thanks"></h3>
+        <p data-i18n="code_intro"></p>
+        <span class="code">WELCOME10</span>
+      </div>
+      <button class="link-btn" type="button" data-close data-i18n="continue"></button>
+    </div>
+  </div>
+</div>
+
+<div class="lb" id="lb" role="dialog" aria-modal="true" aria-hidden="true">
+  <button class="icon lb-x" type="button" data-lbx data-i18n-aria="close"><svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+  <button class="lb-nav prev" type="button" data-lbn="-1" data-i18n-aria="lb_prev"><svg viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7"/></svg></button>
+  <div class="lb-img" id="lbimg" role="img"></div>
+  <button class="lb-nav next" type="button" data-lbn="1" data-i18n-aria="lb_next"><svg viewBox="0 0 24 24"><path d="M9 5l7 7-7 7"/></svg></button>
+  <p class="lb-cap" id="lbcap"></p>
+</div>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script>
+(function(){
+  var FINE_LINK_RU='<a href="#" data-soon>Политику конфиденциальности</a>';
+  var I18N={
+  ru:{
+    title:"Sisters’ Dresses | Ателье и гардеробный консьерж",
+    meta:"Sisters’ Dresses — курортное ателье в Дананге, Вьетнам. Платья из шёлка и льна, кимоно, комплекты и вечерняя одежда.",
+    skip:"Перейти к содержимому",
+    promo:"Скидка 10% на первую покупку", promo_btn:"Получить",
+    country:"Страна:", country_l:"Страна", c_vn:"Вьетнам", c_int:"Другая страна", help:"Помощь", lang_label:"Язык",
+    home:"Sisters’ Dresses, главная", menu_open:"Открыть меню", search:"Поиск", wishlist:"Избранное", account:"Личный кабинет",
+    cart_aria:"Корзина, 0 товаров", search_ph:"Что вы ищете?", search_close:"Закрыть поиск", main_nav:"Главное меню",
+    hero_alt:"Женщина в шёлковом платье и узорчатой накидке среди тропических листьев",
+    hero_h1:"Больше, чем одежда.", hero_sub:"Это сестринство.", hero_cta:"Смотреть коллекцию",
+    rubrics_label:"Выбрать по сёстрам", r1:"Младшая сестра", r2:"Средняя сестра", r3:"Старшая сестра", r4:"Братья", shop_now:"Смотреть",
+    alt_r1:"Розовое кимоно и шорты с пальмовым принтом у тележки с кокосами",
+    alt_r2:"Кимоно-халат и широкие брюки с узором, женщина стоит в деревянной лодке среди пальм, в руке плетёная шляпа",
+    alt_r3:"Голубое атласное платье на прибрежных скалах",
+    alt_r4:"Мужская рубашка-кимоно с принтом и чёрные брюки среди бумажных фонарей",
+    news_h:"Подпишитесь на новости Sisters’ Dresses", news_lead:"Подпишитесь и получите скидку 10% на первый заказ",
+    email:"E-mail", birth_opt:"Дата рождения (необязательно)", sms:"Хотите получать SMS?", phone:"Телефон", news_btn:"Получить скидку 10%",
+    fine_html:"Подписываясь, вы соглашаетесь получать предложения, акции и другие коммерческие сообщения Sisters’ Dresses и принимаете нашу "+FINE_LINK_RU+". Отписаться можно в любой момент.",
+    thanks:"Спасибо!", code_intro:"Ваш промокод на скидку 10% на первый заказ:", err_email:"Введите корректный e-mail, например name@example.com.",
+    pop_h:"Скидка 10% на первую покупку", pop_p:"Присоединяйтесь и получите промокод.", pop_btn:"Получить скидку", "continue":"Продолжить покупки", close:"Закрыть",
+    pop_img_alt:"Голубое атласное платье Sisters’ Dresses", mono_alt:"Монограмма Sisters’ Dresses",
+    f_tag:"Ателье и гардеробный консьерж", f_city:"Дананг, Вьетнам", f_insta:"Sisters’ Dresses в Инстаграме",
+    f_help:"Центр помощи Sisters’ Dresses", f_contact:"Связаться с нами", f_order:"О вашем заказе", f_sizing:"Размеры", f_damage:"Брак и повреждения", f_price:"Корректировка цены", f_faq:"Вопросы и ответы",
+    f_ship:"Доставка и возврат", f_status:"Статус заказа", f_delivery:"Сроки доставки", f_restr:"Ограничения", f_returns:"Возврат и обмен",
+    f_about:"О Sisters’ Dresses", f_who:"Кто мы", f_atelier:"Наше ателье", f_stores:"Магазины", f_access:"Доступность",
+    l_cookies:"Политика cookies", l_privacy:"Политика конфиденциальности", l_terms:"Условия использования", copyr:"© 2026 Sisters’ Dresses",
+    menu_h:"Меню", cart_h:"Корзина", cart_empty:"Ваша корзина пуста.", close_menu:"Закрыть меню", close_cart:"Закрыть корзину",
+    toast_soon:"Интернет-магазин скоро откроется.", toast_wish:"Список избранного пуст.", toast_acc:"Личные кабинеты появятся вместе с магазином.", toast_search:"Поиск заработает вместе с магазином.",
+    n_new:"Новинки", n_y:"Младшая сестра", n_m:"Средняя сестра", n_e:"Старшая сестра", n_b:"Братья", n_sale:"Распродажа", n_about:"О нас", cat:"Категории",
+    l_all_new:"Все новинки", l_best:"Бестселлеры", l_dresses:"Платья", l_sets:"Комплекты", l_tops:"Топы", l_shorts_skirts:"Шорты и юбки", l_kimonos:"Кимоно и халаты",
+    l_evening:"Вечерние платья", l_jumpsuits:"Комбинезоны", l_skirts:"Юбки", l_shirts:"Рубашки", l_kshirts:"Рубашки-кимоно", l_trousers:"Брюки", l_shorts:"Шорты", l_all_sale:"Вся распродажа", little_h:"Little Sisters", irina_h:"Irina Pants", lidia_h:"Lidia Dress", sofa_h:"Sofa Set", sp1:"Тот самый комплект, без которого невозможно представить идеальное лето.", sp2:"Лёгкая рубашка-кимоно и свободные шорты из натурального дышащего хлопка. Мягкий пояс, глубокие удобные карманы и ткань, которая практически не мнётся.", sp3:"Идеален для пляжа, путешествий и долгих прогулок. Носи вместе или сочетай с любимыми вещами.", sp4:"Красота, свобода и комфорт — всё, что нужно для счастливого лета.", sp_price:"Цена: 2 200 000 VND", sp_pt:"В этом костюме тебя ждёт лето, которое ты будешь вспоминать всю жизнь.", mia_h:"Mia Dress", mp1:"Лёгкое, свободное и невероятно удобное платье-трансформер длины миди. Красивый вырез, два потайных кармана и регулируемая посадка: носи его свободным или подчеркни фигуру.", mp2:"Натуральный хлопок с добавлением льна. Единый размер. Ткань можно выбрать любую.", mp_price:"Цена: 1 700 000 VND", mp_pl:"Предсказание:", mp_pt:"В этом платье тебя ждёт встреча, которая изменит всё.", ma0:"Платье Мия на модели: красное платье с белыми рыбками на фоне зелёной двери", ma1:"Платье, вид спереди", ma2:"Платье, вид сзади, завязки на вырезе", ma3:"Платье, вид сбоку", karina_h:"Karina Party Dress", cap_k:"Платье Карина Пати", kp1:"Платье, в котором ты — королева вечеринки!", kp2:"Короткое, яркое и невероятно удобное платье из шёлка. Тонкие бретели, мягкая драпировка на груди, приталенный силуэт и слегка расклешённый низ красиво подчёркивают фигуру, не сковывая движений.", kp3:"Нежный шёлк струится по телу, переливается в вечернем свете и делает каждый твой шаг особенным. Танцуй до утра, лови восхищённые взгляды и наслаждайся моментом. Это платье создано для вечеров, которые хочется запомнить навсегда.", kp4:"Твоё идеальное платье для вечеринок во Вьетнаме.", kp_price:"Цена: 2 000 000 VND", kp_pt:"В этом платье тебя ждёт самое яркое продолжение вечера. Главное, чтобы рядом оказался тот, кто умеет его аккуратно снять. Ведь это очень нежный шёлк!", ka0:"Платье Карина Пати на модели: синее шёлковое мини-платье с белыми птицами, девушка стоит в горном озере", v_h:"Этот же костюм в других тканях", v_set:"Комплект", v_kim:"Кимоно", v_sh:"Шорты", pr1:"яркий принт с крупными цветами", pr2:"тёмно-синий принт с гортензиями", pr3:"синий принт с узорами", pr4:"светло-голубая ткань", pr5:"синий принт с розами", lera_h:"Lera Dress", cap_l:"Платье Лера", lr1:"Вьетнам — не только место для отдыха, но и пространство для больших возможностей и важных деловых встреч.", lr2:"Платье из плотного шёлка невероятных расцветок сочетает сдержанность и открытость. Покажи партнёрам свою красоту, ум и уверенность. Очаровывай, веди переговоры и открывай новые горизонты для своего бизнеса!", lr_price:"Цена: 2 500 000 VND", lr_pt:"Ты заключишь самую выгодную сделку в своей жизни. И это платье станет твоим счастливым талисманом!", lera0:"Платье Лера на модели: длинное изумрудное шёлковое платье с перекрещенными лямками на фоне тропической зелени", olga_h:"Olga Three-Piece Set", cap_o:"Костюм-тройка Ольга", o1:"Три вещи. Десятки образов. Одна любовь!", o2:"Шёлковый топ на тонких бретелях, юбка с воланом и блузка на завязках — твой идеальный гардероб для жизни во Вьетнаме.", o3:"Носи всё вместе, сочетай по две вещи или создавай совершенно новые образы. От утреннего кофе до романтического ужина — ты всегда будешь выглядеть по-особенному.", os_h:"Собери свой OLGA SET:", os_c1:"Топ + юбка", os_c2:"Полный костюм-тройка", os_save:"Твоя выгода — {n}!", o_pt:"Эти три вещи принесут тебе столько комплиментов, что ты перестанешь их считать!", oa1:"Ольга: блузка на завязках и юбка с воланом среди тропических листьев", oa2:"Ольга: шёлковый топ на тонких бретелях и юбка с воланом", oa3:"Топ на тонких бретелях и юбка с воланом на белом фоне", lp1:"Роскошное в своей простоте. Сексуальное, лёгкое и невероятно удобное.", lp2:"То самое маленькое платье, без которого невозможно представить лето. Натуральный дышащий хлопок, идеальная посадка по фигуре, соблазнительный вырез и деревянные пуговицы.", lp3:"Не мнётся, занимает минимум места в чемодане и всегда выглядит безупречно. Утром — на пляж, вечером — на ужин в ресторан.", lp4:"Одно платье на все случаи счастливого лета.", lp_price:"Цена: 1 500 000 VND", lp_pt:"В этом платье тебя ждёт встреча, которую ты никогда не забудешь.", la0:"Платье Лидия на модели: зелёное платье с тропическим принтом на фоне красной стены", la1:"Платье, вид спереди", la2:"Платье, вид сбоку", la3:"Платье, вид сзади", ip1:"Те самые брюки, которые ты возьмёшь в отпуск. А потом не захочешь снимать.", ip2:"Идеальные хлопковые брюки прямого кроя для путешествий и повседневной жизни. Натуральная дышащая ткань практически не мнётся и отлично держит форму.", ip3:"Свободный силуэт, мягкий пояс и глубокие карманы, из которых ничего не выпадает, — особенно удобно, когда ты на байке.", ip4:"Красота, комфорт и свобода в каждом движении.", ip_price:"Цена: 1 800 000 VND", ip_pl:"Маленькое предсказание от Sisters’ Dresses:", ip_pt:"В этих брюках тебя ждёт путешествие, которое изменит твою жизнь.", ia0:"Штаны Ирина на модели: широкие брюки с розовым узором и белый топ", ia1:"Брюки, вид спереди", ia2:"Брюки, вид сбоку", ia3:"Брюки, вид сзади", fab_h:"Ткани младших сестёр", fab_item:"Ткань", lb_prev:"Предыдущая ткань", lb_next:"Следующая ткань", fbanner_alt:"Яркая ткань с лодками, пальмами и цветами", fab_p:"Только натуральный хлопок.", see:"Смотреть", fn1:"Софа", fn2:"Мия", fn3:"Лидия", fn4:"Ирина", fa1:"Ткань с пальмовым принтом в розовых и зелёных тонах", fa2:"Красная ткань с принтом из рыбок", fa3:"Зелёная ткань с тропическими листьями", fa4:"Ткань с розовым орнаментом", sofa_p1:"Кимоно и шорты с пальмовым принтом. Только натуральный хлопок.", p0:"Костюм Софа на модели: розовое кимоно и шорты с пальмовым принтом", p1:"Кимоно, вид спереди", p2:"Кимоно, вид сбоку", p3:"Кимоно, вид сзади", p4:"Шорты, вид спереди", p5:"Шорты, вид сзади", p6:"Шорты, вид сбоку", little_p1:"Младшие сёстры. Молодые, разные, эмоциональные и свободные. Каждая со своим характером, настроением и представлением о том, как должен выглядеть идеальный день во Вьетнаме.", little_p2:"Это маленькие капсулы для жизни в тропиках — лёгкие, женственные, яркие и комфортные. Только натуральный хлопок.", little_p2b:"Одежда, в которой можно отправиться на пляж, проехать через весь город на байке, выпить кофе с подругой, встретить закат у моря и неожиданно остаться на вечеринку.", little_p3:"Все модели могут выполняться в разных цветах и принтах.", cap1:"Костюм Софа", cap2:"Платье Мия", cap3:"Платье Лидия", cap4:"Штаны Ирина", g1:"Женщина в розовом кимоно и шортах с пальмовым принтом у тележки с кокосами", g2:"Красное платье с рыбками и соломенная шляпа, бег по морю", g3:"Девушка пьёт кокосовую воду под пальмами, платье с тропическим принтом на пуговицах", g4:"Широкие брюки с розовым узором и белый топ среди гигантских листьев", l_brand:"О бренде", l_letter:"Письмо сестре", back:"На главную", more_brand:"Читать о бренде", more_letter:"Читать письмо сестре", alt_brand:"Женщина в белой полупрозрачной блузке с завязками и шёлковой юбке с воланами среди тропической зелени, руки подняты", alt_letter:"Женщина в оранжевом кимоно и широких брюках с цветочным узором идёт мимо жёлтой стены, над которой цветёт бугенвиллея",vic_h:"Victoria Set",cap_v:"Костюм Виктория",vic_1:"Твой ритм. Твоя свобода. Твой идеальный костюм!",vic_2:"Утром — пилатес, днём — дела и встречи, вечером — ужин у моря. Victoria всегда в движении, и её одежда живёт в том же ритме!",vic_3:"Лёгкая свободная блузка и широкие струящиеся брюки-палаццо создают невероятно женственный силуэт. Никаких ограничений — только свобода, красота и уверенность в каждом движении.",vic_4:"Носи вместе или по отдельности. Этот костюм готов ко всему, что приготовил тебе день!",vic_pt:"В этом костюме ты всегда окажешься в нужном месте в нужное время. И обязательно встретишь того, кого давно хотела!",vic_sh:"Собери свой VICTORIA SET:",vic_c1:"Полный костюм",vic_vh:"Этот же костюм в других цветах и тканях",vica01:"Костюм Виктория на модели: блузка и широкие брюки-палаццо с лоскутным цветочным принтом среди банановых листьев",vica02:"Костюм Виктория на модели: блузка и брюки-палаццо с лоскутным принтом на белом фоне",vica03:"Блузка: лоскутный принт, вид спереди",vica04:"Блузка: лоскутный принт, вид сбоку",vica05:"Блузка: лоскутный принт, вид сзади",vica06:"Блузка: бежевая, полупрозрачная",vica07:"Блузка: чёрная, полупрозрачная",vica08:"Блузка: пудрово-розовая, полупрозрачная",vica09:"Брюки-палаццо: лоскутный принт, вид спереди крупно",vica10:"Брюки-палаццо: лоскутный принт, вид спереди",vica11:"Брюки-палаццо: лоскутный принт, вид сбоку",vica12:"Брюки-палаццо: лоскутный принт, вид сзади",vica13:"Брюки-палаццо: бежевые",vica14:"Брюки-палаццо: пудрово-розовые",vica15:"Брюки-палаццо: чёрные",ov_h:"Эта же тройка в других цветах и тканях",ova01:"Блузка: белая",ova02:"Блузка: зелёный принт, вид спереди",ova03:"Блузка: зелёный принт, вид сзади",ova04:"Блузка: серый принт пейсли",ova05:"Блузка: синий принт пейсли",ova06:"Ольга: светло-жёлтые топ и юбка с воланом на модели",ova07:"Юбка: светло-жёлтая",ova08:"Юбка: белая",ova09:"Юбка: красная",ova10:"Юбка: чёрная",ova11:"Юбка: зелёная",ova12:"Юбка: горчичная, вид сзади",ova13:"Юбка: горчичная, вид сбоку",ova14:"Юбка: горчичная, вид спереди",ova15:"Топ: белый",ova16:"Топ: светло-жёлтый",ova17:"Топ: красный",ova18:"Топ: зелёный, вид сбоку",ova19:"Топ: зелёный, вид сзади",ova20:"Топ: зелёный, вид спереди"
+  },
+  en:{
+    title:"Sisters’ Dresses | Atelier & Wardrobe Concierge",
+    meta:"Sisters’ Dresses is a resort atelier in Da Nang, Vietnam. Silk and linen dresses, kimonos, sets and evening wear.",
+    skip:"Skip to content",
+    promo:"Get 10% off your 1st purchase", promo_btn:"Unlock now",
+    country:"Country:", country_l:"Country", c_vn:"Vietnam", c_int:"International", help:"Help", lang_label:"Language",
+    home:"Sisters’ Dresses, home", menu_open:"Open menu", search:"Search", wishlist:"Wishlist", account:"Account",
+    cart_aria:"Cart, 0 items", search_ph:"What are you looking for?", search_close:"Close search", main_nav:"Main",
+    hero_alt:"Woman in a silk gown and patterned robe among tropical leaves",
+    hero_h1:"More than clothing.", hero_sub:"This is sisterhood.", hero_cta:"View the collection",
+    rubrics_label:"Shop by sister", r1:"Youngest sister", r2:"Middle sister", r3:"Eldest sister", r4:"Brothers", shop_now:"Shop now",
+    alt_r1:"Pink palm-print kimono top and shorts beside a coconut cart",
+    alt_r2:"Patterned kimono robe and wide trousers, standing in a wooden boat among palms, holding a woven hat",
+    alt_r3:"Pale blue satin gown on rocks by the sea",
+    alt_r4:"Men’s printed kimono shirt with black trousers among paper lanterns",
+    news_h:"Sign up for Sisters’ Dresses updates", news_lead:"Sign up and get 10% off your 1st order",
+    email:"E-mail", birth_opt:"Your birthdate (optional)", sms:"Want to keep in touch via SMS?", phone:"Phone", news_btn:"Get 10% off now",
+    fine_html:"By signing up, you will receive Sisters’ Dresses offers, promotions and other commercial messages. You are also agreeing to our <a href=\"#\" data-soon>Privacy Policy</a>. You may unsubscribe at any time.",
+    thanks:"Thank you!", code_intro:"Your code for 10% off your first order:", err_email:"Enter a valid e-mail address, for example name@example.com.",
+    pop_h:"Get 10% off your 1st purchase", pop_p:"Join us and unlock your welcome code.", pop_btn:"Get your discount now", "continue":"Continue shopping", close:"Close",
+    pop_img_alt:"Sisters’ Dresses pale blue satin gown", mono_alt:"Sisters’ Dresses monogram",
+    f_tag:"Atelier & Wardrobe Concierge", f_city:"Da Nang, Vietnam", f_insta:"Sisters’ Dresses on Instagram",
+    f_help:"Sisters’ Dresses Help Center", f_contact:"Contact us", f_order:"About your order", f_sizing:"Sizing", f_damage:"Damages and defects", f_price:"Price adjustments", f_faq:"FAQ",
+    f_ship:"Shipping and returns", f_status:"Order status", f_delivery:"Delivery time", f_restr:"Restrictions", f_returns:"Returns and exchanges",
+    f_about:"About Sisters’ Dresses", f_who:"Who we are", f_atelier:"Our atelier", f_stores:"Stores", f_access:"Accessibility",
+    l_cookies:"Cookies policy", l_privacy:"Privacy policy", l_terms:"Terms & conditions", copyr:"© 2026 Sisters’ Dresses",
+    menu_h:"Menu", cart_h:"Your cart", cart_empty:"Your cart is empty.", close_menu:"Close menu", close_cart:"Close cart",
+    toast_soon:"The online shop opens soon.", toast_wish:"Your wishlist is empty.", toast_acc:"Customer accounts open with the shop.", toast_search:"Search opens with the shop.",
+    n_new:"New in", n_y:"Youngest sister", n_m:"Middle sister", n_e:"Eldest sister", n_b:"Brothers", n_sale:"Sale", n_about:"About", cat:"Shop by category",
+    l_all_new:"All new arrivals", l_best:"Best sellers", l_dresses:"Dresses", l_sets:"Sets", l_tops:"Tops", l_shorts_skirts:"Shorts & skirts", l_kimonos:"Kimonos & robes",
+    l_evening:"Evening gowns", l_jumpsuits:"Jumpsuits", l_skirts:"Skirts", l_shirts:"Shirts", l_kshirts:"Kimono shirts", l_trousers:"Trousers", l_shorts:"Shorts", l_all_sale:"All sale styles", little_h:"Little Sisters", irina_h:"Irina Pants", lidia_h:"Lidia Dress", sofa_h:"Sofa Set", sp1:"The set you can’t imagine the perfect summer without.", sp2:"A light kimono shirt and relaxed shorts in natural, breathable cotton. A soft belt, deep comfortable pockets and a fabric that barely wrinkles.", sp3:"Perfect for the beach, for travel and for long walks. Wear it together or mix it with your favorite pieces.", sp4:"Beauty, freedom and comfort — everything you need for a happy summer.", sp_price:"Price: 2,200,000 VND", sp_pt:"In this set, a summer you will remember for the rest of your life is waiting for you.", mia_h:"Mia Dress", mp1:"A light, relaxed and incredibly comfortable convertible midi dress. A beautiful neckline, two hidden pockets and an adjustable fit: wear it loose or accentuate your figure.", mp2:"Natural cotton with a touch of linen. One size. Any fabric can be chosen.", mp_price:"Price: 1,700,000 VND", mp_pl:"Prediction:", mp_pt:"In this dress, a meeting that will change everything is waiting for you.", ma0:"Mia dress on a model: red dress with white fish print against a green door", ma1:"Dress, front", ma2:"Dress, back, with ties at the neckline", ma3:"Dress, side", karina_h:"Karina Party Dress", cap_k:"Karina Party dress", kp1:"A dress that makes you the queen of the party!", kp2:"A short, bright and incredibly comfortable silk dress. Thin straps, soft draping at the bust, a fitted waist and a slightly flared skirt flatter the figure without restricting your movement.", kp3:"Delicate silk flows over the body, shimmers in the evening light and makes every step special. Dance until morning, catch admiring glances and enjoy the moment. This dress was made for evenings you want to remember forever.", kp4:"Your perfect party dress in Vietnam.", kp_price:"Price: 2,000,000 VND", kp_pt:"In this dress, the brightest continuation of the evening is waiting for you. The main thing is to have someone nearby who knows how to take it off carefully. It is very delicate silk, after all!", ka0:"Karina Party dress on a model: blue silk mini dress with white birds, standing in a mountain lake", v_h:"The same set in other fabrics", v_set:"Set", v_kim:"Kimono jacket", v_sh:"Shorts", pr1:"bright large-flower print", pr2:"navy print with hydrangeas", pr3:"blue ornamental print", pr4:"light blue fabric", pr5:"blue print with roses", lera_h:"Lera Dress", cap_l:"Lera dress", lr1:"Vietnam is not only a place to relax, but a space for big opportunities and important business meetings.", lr2:"A dress in heavy silk in incredible colors combines restraint with openness. Show your partners your beauty, intelligence and confidence. Charm, negotiate and open new horizons for your business!", lr_price:"Price: 2,500,000 VND", lr_pt:"You will close the most profitable deal of your life. And this dress will become your lucky talisman!", lera0:"Lera dress on a model: long emerald silk dress with crossed halter straps among tropical greenery", olga_h:"Olga Three-Piece Set", cap_o:"Olga three-piece set", o1:"Three pieces. Dozens of looks. One love!", o2:"A silk top on thin straps, a ruffle skirt and a tie-front blouse — your perfect wardrobe for life in Vietnam.", o3:"Wear it all together, mix two pieces, or create entirely new looks. From morning coffee to a romantic dinner, you will always look special.", os_h:"Build your OLGA SET:", os_c1:"Top + skirt", os_c2:"Full three-piece set", os_save:"You save {n}!", o_pt:"These three pieces will bring you so many compliments that you will stop counting them!", oa1:"Olga: tie-front blouse and ruffle skirt among tropical leaves", oa2:"Olga: silk top on thin straps and ruffle skirt", oa3:"Top on thin straps and ruffle skirt on a white background", lp1:"Luxurious in its simplicity. Sexy, light and incredibly comfortable.", lp2:"The little dress you can’t imagine summer without. Natural, breathable cotton, a perfect fit, a seductive neckline and wooden buttons.", lp3:"It doesn’t wrinkle, takes up almost no room in your suitcase and always looks flawless. To the beach in the morning, to dinner at a restaurant in the evening.", lp4:"One dress for every occasion of a happy summer.", lp_price:"Price: 1,500,000 VND", lp_pt:"In this dress, a meeting you will never forget is waiting for you.", la0:"Lidia dress on a model: green tropical-print dress against a red wall", la1:"Dress, front", la2:"Dress, side", la3:"Dress, back", ip1:"The pants you’ll take on vacation. And then won’t want to take off.", ip2:"Perfect straight-cut cotton trousers for travel and everyday life. The natural, breathable fabric barely wrinkles and holds its shape beautifully.", ip3:"A relaxed silhouette, a soft waistband and deep pockets that keep everything in — especially handy when you’re on a motorbike.", ip4:"Beauty, comfort and freedom in every move.", ip_price:"Price: 1,800,000 VND", ip_pl:"A little prediction from Sisters’ Dresses:", ip_pt:"In these pants, a journey that will change your life is waiting for you.", ia0:"Irina pants on a model: wide-leg pink-print trousers with a white top", ia1:"Trousers, front", ia2:"Trousers, side", ia3:"Trousers, back", fab_h:"Fabrics of the younger sisters", fab_item:"Fabric", lb_prev:"Previous fabric", lb_next:"Next fabric", fbanner_alt:"Bright fabric with boats, palms and flowers", fab_p:"Only natural cotton.", see:"View", fn1:"Sofa", fn2:"Mia", fn3:"Lidia", fn4:"Irina", fa1:"Fabric with a pink and green palm print", fa2:"Red fabric with a fish print", fa3:"Green fabric with a tropical leaf print", fa4:"Fabric with a pink ornamental print", sofa_p1:"Kimono jacket and shorts in a palm print. Only natural cotton.", p0:"Sofa suit on a model: pink palm-print kimono jacket and shorts", p1:"Kimono jacket, front", p2:"Kimono jacket, side", p3:"Kimono jacket, back", p4:"Shorts, front", p5:"Shorts, back", p6:"Shorts, side", little_p1:"The younger sisters. Young, different, emotional and free. Each with her own character, mood and idea of what a perfect day in Vietnam should look like.", little_p2:"These are small capsules for life in the tropics — light, feminine, bright and comfortable. Only natural cotton.", little_p2b:"Clothes you can wear to the beach, to ride across the whole city on a motorbike, to have coffee with a friend, to watch the sunset by the sea — and to unexpectedly stay for a party.", little_p3:"All styles can be made in different colors and prints.", cap1:"Sofa suit", cap2:"Mia dress", cap3:"Lidia dress", cap4:"Irina trousers", g1:"Woman in a pink palm-print kimono jacket and shorts beside a coconut cart", g2:"Red fish-print dress and straw hat, running through the sea", g3:"Woman drinking coconut water under palm trees, in a button-front tropical-print dress", g4:"Wide-leg pink-print trousers with a white top among giant leaves", l_brand:"About the brand", l_letter:"A letter to my sister", back:"Back to home", more_brand:"Read about the brand", more_letter:"Read the letter to my sister", alt_brand:"Woman in a white sheer tie-front blouse and ruffled silk wrap skirt among tropical foliage, arms raised", alt_letter:"Woman in an orange kimono and wide floral-print trousers walking past a yellow wall under blooming bougainvillea",vic_h:"Victoria Set",cap_v:"Victoria set",vic_1:"Your rhythm. Your freedom. Your perfect set!",vic_2:"Pilates in the morning, errands and meetings by day, dinner by the sea in the evening. Victoria is always on the move, and her clothes live at the same rhythm!",vic_3:"A light, relaxed blouse and wide, flowing palazzo pants create an incredibly feminine silhouette. No limits — only freedom, beauty and confidence in every move.",vic_4:"Wear them together or separately. This set is ready for whatever the day has in store for you!",vic_pt:"In this set, you will always end up in the right place at the right time. And you will definitely meet the one you have been waiting for!",vic_sh:"Build your VICTORIA SET:",vic_c1:"Full set",vic_vh:"The same set in other colors and fabrics",vica01:"Victoria set on a model: blouse and wide palazzo pants in a patchwork floral print among banana leaves",vica02:"Victoria set on a model: blouse and palazzo pants in a patchwork print on a white background",vica03:"Blouse: patchwork print, front",vica04:"Blouse: patchwork print, side",vica05:"Blouse: patchwork print, back",vica06:"Blouse: beige, sheer",vica07:"Blouse: black, sheer",vica08:"Blouse: powder pink, sheer",vica09:"Palazzo pants: patchwork print, front detail",vica10:"Palazzo pants: patchwork print, front",vica11:"Palazzo pants: patchwork print, side",vica12:"Palazzo pants: patchwork print, back",vica13:"Palazzo pants: beige",vica14:"Palazzo pants: powder pink",vica15:"Palazzo pants: black",ov_h:"The same set in other colors and fabrics",ova01:"Blouse: white",ova02:"Blouse: green print, front",ova03:"Blouse: green print, back",ova04:"Blouse: grey paisley print",ova05:"Blouse: blue paisley print",ova06:"Olga: soft yellow top and ruffle skirt on a model",ova07:"Skirt: soft yellow",ova08:"Skirt: white",ova09:"Skirt: red",ova10:"Skirt: black",ova11:"Skirt: green",ova12:"Skirt: mustard, back",ova13:"Skirt: mustard, side",ova14:"Skirt: mustard, front",ova15:"Top: white",ova16:"Top: soft yellow",ova17:"Top: red",ova18:"Top: green, side",ova19:"Top: green, back",ova20:"Top: green, front"
+  },
+  vi:{
+    title:"Sisters’ Dresses | Tiệm may & Quản gia tủ đồ",
+    meta:"Sisters’ Dresses là xưởng may đồ nghỉ dưỡng tại Đà Nẵng, Việt Nam. Váy đầm lụa và linen, kimono, set đồ và trang phục dạ hội.",
+    skip:"Chuyển đến nội dung",
+    promo:"Giảm 10% cho đơn hàng đầu tiên", promo_btn:"Nhận ngay",
+    country:"Quốc gia:", country_l:"Quốc gia", c_vn:"Việt Nam", c_int:"Quốc tế", help:"Trợ giúp", lang_label:"Ngôn ngữ",
+    home:"Sisters’ Dresses, trang chủ", menu_open:"Mở menu", search:"Tìm kiếm", wishlist:"Yêu thích", account:"Tài khoản",
+    cart_aria:"Giỏ hàng, 0 sản phẩm", search_ph:"Bạn đang tìm gì?", search_close:"Đóng tìm kiếm", main_nav:"Menu chính",
+    hero_alt:"Người phụ nữ mặc váy lụa và áo choàng họa tiết giữa những tán lá nhiệt đới",
+    hero_h1:"Hơn cả trang phục.", hero_sub:"Đó là tình chị em.", hero_cta:"Xem bộ sưu tập",
+    rubrics_label:"Mua sắm theo chị em", r1:"Em út", r2:"Chị giữa", r3:"Chị cả", r4:"Anh em trai", shop_now:"Xem ngay",
+    alt_r1:"Áo kimono và quần short hồng họa tiết cọ bên xe dừa",
+    alt_r2:"Áo kimono và quần ống rộng họa tiết, đứng trên thuyền gỗ giữa những tán cọ, tay cầm chiếc nón đan",
+    alt_r3:"Đầm satin xanh nhạt trên ghềnh đá bên biển",
+    alt_r4:"Áo kimono nam họa tiết cùng quần đen giữa những chiếc đèn lồng",
+    news_h:"Đăng ký nhận tin từ Sisters’ Dresses", news_lead:"Đăng ký và nhận giảm 10% cho đơn hàng đầu tiên",
+    email:"E-mail", birth_opt:"Ngày sinh (không bắt buộc)", sms:"Bạn muốn nhận tin qua SMS?", phone:"Số điện thoại", news_btn:"Nhận giảm 10%",
+    fine_html:"Khi đăng ký, bạn đồng ý nhận ưu đãi, khuyến mãi và các tin nhắn thương mại khác từ Sisters’ Dresses, đồng thời chấp nhận <a href=\"#\" data-soon>Chính sách bảo mật</a> của chúng tôi. Bạn có thể hủy đăng ký bất cứ lúc nào.",
+    thanks:"Cảm ơn bạn!", code_intro:"Mã giảm 10% cho đơn hàng đầu tiên của bạn:", err_email:"Vui lòng nhập địa chỉ e-mail hợp lệ, ví dụ name@example.com.",
+    pop_h:"Giảm 10% cho đơn hàng đầu tiên", pop_p:"Tham gia cùng chúng tôi để nhận mã ưu đãi.", pop_btn:"Nhận ưu đãi", "continue":"Tiếp tục mua sắm", close:"Đóng",
+    pop_img_alt:"Đầm satin xanh nhạt của Sisters’ Dresses", mono_alt:"Biểu tượng Sisters’ Dresses",
+    f_tag:"Tiệm may & Quản gia tủ đồ", f_city:"Đà Nẵng, Việt Nam", f_insta:"Sisters’ Dresses trên Instagram",
+    f_help:"Trung tâm trợ giúp Sisters’ Dresses", f_contact:"Liên hệ", f_order:"Về đơn hàng của bạn", f_sizing:"Kích cỡ", f_damage:"Hàng lỗi hoặc hư hỏng", f_price:"Điều chỉnh giá", f_faq:"Câu hỏi thường gặp",
+    f_ship:"Giao hàng và đổi trả", f_status:"Tình trạng đơn hàng", f_delivery:"Thời gian giao hàng", f_restr:"Hạn chế", f_returns:"Đổi trả",
+    f_about:"Về Sisters’ Dresses", f_who:"Chúng tôi là ai", f_atelier:"Xưởng may của chúng tôi", f_stores:"Cửa hàng", f_access:"Khả năng tiếp cận",
+    l_cookies:"Chính sách cookie", l_privacy:"Chính sách bảo mật", l_terms:"Điều khoản & điều kiện", copyr:"© 2026 Sisters’ Dresses",
+    menu_h:"Menu", cart_h:"Giỏ hàng", cart_empty:"Giỏ hàng của bạn đang trống.", close_menu:"Đóng menu", close_cart:"Đóng giỏ hàng",
+    toast_soon:"Cửa hàng trực tuyến sắp mở.", toast_wish:"Danh sách yêu thích đang trống.", toast_acc:"Tài khoản khách hàng sẽ mở cùng cửa hàng.", toast_search:"Tìm kiếm sẽ hoạt động cùng cửa hàng.",
+    n_new:"Hàng mới", n_y:"Em út", n_m:"Chị giữa", n_e:"Chị cả", n_b:"Anh em trai", n_sale:"Giảm giá", n_about:"Về chúng tôi", cat:"Danh mục",
+    l_all_new:"Tất cả hàng mới", l_best:"Bán chạy nhất", l_dresses:"Váy đầm", l_sets:"Set đồ", l_tops:"Áo", l_shorts_skirts:"Quần short & chân váy", l_kimonos:"Kimono & áo choàng",
+    l_evening:"Đầm dạ hội", l_jumpsuits:"Jumpsuit", l_skirts:"Chân váy", l_shirts:"Áo sơ mi", l_kshirts:"Áo sơ mi kimono", l_trousers:"Quần dài", l_shorts:"Quần short", l_all_sale:"Tất cả ưu đãi", little_h:"Little Sisters", irina_h:"Irina Pants", lidia_h:"Lidia Dress", sofa_h:"Sofa Set", sp1:"Bộ đồ mà bạn không thể hình dung mùa hè hoàn hảo thiếu nó.", sp2:"Áo sơ mi kimono nhẹ nhàng và quần short rộng rãi từ cotton tự nhiên thoáng khí. Đai lưng mềm, túi sâu tiện lợi và chất vải gần như không nhăn.", sp3:"Lý tưởng cho biển, du lịch và những buổi dạo bộ dài. Mặc cả bộ hoặc phối cùng những món đồ bạn yêu thích.", sp4:"Vẻ đẹp, tự do và sự thoải mái — tất cả những gì bạn cần cho một mùa hè hạnh phúc.", sp_price:"Giá: 2.200.000 VND", sp_pt:"Trong bộ đồ này, một mùa hè bạn sẽ nhớ suốt đời đang chờ bạn.", mia_h:"Mia Dress", mp1:"Chiếc váy midi biến hóa nhẹ nhàng, rộng rãi và vô cùng thoải mái. Cổ khoét đẹp, hai túi ẩn và độ vừa vặn có thể điều chỉnh: mặc rộng thoải mái hoặc tôn dáng.", mp2:"Cotton tự nhiên pha linen. Một size duy nhất. Có thể chọn bất kỳ loại vải nào.", mp_price:"Giá: 1.700.000 VND", mp_pl:"Lời tiên tri:", mp_pt:"Trong chiếc váy này, một cuộc gặp gỡ sẽ thay đổi tất cả đang chờ bạn.", ma0:"Váy Mia trên người mẫu: váy đỏ họa tiết cá trắng trước cánh cửa xanh", ma1:"Váy, mặt trước", ma2:"Váy, mặt sau, dây buộc ở cổ", ma3:"Váy, góc nghiêng", karina_h:"Karina Party Dress", cap_k:"Váy Karina Party", kp1:"Chiếc váy giúp bạn trở thành nữ hoàng của bữa tiệc!", kp2:"Chiếc váy lụa ngắn, rực rỡ và cực kỳ thoải mái. Dây mảnh, phần ngực xếp nếp mềm mại, eo ôm và chân váy hơi xòe tôn dáng đẹp mà không hạn chế cử động.", kp3:"Lụa mềm mại lướt theo cơ thể, óng ánh dưới ánh đèn buổi tối và khiến mỗi bước chân của bạn trở nên đặc biệt. Hãy nhảy đến sáng, đón những ánh nhìn ngưỡng mộ và tận hưởng khoảnh khắc. Chiếc váy này được tạo ra cho những buổi tối bạn muốn nhớ mãi.", kp4:"Chiếc váy dự tiệc hoàn hảo của bạn ở Việt Nam.", kp_price:"Giá: 2.000.000 VND", kp_pt:"Trong chiếc váy này, phần tiếp theo rực rỡ nhất của buổi tối đang chờ bạn. Quan trọng là bên cạnh có người biết cách nhẹ nhàng cởi nó ra. Bởi đây là loại lụa rất mỏng manh!", ka0:"Váy Karina Party trên người mẫu: váy lụa ngắn xanh họa tiết chim trắng, đứng giữa hồ nước trong núi", v_h:"Bộ đồ này với các loại vải khác", v_set:"Bộ", v_kim:"Áo kimono", v_sh:"Quần short", pr1:"họa tiết hoa lớn rực rỡ", pr2:"họa tiết cẩm tú cầu nền xanh navy", pr3:"họa tiết hoa văn xanh", pr4:"vải xanh nhạt", pr5:"họa tiết hoa hồng nền xanh", lera_h:"Lera Dress", cap_l:"Váy Lera", lr1:"Việt Nam không chỉ là nơi nghỉ ngơi, mà còn là không gian của những cơ hội lớn và những cuộc gặp gỡ kinh doanh quan trọng.", lr2:"Chiếc váy lụa dày dặn với những gam màu tuyệt đẹp kết hợp sự kín đáo và sự cởi mở. Hãy cho đối tác thấy vẻ đẹp, trí tuệ và sự tự tin của bạn. Hãy quyến rũ, đàm phán và mở ra những chân trời mới cho công việc kinh doanh của bạn!", lr_price:"Giá: 2.500.000 VND", lr_pt:"Bạn sẽ ký được thương vụ có lợi nhất trong đời. Và chiếc váy này sẽ trở thành bùa may mắn của bạn!", lera0:"Váy Lera trên người mẫu: váy lụa dài màu ngọc lục bảo, dây cổ bắt chéo, giữa cây cối nhiệt đới", olga_h:"Olga Three-Piece Set", cap_o:"Bộ ba món Olga", o1:"Ba món đồ. Hàng chục cách phối. Một tình yêu!", o2:"Áo lụa hai dây mảnh, chân váy xếp bèo và áo cánh thắt dây — tủ đồ hoàn hảo cho cuộc sống ở Việt Nam.", o3:"Mặc cả bộ, phối hai món hoặc tạo ra những set đồ hoàn toàn mới. Từ ly cà phê buổi sáng đến bữa tối lãng mạn, bạn luôn trông thật đặc biệt.", os_h:"Tự tạo OLGA SET của bạn:", os_c1:"Áo + chân váy", os_c2:"Bộ ba món đầy đủ", os_save:"Bạn tiết kiệm được {n}!", o_pt:"Ba món đồ này sẽ mang đến cho bạn nhiều lời khen đến mức bạn không đếm xuể!", oa1:"Olga: áo cánh thắt dây và chân váy xếp bèo giữa cây cối nhiệt đới", oa2:"Olga: áo lụa hai dây mảnh và chân váy xếp bèo", oa3:"Áo hai dây mảnh và chân váy xếp bèo trên nền trắng", lp1:"Sang trọng trong sự giản dị. Quyến rũ, nhẹ nhàng và cực kỳ thoải mái.", lp2:"Chiếc váy nhỏ mà bạn không thể hình dung mùa hè thiếu nó. Cotton tự nhiên thoáng khí, form ôm vừa vặn, cổ khoét quyến rũ và những chiếc cúc gỗ.", lp3:"Không nhăn, chiếm rất ít chỗ trong vali và luôn trông hoàn hảo. Buổi sáng ra biển, buổi tối đi ăn nhà hàng.", lp4:"Một chiếc váy cho mọi khoảnh khắc của mùa hè hạnh phúc.", lp_price:"Giá: 1.500.000 VND", lp_pt:"Trong chiếc váy này, một cuộc gặp gỡ bạn sẽ không bao giờ quên đang chờ bạn.", la0:"Váy Lidia trên người mẫu: váy xanh họa tiết nhiệt đới trước bức tường đỏ", la1:"Váy, mặt trước", la2:"Váy, góc nghiêng", la3:"Váy, mặt sau", ip1:"Chiếc quần bạn sẽ mang theo trong kỳ nghỉ. Rồi không muốn cởi ra nữa.", ip2:"Quần cotton dáng suông hoàn hảo cho du lịch và cuộc sống hằng ngày. Chất vải tự nhiên, thoáng khí, gần như không nhăn và giữ form rất tốt.", ip3:"Dáng rộng thoải mái, cạp mềm và túi sâu không làm rơi đồ — đặc biệt tiện khi bạn đi xe máy.", ip4:"Vẻ đẹp, sự thoải mái và tự do trong từng chuyển động.", ip_price:"Giá: 1.800.000 VND", ip_pl:"Lời tiên tri nhỏ từ Sisters’ Dresses:", ip_pt:"Trong chiếc quần này, một chuyến đi sẽ thay đổi cuộc đời bạn đang chờ bạn.", ia0:"Quần Irina trên người mẫu: quần ống rộng họa tiết hồng cùng áo trắng", ia1:"Quần, mặt trước", ia2:"Quần, góc nghiêng", ia3:"Quần, mặt sau", fab_h:"Vải của các cô em út", fab_item:"Vải", lb_prev:"Vải trước", lb_next:"Vải sau", fbanner_alt:"Vải rực rỡ họa tiết thuyền, cọ và hoa", fab_p:"Chỉ dùng cotton tự nhiên.", see:"Xem", fn1:"Sofa", fn2:"Mia", fn3:"Lidia", fn4:"Irina", fa1:"Vải họa tiết cọ tông hồng và xanh", fa2:"Vải đỏ họa tiết cá", fa3:"Vải xanh họa tiết lá nhiệt đới", fa4:"Vải họa tiết hoa văn hồng", sofa_p1:"Áo kimono và quần short họa tiết cọ. Chỉ dùng cotton tự nhiên.", p0:"Bộ Sofa trên người mẫu: áo kimono và quần short hồng họa tiết cọ", p1:"Áo kimono, mặt trước", p2:"Áo kimono, góc nghiêng", p3:"Áo kimono, mặt sau", p4:"Quần short, mặt trước", p5:"Quần short, mặt sau", p6:"Quần short, góc nghiêng", little_p1:"Những cô em út. Trẻ trung, mỗi người một vẻ, giàu cảm xúc và tự do. Mỗi cô có tính cách, tâm trạng và quan niệm riêng về một ngày hoàn hảo ở Việt Nam.", little_p2:"Đây là những bộ sưu tập nhỏ dành cho cuộc sống nhiệt đới — nhẹ nhàng, nữ tính, rực rỡ và thoải mái. Chỉ dùng cotton tự nhiên.", little_p2b:"Trang phục để bạn ra biển, chạy xe máy xuyên thành phố, uống cà phê cùng bạn thân, ngắm hoàng hôn bên bờ biển và bất ngờ ở lại dự tiệc.", little_p3:"Tất cả mẫu đều có thể được may với nhiều màu sắc và họa tiết khác nhau.", cap1:"Bộ Sofa", cap2:"Váy Mia", cap3:"Váy Lidia", cap4:"Quần Irina", g1:"Cô gái mặc áo kimono và quần short hồng họa tiết cọ bên xe dừa", g2:"Váy đỏ họa tiết cá và mũ cói, chạy trên mặt biển", g3:"Cô gái uống nước dừa dưới hàng cọ, mặc váy cài nút họa tiết nhiệt đới", g4:"Quần ống rộng họa tiết hồng cùng áo hai dây trắng giữa những chiếc lá khổng lồ", l_brand:"Về thương hiệu", l_letter:"Thư gửi em gái", back:"Về trang chủ", more_brand:"Đọc về thương hiệu", more_letter:"Đọc thư gửi em gái", alt_brand:"Người phụ nữ mặc áo cánh trắng mỏng thắt dây và chân váy lụa xếp bèo giữa cây cối nhiệt đới, hai tay giơ cao", alt_letter:"Người phụ nữ mặc kimono cam và quần ống rộng họa tiết hoa, bước đi bên bức tường vàng phủ hoa giấy",vic_h:"Victoria Set",cap_v:"Bộ Victoria",vic_1:"Nhịp điệu của bạn. Sự tự do của bạn. Bộ đồ hoàn hảo của bạn!",vic_2:"Buổi sáng tập pilates, ban ngày làm việc và gặp gỡ, buổi tối ăn tối bên biển. Victoria luôn chuyển động, và trang phục của cô ấy sống cùng nhịp điệu ấy!",vic_3:"Chiếc áo cánh nhẹ nhàng, rộng rãi cùng quần palazzo ống rộng buông xuôi tạo nên dáng vẻ vô cùng nữ tính. Không giới hạn — chỉ có tự do, vẻ đẹp và sự tự tin trong từng chuyển động.",vic_4:"Mặc cả bộ hoặc mặc riêng từng món. Bộ đồ này sẵn sàng cho mọi điều ngày mới mang đến cho bạn!",vic_pt:"Trong bộ đồ này, bạn luôn xuất hiện đúng nơi đúng lúc. Và chắc chắn sẽ gặp người mà bạn đã chờ đợi bấy lâu!",vic_sh:"Tự tạo VICTORIA SET của bạn:",vic_c1:"Bộ đầy đủ",vic_vh:"Bộ đồ này với các màu sắc và loại vải khác",vica01:"Bộ Victoria trên người mẫu: áo cánh và quần palazzo ống rộng họa tiết hoa patchwork giữa những tán lá chuối",vica02:"Bộ Victoria trên người mẫu: áo cánh và quần palazzo họa tiết patchwork trên nền trắng",vica03:"Áo cánh: họa tiết patchwork, mặt trước",vica04:"Áo cánh: họa tiết patchwork, góc nghiêng",vica05:"Áo cánh: họa tiết patchwork, mặt sau",vica06:"Áo cánh: màu be, voan mỏng",vica07:"Áo cánh: màu đen, voan mỏng",vica08:"Áo cánh: hồng phấn, voan mỏng",vica09:"Quần palazzo: họa tiết patchwork, cận cảnh mặt trước",vica10:"Quần palazzo: họa tiết patchwork, mặt trước",vica11:"Quần palazzo: họa tiết patchwork, góc nghiêng",vica12:"Quần palazzo: họa tiết patchwork, mặt sau",vica13:"Quần palazzo: màu be",vica14:"Quần palazzo: hồng phấn",vica15:"Quần palazzo: màu đen",ov_h:"Bộ ba món này với các màu sắc và loại vải khác",ova01:"Áo cánh: trắng",ova02:"Áo cánh: họa tiết xanh lục, mặt trước",ova03:"Áo cánh: họa tiết xanh lục, mặt sau",ova04:"Áo cánh: họa tiết paisley xám",ova05:"Áo cánh: họa tiết paisley xanh dương",ova06:"Olga: áo hai dây và chân váy xếp bèo màu vàng nhạt trên người mẫu",ova07:"Chân váy: vàng nhạt",ova08:"Chân váy: trắng",ova09:"Chân váy: đỏ",ova10:"Chân váy: đen",ova11:"Chân váy: xanh lục",ova12:"Chân váy: vàng mù tạt, mặt sau",ova13:"Chân váy: vàng mù tạt, góc nghiêng",ova14:"Chân váy: vàng mù tạt, mặt trước",ova15:"Áo hai dây: trắng",ova16:"Áo hai dây: vàng nhạt",ova17:"Áo hai dây: đỏ",ova18:"Áo hai dây: xanh lục, góc nghiêng",ova19:"Áo hai dây: xanh lục, mặt sau",ova20:"Áo hai dây: xanh lục, mặt trước"
+  }};
+
+  var PAGES={
+  brand:{
+   ru:{h:"Наше вдохновение — Вьетнам",b:[
+    ["p","Есть места, в которые приезжаешь путешественником. А есть места, которые однажды становятся домом."],
+    ["p","Для нас таким местом стал Вьетнам."],
+    ["p","Сначала влюбляешься в то, что видишь: море и горы, старые фасады, фонари, храмы, рынки, цветы у маленьких домов, бесконечную зелень и невероятные сочетания цветов."],
+    ["p","А потом — в людей."],
+    ["p","В их открытость, трудолюбие, мастерство и удивительную способность создавать красоту своими руками."],
+    ["h2","Место, которое объединяет"],
+    ["p","Вьетнам становится домом для совершенно разных людей. Кто-то родился здесь, кто-то приехал ненадолго — и остался на годы."],
+    ["p","Здесь встречаются разные языки, культуры, характеры и представления о красоте. Наверное, поэтому и герои Sisters’ Dresses такие разные."],
+    ["p","Им не нужно быть похожими друг на друга."],
+    ["p","Но Вьетнам каким-то удивительным образом умеет соединять всех — с помощью Красоты, Уважения и Человеколюбия."],
+    ["h2","Красота как часть жизни"],
+    ["p","Здесь красота не существует только для особого случая. Она просто повсюду."],
+    ["p","И когда долго живёшь среди неё, однажды понимаешь: тебе уже недостаточно просто смотреть."],
+    ["p","Хочется стать её частью."],
+    ["p","Для нас одежда стала одним из способов это сделать."],
+    ["h2","Сделано во Вьетнаме"],
+    ["p","Все мастера и швеи, с которыми мы создаём Sisters’ Dresses, — вьетнамцы."],
+    ["p","За каждой вещью стоят не только эскиз и ткань. За ней стоят руки человека, его опыт, терпение и культура ремесла, которая передавалась здесь поколениями."],
+    ["p","Вьетнамский шёлк, жемчуг, ткачество, вышивка, ручная работа — это огромное богатство страны."],
+    ["p","Нам хочется показать его современным: не копировать национальный костюм и не превращать традицию в музейный экспонат, а позволить ей жить дальше."],
+    ["p","Чтобы одежду, созданную здесь, носили в Дананге, Париже, Москве, Нью-Йорке — где угодно."],
+    ["p","Потому что красоту вьетнамских материалов и мастерство вьетнамских мастеров достоин увидеть весь мир."],
+    ["h2","Наш способ сказать спасибо"],
+    ["p","Мы не хотим присваивать красоту Вьетнама. Мы хотим восхищаться ею, бережно к ней прикасаться и говорить о ней с уважением."],
+    ["p","Иногда Вьетнам будет сразу виден в наших вещах. Иногда останется только в движении шёлка, оттенке ткани, линии рукава или маленькой детали."],
+    ["p","Но он всегда будет внутри Sisters’ Dresses."],
+    ["p","Потому что Вьетнам для нас — не просто страна, где мы шьём одежду."],
+    ["lines",["Это страна, которая стала домом.","Страна, которая познакомила нас с невероятными людьми.","Страна, в которую мы однажды влюбились — и продолжаем влюбляться каждый день."]],
+    ["quote","Sisters’ Dresses — наш способ сказать Вьетнаму спасибо. И рассказать всему миру о нашей любви и восхищении этой страной."]
+   ]},
+   en:{h:"Our inspiration: Vietnam",b:[
+    ["p","There are places you come to as a traveler. And there are places that, one day, become home."],
+    ["p","For us, that place is Vietnam."],
+    ["p","First you fall in love with what you see: the sea and the mountains, old façades, lanterns, temples, markets, flowers outside small houses, endless green and unbelievable combinations of color."],
+    ["p","And then, with the people."],
+    ["p","With their openness, their hard work, their skill and their remarkable ability to create beauty with their own hands."],
+    ["h2","A place that brings people together"],
+    ["p","Vietnam becomes home for very different people. Some were born here; others came for a short while — and stayed for years."],
+    ["p","Different languages, cultures, characters and ideas of beauty meet here. Perhaps that is why the women and men of Sisters’ Dresses are so different from one another."],
+    ["p","They don’t have to be alike."],
+    ["p","But Vietnam, in some remarkable way, brings everyone together — through Beauty, Respect and Humanity."],
+    ["h2","Beauty as a part of life"],
+    ["p","Here, beauty isn’t saved for special occasions. It is simply everywhere."],
+    ["p","And when you live among it for a long time, one day you realize that looking is no longer enough."],
+    ["p","You want to become a part of it."],
+    ["p","For us, clothing became one way to do that."],
+    ["h2","Made in Vietnam"],
+    ["p","All the artisans and seamstresses we create Sisters’ Dresses with are Vietnamese."],
+    ["p","Behind every piece there is more than a sketch and a fabric. There are a person’s hands, experience and patience, and a culture of craft that has been passed down here for generations."],
+    ["p","Vietnamese silk, pearls, weaving, embroidery, handwork — this is an enormous treasure of the country."],
+    ["p","We want to show it in a modern way: not to copy the national costume or turn tradition into a museum piece, but to let it live on."],
+    ["p","So that clothes made here can be worn in Da Nang, Paris, Moscow, New York — anywhere."],
+    ["p","Because the whole world deserves to see the beauty of Vietnamese materials and the skill of Vietnamese artisans."],
+    ["h2","Our way of saying thank you"],
+    ["p","We don’t want to appropriate the beauty of Vietnam. We want to admire it, touch it with care and speak of it with respect."],
+    ["p","Sometimes Vietnam will be visible in our pieces at first glance. Sometimes it will remain only in the movement of the silk, the shade of a fabric, the line of a sleeve or a small detail."],
+    ["p","But it will always be inside Sisters’ Dresses."],
+    ["p","Because for us, Vietnam is not just the country where we make clothes."],
+    ["lines",["It is the country that became home.","The country that introduced us to incredible people.","The country we fell in love with one day — and keep falling in love with every day."]],
+    ["quote","Sisters’ Dresses is our way of saying thank you to Vietnam. And of telling the whole world about our love and admiration for this country."]
+   ]},
+   vi:{h:"Cảm hứng của chúng tôi — Việt Nam",b:[
+    ["p","Có những nơi ta đến với tư cách một du khách. Và có những nơi một ngày nào đó trở thành nhà."],
+    ["p","Với chúng tôi, nơi ấy là Việt Nam."],
+    ["p","Ban đầu ta yêu những gì mình thấy: biển và núi, những mặt tiền cổ, đèn lồng, đền chùa, chợ, hoa trước những ngôi nhà nhỏ, màu xanh bất tận và những sự kết hợp màu sắc khó tin."],
+    ["p","Rồi ta yêu con người."],
+    ["p","Yêu sự cởi mở, chăm chỉ, tay nghề và khả năng tuyệt vời tạo ra cái đẹp bằng chính đôi tay của họ."],
+    ["h2","Nơi kết nối mọi người"],
+    ["p","Việt Nam trở thành nhà của những con người rất khác nhau. Có người sinh ra ở đây, có người đến chỉ ít lâu — rồi ở lại nhiều năm."],
+    ["p","Nơi đây gặp gỡ nhiều ngôn ngữ, nền văn hóa, tính cách và quan niệm về cái đẹp. Có lẽ vì vậy mà những nhân vật của Sisters’ Dresses cũng rất khác nhau."],
+    ["p","Họ không cần phải giống nhau."],
+    ["p","Nhưng bằng một cách kỳ diệu nào đó, Việt Nam biết cách kết nối tất cả — bằng Cái đẹp, Sự tôn trọng và Lòng nhân ái."],
+    ["h2","Cái đẹp là một phần của cuộc sống"],
+    ["p","Ở đây, cái đẹp không chỉ dành cho dịp đặc biệt. Nó có mặt ở khắp nơi."],
+    ["p","Và khi sống lâu giữa nó, đến một ngày ta nhận ra: chỉ ngắm nhìn thôi là chưa đủ."],
+    ["p","Ta muốn trở thành một phần của nó."],
+    ["p","Với chúng tôi, trang phục là một cách để làm điều đó."],
+    ["h2","Sản xuất tại Việt Nam"],
+    ["p","Tất cả thợ thủ công và thợ may cùng chúng tôi tạo nên Sisters’ Dresses đều là người Việt Nam."],
+    ["p","Sau mỗi món đồ không chỉ có bản phác thảo và chất liệu vải. Đó còn là đôi tay, kinh nghiệm và sự kiên nhẫn của một con người, cùng nền văn hóa nghề thủ công được truyền lại qua nhiều thế hệ."],
+    ["p","Lụa, ngọc trai, nghề dệt, thêu, những sản phẩm làm thủ công của Việt Nam — đó là kho báu vô cùng lớn của đất nước."],
+    ["p","Chúng tôi muốn thể hiện nó theo cách hiện đại: không sao chép quốc phục, không biến truyền thống thành hiện vật bảo tàng, mà để nó tiếp tục sống."],
+    ["p","Để trang phục được làm ra ở đây có thể được mặc ở Đà Nẵng, Paris, Moscow, New York — ở bất cứ đâu."],
+    ["p","Bởi vẻ đẹp của chất liệu Việt Nam và tay nghề của những nghệ nhân Việt Nam xứng đáng để cả thế giới được nhìn thấy."],
+    ["h2","Cách chúng tôi nói lời cảm ơn"],
+    ["p","Chúng tôi không muốn chiếm đoạt vẻ đẹp của Việt Nam. Chúng tôi muốn ngưỡng mộ nó, nâng niu chạm vào nó và nói về nó bằng sự tôn trọng."],
+    ["p","Đôi khi Việt Nam sẽ hiện ra ngay trong những món đồ của chúng tôi. Đôi khi nó chỉ còn lại trong chuyển động của lụa, sắc độ của vải, đường nét của ống tay áo hay một chi tiết nhỏ."],
+    ["p","Nhưng nó sẽ luôn ở bên trong Sisters’ Dresses."],
+    ["p","Bởi với chúng tôi, Việt Nam không chỉ là đất nước nơi chúng tôi may quần áo."],
+    ["lines",["Đó là đất nước đã trở thành nhà.","Đất nước đã cho chúng tôi gặp gỡ những con người tuyệt vời.","Đất nước mà một ngày chúng tôi đã phải lòng — và mỗi ngày lại tiếp tục yêu thêm."]],
+    ["quote","Sisters’ Dresses là cách chúng tôi nói lời cảm ơn với Việt Nam. Và kể với cả thế giới về tình yêu và sự ngưỡng mộ của chúng tôi dành cho đất nước này."]
+   ]}
+  },
+  letter:{
+   ru:{h:"Письмо сестре",b:[
+    ["sal","Дорогая моя сестра, моя любимая Олечка!"],
+    ["p","Я очень по тебе скучаю. И именно поэтому — ради тебя и для тебя — я создала этот бренд одежды. Чтобы ты наконец-то начала нормально одеваться! Шучу :) Чтобы я уже наконец-то делала что хочу, а не то, к чему привыкла."],
+    ["p","Я часто вспоминаю детство (старость подкралась). Денег в нашей семье, как ты помнишь, не было. Экономили на одежде. И тебе приходилось носить платья, из которых я уже выросла."],
+    ["p","Потом мы повзрослели и начали шить сами. Я придумывала себе свои странные платья «Поезд „Дубай — Грушинский фестиваль“». А ты всегда выбирала что-то более классическое."],
+    ["p","Мы росли. Менялись наши вкусы, наши жизни, наши размеры. В какой-то момент мы совсем перестали носить одежду друг друга. Ходили на шоппинг, на неделю моды."],
+    ["p","А теперь ты скоро станешь мамой. У тебя будет дочь. У неё уже есть платья и наряды моей дочери (в количестве 50 тонн). И я уже готова шить новые! Хочу, чтобы наши девчонки были окружены не только огромной любовью, но и безграничной красотой!"],
+    ["p","Наверное, поэтому мне так хочется создавать одежду, посвящённую тебе. И организовать доставку в любую точку мира."],
+    ["lines",["Потому что я очень тебя люблю.","И потому что мне тебя очень не хватает."]],
+    ["p","И когда я придумываю новую коллекцию, новую женщину, в каждой я вижу тебя и своих любимых подруг. Пусть вы все будете рядом. Моя Буги, моя Наташа, моя Тома, моя Карина, Настя, Кристина, Лола, Зубчик, Аня, … И все мои любимые девчонки!"],
+    ["p","Наверное, поэтому этот бренд и называется Sisters’ Dresses. Для меня сестринство давно стало чем-то большим, чем родство. Я хочу эту теплоту дружбы сохранить и приумножить."],
+    ["quote","Женщина женщине — дом."],
+    ["p","Мы можем быть совершенно разными. По-разному выглядеть, жить, любить, растить детей, строить карьеру, начинать всё сначала. Нам могут нравиться совершенно разные платья."],
+    ["p","Но когда мы рядом друг с другом — мы сильнее. Мы ярче. Мы энергичнее."],
+    ["p","Сейчас ты далеко. Но твоя поддержка и твоя сила — при мне!"],
+    ["lines",["В каждом платье.","В каждом кимоно.","В каждом шве на брюках.","В каждом кармане."]],
+    ["p","В каждой новой вещи, которую я придумываю, будет немножко тебя и наших подруг."],
+    ["p","И я очень надеюсь, что совсем скоро ты ко мне прилетишь. Я смогу показать тебе всё это, отдать тебе свои новые платья и снова, как когда-то в детстве, мы будем делить одежду."],
+    ["p","Только теперь всё будет наоборот."],
+    ["quote","Теперь ты это платье носишь первая."],
+    ["sig",["С любовью,","твоя сестра Ирина."]]
+   ]},
+   en:{h:"A letter to my sister",b:[
+    ["sal","My dear sister, my beloved Olechka!"],
+    ["p","I miss you so much. And that is exactly why — for you and because of you — I created this clothing brand. So that you would finally start dressing properly! Just kidding :) So that I could finally do what I want, instead of what I’m used to."],
+    ["p","I often think about our childhood (old age has crept up on me). There was no money in our family, as you remember. We saved on clothes. And you had to wear dresses I had already outgrown."],
+    ["p","Then we grew up and started sewing for ourselves. I dreamed up my own strange dresses, like “The Dubai – Grushinsky Festival Train.” And you always chose something more classic."],
+    ["p","We grew. Our tastes changed, our lives changed, our sizes changed. At some point we stopped wearing each other’s clothes altogether. We went shopping, to fashion week."],
+    ["p","And now you are about to become a mother. You will have a daughter. She already has dresses and outfits from my daughter (about fifty tons of them). And I am ready to sew new ones! I want our girls to be surrounded not only by enormous love, but by boundless beauty!"],
+    ["p","Perhaps that is why I so want to make clothes dedicated to you. And to arrange delivery to any corner of the world."],
+    ["lines",["Because I love you very much.","And because I miss you so much."]],
+    ["p","And when I dream up a new collection, a new woman, in each one I see you and my beloved friends. May you all be near me. My Bugi, my Natasha, my Toma, my Karina, Nastya, Kristina, Lola, Zubchik, Anya, … and all my beloved girls!"],
+    ["p","Perhaps that is why this brand is called Sisters’ Dresses. For me, sisterhood long ago became something more than kinship. I want to keep this warmth of friendship and make it grow."],
+    ["quote","Woman to woman — a home."],
+    ["p","We can be completely different. We can look different, live differently, love differently, raise children, build careers, start over. We may like completely different dresses."],
+    ["p","But when we are next to each other, we are stronger. We are brighter. We are more energetic."],
+    ["p","Right now you are far away. But your support and your strength are with me!"],
+    ["lines",["In every dress.","In every kimono.","In every seam of every pair of trousers.","In every pocket."]],
+    ["p","In every new piece I dream up, there will be a little of you and of our friends."],
+    ["p","And I very much hope that very soon you will fly to me. I will be able to show you all of this, give you my new dresses, and, as in childhood, we will share clothes again."],
+    ["p","Only now it will be the other way around."],
+    ["quote","Now you are the first to wear this dress."],
+    ["sig",["With love,","your sister Irina."]]
+   ]},
+   vi:{h:"Thư gửi em gái",b:[
+    ["sal","Em gái thân yêu của chị, Olechka yêu quý nhất!"],
+    ["p","Chị nhớ em rất nhiều. Và chính vì vậy — vì em và dành cho em — chị đã tạo ra thương hiệu quần áo này. Để em cuối cùng cũng chịu ăn mặc cho ra hồn! Đùa thôi :) Để cuối cùng chị được làm điều chị muốn, thay vì những điều chị đã quen."],
+    ["p","Chị hay nhớ về thời thơ ấu (tuổi già đã lặng lẽ tìm đến rồi). Nhà mình không có tiền, em còn nhớ chứ. Cái gì cũng phải tiết kiệm, kể cả quần áo. Và em phải mặc những chiếc váy mà chị đã lớn không mặc vừa nữa."],
+    ["p","Rồi chúng ta lớn lên và bắt đầu tự may đồ. Chị nghĩ ra cho mình những chiếc váy kỳ quặc, như “Chuyến tàu Dubai – lễ hội Grushinsky”. Còn em luôn chọn những thứ cổ điển hơn."],
+    ["p","Chúng ta lớn lên. Gu thẩm mỹ, cuộc sống, số đo của chúng ta đều thay đổi. Đến một lúc nào đó, chúng ta hoàn toàn thôi mặc đồ của nhau. Chúng ta đi mua sắm, đi xem tuần lễ thời trang."],
+    ["p","Và giờ đây em sắp làm mẹ. Em sẽ có một cô con gái. Con bé đã có sẵn váy áo của con gái chị (cỡ chừng 50 tấn). Và chị đã sẵn sàng may thêm những chiếc mới! Chị muốn các bé gái của chúng ta được bao bọc không chỉ bởi tình yêu thương to lớn, mà còn bởi vẻ đẹp vô bờ bến!"],
+    ["p","Có lẽ vì thế mà chị rất muốn tạo ra những bộ trang phục dành tặng em. Và tổ chức giao hàng đến bất cứ nơi nào trên thế giới."],
+    ["lines",["Vì chị rất yêu em.","Và vì chị nhớ em rất nhiều."]],
+    ["p","Và khi chị nghĩ ra một bộ sưu tập mới, một người phụ nữ mới, trong mỗi người chị đều thấy em và những người bạn thân yêu của chị. Mong tất cả các em luôn ở bên chị. Bugi của chị, Natasha của chị, Toma của chị, Karina, Nastya, Kristina, Lola, Zubchik, Anya, … Và tất cả những cô gái thân yêu của chị!"],
+    ["p","Có lẽ vì thế mà thương hiệu này mang tên Sisters’ Dresses. Với chị, tình chị em từ lâu đã trở thành điều gì đó lớn hơn quan hệ ruột thịt. Chị muốn gìn giữ và làm cho hơi ấm của tình bạn ấy ngày một nhiều thêm."],
+    ["quote","Phụ nữ là mái nhà của phụ nữ."],
+    ["p","Chúng ta có thể hoàn toàn khác nhau. Khác nhau về vẻ ngoài, cách sống, cách yêu, cách nuôi con, xây dựng sự nghiệp, hay bắt đầu lại từ đầu. Chúng ta có thể thích những chiếc váy hoàn toàn khác nhau."],
+    ["p","Nhưng khi ở bên nhau, chúng ta mạnh mẽ hơn. Rực rỡ hơn. Tràn đầy năng lượng hơn."],
+    ["p","Bây giờ em ở xa. Nhưng sự ủng hộ và sức mạnh của em luôn ở bên chị!"],
+    ["lines",["Trong từng chiếc váy.","Trong từng chiếc kimono.","Trong từng đường may trên quần.","Trong từng chiếc túi."]],
+    ["p","Trong mỗi món đồ mới chị nghĩ ra sẽ có một chút của em và của những người bạn chúng ta."],
+    ["p","Và chị rất hy vọng rằng rất sớm thôi em sẽ bay đến chỗ chị. Chị sẽ cho em xem tất cả những điều này, tặng em những chiếc váy mới của chị, và như thuở nhỏ, chúng ta lại chia nhau quần áo."],
+    ["p","Chỉ là bây giờ mọi thứ sẽ ngược lại."],
+    ["quote","Bây giờ em là người mặc chiếc váy này trước."],
+    ["sig",["Với tình yêu thương,","chị gái của em, Irina."]]
+   ]}
+  }
+  };
+  var HREF={l_brand:"#/brand",l_letter:"#/letter",n_about:"#/brand",n_y:"#/little",n_m:"#/middle"};
+  var PHOTO={brand:["jungle","alt_brand","50% 50%","1/1","50% 15%"],letter:["hoian","alt_letter","50% 50%","1/1","50% 100%"]};
+  var cur=null;
+  function lk(key,cls){
+    var h=HREF[key];
+    return h?'<a'+(cls?' class="'+cls+'"':'')+' href="'+h+'">'+esc(t(key))+'</a>'
+            :'<a'+(cls?' class="'+cls+'"':'')+' href="#" data-soon>'+esc(t(key))+'</a>';
+  }
+  function littleHTML(){
+    var G=[["coconut","g1","50% 30%","cap1","#/sofa"],["red","g2","50% 25%","cap2","#/mia"],["drink","g3","50% 60%","cap3","#/lidia"],["pants","g4","50% 50%","cap4","#/irina"]],gal="";
+    G.forEach(function(g){gal+='<a class="tile" '+(g[4]?'href="'+g[4]+'"':'href="#" data-soon')+'><div class="ph" role="img" aria-label="'+esc(t(g[1]))+'" style="--img:var(--i-'+g[0]+');--pos:'+g[2]+'"></div><p><span class="nm">'+esc(t(g[3]))+'</span><span class="go">'+esc(t("shop_now"))+'</span></p></a>'});
+    return '<div class="page-wide"><article class="prose"><a class="back" href="#top">← '+esc(t("back"))+'</a><h1 tabindex="-1">'+esc(t("little_h"))+'</h1><p>'+esc(t("little_p1"))+'</p><p>'+esc(t("little_p2"))+'</p><p>'+esc(t("little_p2b"))+'</p><p>'+esc(t("little_p3"))+'</p></article>'+
+      '<div class="gal">'+gal+'</div>'+
+      '<a class="fab-banner" href="#/fabrics"><div class="ph" role="img" aria-label="'+esc(t("fbanner_alt"))+'" style="--img:var(--i-fbanner);--pos:50% 50%"></div><p><span class="nm">'+esc(t("fab_h"))+'</span><span class="go">'+esc(t("see"))+'</span></p></a></div>';
+  }
+  var PRODUCTS={
+    sofa:{title:"sofa_h",variants:[["sv12","pr1","v_set"],["sv2","pr1","v_kim"],["sv1","pr1","v_sh"],["sv10","pr2","v_set"],["sv4","pr2","v_kim"],["sv3","pr2","v_sh"],["sv9","pr3","v_set"],["sv5","pr3","v_kim"],["sv6","pr3","v_sh"],["sv8","pr4","v_kim"],["sv7","pr4","v_sh"],["sv11","pr5","v_set"]],imgs:[["coconut","cover","50% 30%","p0"],["s1","","","p1"],["s2","","","p2"],["s3","","","p3"],["s4","","","p4"],["s5","","","p5"],["s6","","","p6"]],texts:["sp1","sp2","sp3","sp4"],price:"sp_price",predict:["ip_pl","sp_pt"]},
+    victoria:{title:"vic_h",back:["#/middle","n_m"],imgs:[["vc01","cover","50% 30%","vica01"],["vc02","","","vica02"],["vc03","","","vica03"],["vc04","","","vica04"],["vc05","","","vica05"],["vc10","","","vica10"],["vc09","","","vica09"],["vc11","","","vica11"],["vc12","","","vica12"]],vh:"vic_vh",variants:[["vc06","vica06"],["vc13","vica13"],["vc08","vica08"],["vc14","vica14"],["vc07","vica07"],["vc15","vica15"]],texts:["vic_1","vic_2","vic_3","vic_4"],setlist:{head:"vic_sh",items:[["VICTORIA BLOUSE",2000000],["VICTORIA PALAZZO PANTS",2300000]],combos:[["vic_c1",3800000,500000]]},predict:["mp_pl","vic_pt"]},
+    olga:{title:"olga_h",vh:"ov_h",variants:[["ov06","ova06"],["ov15","ova15"],["ov16","ova16"],["ov17","ova17"],["ov20","ova20"],["ov18","ova18"],["ov19","ova19"],["ov08","ova08"],["ov07","ova07"],["ov09","ova09"],["ov10","ova10"],["ov11","ova11"],["ov14","ova14"],["ov13","ova13"],["ov12","ova12"],["ov01","ova01"],["ov02","ova02"],["ov03","ova03"],["ov04","ova04"],["ov05","ova05"]],back:["#/middle","n_m"],imgs:[["ol1","cover","50% 0%","oa1"],["ol2","cover","50% 15%","oa2"],["ol3","","","oa3"]],texts:["o1","o2","o3"],setlist:{head:"os_h",items:[["OLGA TOP",1200000],["OLGA RUFFLE SKIRT",2500000],["OLGA BLOUSE",2000000]],combos:[["os_c1",3500000,200000],["os_c2",5000000,700000]]},predict:["mp_pl","o_pt"]},
+    lera:{title:"lera_h",back:["#/middle","n_m"],imgs:[["lm2","cover","50% 30%","lera0"],["le1","","","la1"],["le2","","","la2"],["le3","","","la3"]],texts:["lr1","lr2"],price:"lr_price",predict:["mp_pl","lr_pt"]},
+    karina:{title:"karina_h",back:["#/middle","n_m"],imgs:[["dove","cover","50% 25%","ka0"],["kd1","","","la1"],["kd2","","","la2"],["kd3","","","la3"]],texts:["kp1","kp2","kp3","kp4"],price:"kp_price",predict:["mp_pl","kp_pt"]},
+    mia:{title:"mia_h",imgs:[["mm","cover","50% 30%","ma0"],["mi1","","","ma1"],["mi2","","","ma2"],["mi3","","","ma3"]],texts:["mp1","mp2"],link:["#/fabrics","fab_h"],price:"mp_price",predict:["mp_pl","mp_pt"]},
+    lidia:{title:"lidia_h",imgs:[["lm","cover","50% 30%","la0"],["ld1","","","la1"],["ld2","","","la2"],["ld3","","","la3"]],texts:["lp1","lp2","lp3","lp4"],price:"lp_price",predict:["ip_pl","lp_pt"]},
+    irina:{title:"irina_h",imgs:[["pants","cover","50% 50%","ia0"],["ir1","","","ia1"],["ir2","","","ia2"],["ir3","","","ia3"]],texts:["ip1","ip2","ip3","ip4"],price:"ip_price",predict:["ip_pl","ip_pt"]}
+  };
+  function money(n){var s=String(n),sep=lang==="en"?",":lang==="vi"?".":" ";return s.replace(/\B(?=(\d{3})+(?!\d))/g,sep)+" VND"}
+  function productHTML(id){
+    var P=PRODUCTS[id],I=P.imgs,th="",body="";
+    I.forEach(function(x,i){
+      th+='<button type="button" class="'+(x[1]||"")+'" data-pv="'+x[0]+'" data-fit="'+x[1]+'" data-pos="'+x[2]+'" data-alt="'+x[3]+'" aria-label="'+esc(t(x[3]))+'"'+(i===0?' aria-current="true"':'')+' style="--img:var(--i-'+x[0]+');--pos:'+(x[2]||"50% 50%")+'"></button>';
+    });
+    P.texts.forEach(function(k){body+="<p>"+esc(t(k))+"</p>"});
+    if(P.setlist){
+      var S=P.setlist,it="",cm="";
+      S.items.forEach(function(x){it+="<li><span>"+esc(t(x[0]))+"</span><span>"+esc(money(x[1]))+"</span></li>"});
+      S.combos.forEach(function(x){cm+="<li><span>"+esc(t(x[0]))+'<small>'+esc(t("os_save").replace("{n}",money(x[2])))+"</small></span><span>"+esc(money(x[1]))+"</span></li>"});
+      body+='<div class="setbox"><p class="sh">'+esc(t(S.head))+'</p><ul class="setlist">'+it+'</ul><ul class="setlist combo">'+cm+"</ul></div>";
+    }
+    if(P.link)body+='<p><a href="'+P.link[0]+'" style="text-underline-offset:5px">'+esc(t(P.link[1]))+' →</a></p>';
+    if(P.price)body+='<p class="price">'+esc(t(P.price))+"</p>";
+    if(P.predict)body+='<div class="predict"><p class="pl">'+esc(t(P.predict[0]))+'</p><p class="pt">'+esc(t(P.predict[1]))+"</p></div>";
+    var bk=P.back||["#/little","n_y"],vr="";
+    if(P.variants){
+      var vb="";
+      P.variants.forEach(function(v){var al=v[2]?t(v[2])+": "+t(v[1]):t(v[1]);vb+='<button type="button" data-pv="'+v[0]+'" data-fit="" data-pos="" data-alt-text="'+esc(al)+'" aria-label="'+esc(al)+'" style="--img:var(--i-'+v[0]+')"></button>'});
+      vr='<p class="pv-vh">'+esc(t(P.vh||"v_h"))+'</p><div class="pv-thumbs">'+vb+'</div>';
+    }
+    return '<div class="page-wide"><p class="crumb"><a class="back" href="'+bk[0]+'">← '+esc(t(bk[1]))+'</a></p><div class="pv"><div class="pv-gallery">'+
+      '<div class="pv-main cover" id="pvmain" role="img" aria-label="'+esc(t(I[0][3]))+'" style="--img:var(--i-'+I[0][0]+');--pos:'+I[0][2]+'"></div>'+(I.length>1?'<div class="pv-thumbs">'+th+'</div>':'')+vr+'</div>'+
+      '<div class="prose"><h1 tabindex="-1">'+esc(t(P.title))+'</h1>'+body+'</div></div></div>';
+  }
+  function pvSet(btn){
+    var m=$("#pvmain");if(!m)return;
+    m.style.setProperty("--img","var(--i-"+btn.getAttribute("data-pv")+")");
+    m.style.setProperty("--pos",btn.getAttribute("data-pos")||"50% 50%");
+    m.className="pv-main"+(btn.getAttribute("data-fit")?" "+btn.getAttribute("data-fit"):"");
+    m.setAttribute("aria-label",btn.getAttribute("data-alt-text")||t(btn.getAttribute("data-alt")));
+    $$(".pv-thumbs button").forEach(function(b){b.removeAttribute("aria-current")});
+    btn.setAttribute("aria-current","true");
+  }
+  var FAB_N=25;
+  function fabricsHTML(){
+    var h="";
+    for(var i=1;i<=FAB_N;i++)h+='<button type="button" class="fab" data-fab="'+i+'" aria-label="'+esc(t("fab_item"))+' '+i+'"><span class="ph" style="--img:var(--i-fab'+i+')"></span></button>';
+    return '<div class="page-wide"><article class="prose"><a class="back" href="#/little">← '+esc(t("n_y"))+'</a><h1 tabindex="-1">'+esc(t("fab_h"))+'</h1><p>'+esc(t("fab_p"))+'</p></article><div class="fab-grid">'+h+'</div></div>';
+  }
+  var lbI=0,lbOpen=false,lbFrom=null;
+  function lbShow(){
+    $("#lbimg").style.setProperty("--img","var(--i-fab"+lbI+")");
+    $("#lbimg").setAttribute("aria-label",t("fab_item")+" "+lbI);
+    $("#lbcap").textContent=lbI+" / "+FAB_N;
+  }
+  function openLb(i){lbI=i;lbFrom=document.activeElement;lbOpen=true;var l=$("#lb");l.classList.add("on");l.setAttribute("aria-hidden","false");document.body.style.overflow="hidden";lbShow();$(".lb-x").focus()}
+  function moveLb(d){lbI=((lbI-1+d+FAB_N)%FAB_N)+1;lbShow()}
+  function closeLb(){if(!lbOpen)return;lbOpen=false;var l=$("#lb");l.classList.remove("on");l.setAttribute("aria-hidden","true");document.body.style.overflow="";if(lbFrom&&lbFrom.focus)lbFrom.focus()}
+  function middleHTML(){
+    var G=[["dove","ka0","50% 30%","cap_k","#/karina"],["lm2","lera0","50% 22%","cap_l","#/lera"],["ol2","oa2","50% 22%","cap_o","#/olga"],["vc01","vica01","50% 35%","cap_v","#/victoria"]],gal="";
+    G.forEach(function(g){gal+='<a class="tile" href="'+g[4]+'"><div class="ph" role="img" aria-label="'+esc(t(g[1]))+'" style="--img:var(--i-'+g[0]+');--pos:'+g[2]+'"></div><p><span class="nm">'+esc(t(g[3]))+'</span><span class="go">'+esc(t("shop_now"))+'</span></p></a>'});
+    return '<div class="page-wide"><article class="prose"><a class="back" href="#top">← '+esc(t("back"))+'</a><h1 tabindex="-1">'+esc(t("n_m"))+'</h1></article><div class="gal">'+gal+'</div></div>';
+  }
+  function eldestHTML(){
+    var G=[],gal="";
+    G.forEach(function(g){gal+='<a class="tile" href="'+g[4]+'"><div class="ph" role="img" aria-label="'+esc(t(g[1]))+'" style="--img:var(--i-'+g[0]+');--pos:'+g[2]+'"></div><p><span class="nm">'+esc(t(g[3]))+'</span><span class="go">'+esc(t("shop_now"))+'</span></p></a>'});
+    return '<div class="page-wide"><article class="prose"><a class="back" href="#top">← '+esc(t("back"))+'</a><h1 tabindex="-1">'+esc(t("n_e"))+'</h1></article><div class="gal">'+gal+'</div></div>';
+  }
+  function pageHTML(id){
+    if(id==="eldest")return eldestHTML();
+    if(id==="middle")return middleHTML();
+    if(id==="fabrics")return fabricsHTML();
+    if(PRODUCTS[id])return productHTML(id);
+    if(id==="little")return littleHTML();
+    var P=PAGES[id][lang],other=id==="brand"?"letter":"brand",ph=PHOTO[id],body="";
+    P.b.forEach(function(b){
+      var k=b[0],v=b[1];
+      if(k==="p")body+="<p>"+esc(v)+"</p>";
+      else if(k==="h2")body+="<h2>"+esc(v)+"</h2>";
+      else if(k==="sal")body+='<p class="sal">'+esc(v)+"</p>";
+      else if(k==="quote")body+='<p class="quote">'+esc(v)+"</p>";
+      else if(k==="lines")body+='<p class="lines">'+v.map(esc).join("<br>")+"</p>";
+      else if(k==="sig")body+='<p class="sig">'+v.map(esc).join("<br>")+"</p>";
+    });
+    return '<div class="page-in"><article class="prose"><a class="back" href="#top">← '+esc(t("back"))+'</a><h1 tabindex="-1">'+esc(P.h)+'</h1>'+body+
+      '<div class="more"><a href="#/'+other+'">'+esc(t("more_"+other))+' →</a></div></article>'+
+      '<div class="page-photo" role="img" aria-label="'+esc(t(ph[1]))+'" style="--img:var(--i-'+ph[0]+');--pos:'+ph[2]+(ph[3]?';--ar:'+ph[3]+';--posm:'+ph[4]:'')+'"></div></div>';
+  }
+  function renderPage(){
+    if(!cur)return;
+    $("#page").innerHTML=pageHTML(cur);
+    document.title=(cur==="little"?t("little_h"):cur==="middle"?t("n_m"):cur==="eldest"?t("n_e"):PRODUCTS[cur]?t(PRODUCTS[cur].title):cur==="fabrics"?t("fab_h"):PAGES[cur][lang].h)+" | Sisters’ Dresses";
+  }
+  function route(){
+    var h=location.hash,m=h.match(/^#\/(brand|letter|little|middle|karina|lera|eldest|olga|victoria|sofa|irina|lidia|mia|fabrics)$/),home=$("#main"),pg=$("#page");
+    if(m){
+      var changed=cur!==m[1];cur=m[1];
+      home.hidden=true;pg.hidden=false;renderPage();
+      if(changed){window.scrollTo(0,0);var h1=$("h1",pg);if(h1)h1.focus({preventScroll:true})}
+    }else if(!h||h==="#"||h==="#top"){
+      if(cur){cur=null;pg.hidden=true;pg.innerHTML="";home.hidden=false;document.title=t("title");window.scrollTo(0,0)}
+    }
+  }
+
+  var NAV=[
+    {l:"n_new",cols:[{t:"",k:["l_all_new","l_best"]}],f:[["hero","n_new","58% 30%"]]},
+    {l:"n_y",cols:[{t:"cat",k:["l_dresses","l_sets","l_tops","l_shorts_skirts","l_kimonos"]}],f:[["coconut","n_y","50% 30%"]]},
+    {l:"n_m",cols:[{t:"cat",k:["l_dresses","l_sets","l_tops","l_shorts_skirts","l_kimonos"]}],f:[["boat","n_m","50% 50%"]]},
+    {l:"n_e",cols:[{t:"cat",k:["l_dresses","l_evening","l_jumpsuits","l_skirts","l_kimonos"]}],f:[["evening","n_e","50% 35%"]]},
+    {l:"n_b",cols:[{t:"cat",k:["l_shirts","l_kshirts","l_trousers","l_shorts"]}],f:[["man","n_b","50% 30%"]]},
+    {l:"n_sale",cols:[{t:"",k:["l_all_sale"]}],f:[]},
+    {l:"n_about",cols:[{t:"",k:["l_brand","l_letter","f_contact"]}],f:[]}
+  ];
+
+  var $=function(s,r){return (r||document).querySelector(s)};
+  var $$=function(s,r){return Array.prototype.slice.call((r||document).querySelectorAll(s))};
+  function esc(s){return s.replace(/&/g,"&amp;").replace(/</g,"&lt;")}
+
+  var lang="ru";
+  try{var sv=localStorage.getItem("sd_lang");if(sv&&I18N[sv])lang=sv}catch(e){}
+  function t(k){return (I18N[lang]&&I18N[lang][k])||I18N.ru[k]||k}
+
+  function buildNav(){
+    var h1="",h2="";
+    NAV.forEach(function(n){
+      var cols=n.cols.map(function(c){
+        return "<div>"+(c.t?"<h3>"+esc(t(c.t))+"</h3>":"")+"<ul>"+c.k.map(function(x){return "<li>"+lk(x)+"</li>"}).join("")+"</ul></div>";
+      }).join("");
+      var feats=n.f.length?'<div class="feat">'+n.f.map(function(f){return (HREF[n.l]?'<a href="'+HREF[n.l]+'">':'<a href="#" data-soon>')+'<div class="ph" style="--img:var(--i-'+f[0]+');--pos:'+f[2]+'"></div>'+esc(t(f[1]))+"</a>"}).join("")+"</div>":"";
+      h1+='<li class="nav-item">'+lk(n.l,"nav-link")+'<div class="mega"><div class="mega-in">'+cols+feats+"</div></div></li>";
+      var mob=n.cols.map(function(c){return (c.t?'<li class="sub">'+esc(t(c.t))+"</li>":"")+c.k.map(function(x){return "<li>"+lk(x)+"</li>"}).join("")}).join("");
+      h2+="<details><summary>"+esc(t(n.l))+"</summary><ul>"+mob+"</ul></details>";
+    });
+    $("#navlist").innerHTML=h1;$("#mobnav").innerHTML=h2;
+  }
+
+  function apply(){
+    document.documentElement.lang=lang;
+    document.title=t("title");
+    var md=$('meta[name="description"]');if(md)md.setAttribute("content",t("meta"));
+    $$("[data-i18n]").forEach(function(el){el.textContent=t(el.getAttribute("data-i18n"))});
+    $$("[data-i18n-html]").forEach(function(el){el.innerHTML=t(el.getAttribute("data-i18n-html"))});
+    $$("[data-i18n-aria]").forEach(function(el){el.setAttribute("aria-label",t(el.getAttribute("data-i18n-aria")))});
+    $$("[data-i18n-ph]").forEach(function(el){el.setAttribute("placeholder",t(el.getAttribute("data-i18n-ph")))});
+    $("#lang").value=lang;
+    buildNav();
+    renderPage();
+  }
+  var ls=$("#lang");
+  ls.addEventListener("change",function(){
+    lang=ls.value;try{localStorage.setItem("sd_lang",lang)}catch(e){}
+    apply();
+  });
+  apply();
+
+  /* toast */
+  var tt=$("#toast"),tm;
+  function toast(msg){tt.textContent=msg;tt.classList.add("on");clearTimeout(tm);tm=setTimeout(function(){tt.classList.remove("on")},2600)}
+
+  /* layers */
+  var scrim=$("#scrim"),openEl=null,lastFocus=null;
+  function openLayer(el){
+    closeLayer(true);
+    lastFocus=document.activeElement;openEl=el;
+    el.classList.add("on");el.setAttribute("aria-hidden","false");
+    if(el.id!=="pop")scrim.classList.add("on");
+    document.body.style.overflow="hidden";
+    var f=$("input,button,a",el);if(f)setTimeout(function(){f.focus()},60);
+  }
+  function closeLayer(quiet){
+    if(!openEl)return;
+    openEl.classList.remove("on");openEl.setAttribute("aria-hidden","true");
+    scrim.classList.remove("on");document.body.style.overflow="";
+    if(openEl.id==="pop"){try{sessionStorage.setItem("sd_pop","1")}catch(e){}}
+    openEl=null;
+    if(!quiet&&lastFocus&&lastFocus.focus)lastFocus.focus();
+  }
+  scrim.addEventListener("click",function(){closeLayer()});
+  document.addEventListener("keydown",function(e){
+    if(lbOpen){if(e.key==="Escape")closeLb();else if(e.key==="ArrowLeft")moveLb(-1);else if(e.key==="ArrowRight")moveLb(1);return}
+    if(e.key==="Escape")closeLayer()});
+
+  document.addEventListener("click",function(e){
+    var el=e.target;
+    var fbb=el.closest("[data-fab]");
+    if(fbb){openLb(+fbb.getAttribute("data-fab"));return}
+    if(el.closest("[data-lbn]")){moveLb(+el.closest("[data-lbn]").getAttribute("data-lbn"));return}
+    if(el.closest("[data-lbx]")||el===$("#lb")){closeLb();return}
+    var pvb=el.closest("[data-pv]");
+    if(pvb){pvSet(pvb);return}
+    var o=el.closest("[data-open]");
+    if(o){e.preventDefault();openLayer($("#"+o.getAttribute("data-open")));return}
+    if(el===$("#pop")){closeLayer();return}
+    if(el.closest("[data-close]")){closeLayer();return}
+    if(el.closest("[data-pop]")){openLayer($("#pop"));return}
+    var sb=el.closest("[data-soon-btn]");
+    if(sb){toast(t(sb.getAttribute("data-soon-btn")));return}
+    if(el.closest('a[href^="#/"]')&&openEl&&openEl.id==="menu")closeLayer(true);
+    if(el.closest("[data-soon]")){
+      e.preventDefault();
+      if(openEl&&openEl.id==="menu")closeLayer(true);
+      toast(t("toast_soon"));return;
+    }
+  });
+
+  /* search */
+  var sbx=$("#searchbox"),q=$("#q");
+  $$("[data-search]").forEach(function(b){b.addEventListener("click",function(){
+    sbx.hidden=!sbx.hidden;if(!sbx.hidden)q.focus();
+  })});
+  q.addEventListener("keydown",function(e){if(e.key==="Enter"&&q.value.trim()){toast(t("toast_search"))}});
+
+  /* forms */
+  function bindForm(formId,emailId,errId,boxSel){
+    var f=$("#"+formId);
+    f.addEventListener("submit",function(e){
+      e.preventDefault();
+      var em=$("#"+emailId).value.trim(),er=$("#"+errId);
+      if(!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(em)){er.textContent=t("err_email");$("#"+emailId).focus();return}
+      er.textContent="";
+      $(boxSel).classList.add("is-done");
+      var d=$(".done",$(boxSel));if(d){d.setAttribute("tabindex","-1");d.focus()}
+    });
+  }
+  bindForm("newsform","n-email","n-err","#newsbox");
+  bindForm("popform","p-email","p-err","#popbox");
+  var sms=$("#n-sms"),pw=$("#n-phone-wrap");
+  sms.addEventListener("change",function(){pw.hidden=!sms.checked;if(sms.checked)$("#n-phone").focus()});
+
+  /* footer accordions: open on desktop */
+  var mq=window.matchMedia("(min-width:1001px)");
+  function syncFooter(){$$(".fcol").forEach(function(d){if(mq.matches)d.setAttribute("open","");else d.removeAttribute("open")})}
+  syncFooter();
+  if(mq.addEventListener)mq.addEventListener("change",syncFooter);
+
+  window.addEventListener("hashchange",route);
+  route();
+
+  /* welcome pop-up, once per visit */
+  var seen=false;try{seen=sessionStorage.getItem("sd_pop")==="1"}catch(e){}
+  if(!seen){setTimeout(function(){if(!openEl)openLayer($("#pop"))},7000)}
+})();
+
+</script>
+</body>
+</html>
