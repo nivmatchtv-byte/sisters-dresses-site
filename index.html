@@ -866,7 +866,7 @@ footer{padding:clamp(40px,6vw,72px) clamp(16px,4vw,56px) 28px}
   function moveLb(d){lbI=((lbI-1+d+FAB_N)%FAB_N)+1;lbShow()}
   function closeLb(){if(!lbOpen)return;lbOpen=false;var l=$("#lb");l.classList.remove("on");l.setAttribute("aria-hidden","true");document.body.style.overflow="";if(lbFrom&&lbFrom.focus)lbFrom.focus()}
   function middleHTML(){
-    var G=[["dove","ka0","50% 30%","cap_k","#/karina"],["lm2","lera0","50% 22%","cap_l","#/lera"],["ol2","oa2","50% 22%","cap_o","#/olga"],["obl0","obla0","50% 20%","cap_ob","#/olgablouse"],["ot0","ota0","50% 20%","cap_ot","#/olgatop"],["vc01","vica01","50% 35%","cap_v","#/victoria"]],gal="";
+    var G=[["dove","ka0","50% 30%","cap_k","#/karina"],["lm2","lera0","50% 22%","cap_l","#/lera"],["ol1","oa1","50% 0%","cap_o","#/olga"],["obl0","obla0","50% 20%","cap_ob","#/olgablouse"],["ot0","ota0","50% 20%","cap_ot","#/olgatop"],["vc01","vica01","50% 35%","cap_v","#/victoria"]],gal="";
     G.forEach(function(g){gal+='<a class="tile" href="'+g[4]+'"><div class="ph" role="img" aria-label="'+esc(t(g[1]))+'" style="--img:var(--i-'+g[0]+');--pos:'+g[2]+'"></div><p><span class="nm">'+esc(t(g[3]))+'</span><span class="go">'+esc(t("shop_now"))+'</span></p></a>'});
     return '<div class="page-wide"><article class="prose"><a class="back" href="#top">← '+esc(t("back"))+'</a><h1 tabindex="-1">'+esc(t("n_m"))+'</h1><p>'+esc(t("middle_p1"))+'</p><p>'+esc(t("middle_p2"))+'</p><p>'+esc(t("middle_p3"))+'</p><p>'+esc(t("middle_p4"))+'</p></article><div class="gal">'+gal+'</div></div>';
   }
@@ -955,7 +955,7 @@ footer{padding:clamp(40px,6vw,72px) clamp(16px,4vw,56px) 28px}
     if(!cart.length){box.innerHTML='<p class="empty">'+esc(t("cart_empty"))+'</p><button class="btn" type="button" data-close>'+esc(t("continue"))+"</button>";return}
     var h="";
     cart.forEach(function(it,i){
-      h+='<div class="cart-item"><div class="ci-ph" style="--img:var(--i-'+it.img+')"></div><div class="ci-info"><p class="ci-name">'+esc(t(it.title))+'</p><p class="ci-size">'+esc(t("size_col"))+": "+esc(it.size)+(it.qty>1?" × "+it.qty:"")+"</p>"+(it.price?'<p class="ci-price">'+esc(t(it.price))+"</p>":"")+'<button type="button" class="ci-x" data-cart-rm="'+i+'">'+esc(t("remove"))+"</button></div></div>";
+      h+='<div class="cart-item"><div class="ci-ph" style="--img:var(--i-'+it.img+')"></div><div class="ci-info"><p class="ci-name">'+esc(t(it.title))+'</p><p class="ci-size">'+esc(t("size_col"))+": "+esc(it.size)+(it.qty>1?" × "+it.qty:"")+"</p>"+(it.price?'<p class="ci-price">'+esc(priceLine(it.price))+"</p>":"")+'<button type="button" class="ci-x" data-cart-rm="'+i+'">'+esc(t("remove"))+"</button></div></div>";
     });
     h+='<button class="btn cart-checkout" type="button" data-soon-btn="toast_soon">'+esc(t("checkout"))+'</button><button class="link-btn" type="button" data-close>'+esc(t("continue"))+"</button>";
     box.innerHTML=h;
