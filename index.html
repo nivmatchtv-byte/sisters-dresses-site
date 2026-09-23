@@ -811,7 +811,7 @@ footer{padding:clamp(40px,6vw,72px) clamp(16px,4vw,56px) 28px}
     if(P.price)body+='<p class="price">'+esc(t(P.price))+"</p>";
     body+='<div class="sizes"><p class="pv-vh" id="size-pick-h">'+esc(t("size_pick"))+'</p><div class="size-pick" role="group" aria-labelledby="size-pick-h">'+
       ["XS","S","M","L","XL"].map(function(s){return '<button type="button" class="sz" data-size="'+s+'" aria-pressed="false">'+s+"</button>"}).join("")+
-      '</div></div><p><button type="button" class="size-link" data-open="sizeguide" data-i18n="size_link"></button></p>';
+      '</div></div><p><button type="button" class="size-link" data-open="sizeguide">'+esc(t("size_link"))+'</button></p>';
     if(P.predict)body+='<div class="predict"><p class="pl">'+esc(t(P.predict[0]))+'</p><p class="pt">'+esc(t(P.predict[1]))+"</p></div>";
     var bk=P.back||["#/little","n_y"],vr="";
     if(P.variants){
