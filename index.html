@@ -827,12 +827,14 @@ footer{padding:clamp(40px,6vw,72px) clamp(16px,4vw,56px) 28px}
       body+='<div class="setbox"><p class="sh">'+esc(t(S.head))+'</p><ul class="setlist">'+it+'</ul><ul class="setlist combo">'+cm+"</ul></div>";
     }
     if(P.link)body+='<p><a href="'+P.link[0]+'" style="text-underline-offset:5px">'+esc(t(P.link[1]))+' →</a></p>';
-    if(P.price)body+='<p class="price">'+esc(t("price_label"))+" "+esc(priceLine(P.price))+"</p>";
-    body+='<div class="sizes"><p class="pv-vh" id="size-pick-h">'+esc(t("size_pick"))+'</p><div class="size-pick" role="group" aria-labelledby="size-pick-h">'+
-      ["XS","S","M","L","XL"].map(function(s){return '<button type="button" class="sz" data-size="'+s+'" aria-pressed="false">'+s+"</button>"}).join("")+
-      '</div><p class="err" role="alert" id="size-err"></p></div>'+
-      '<button type="button" class="btn add-cart" data-add-cart="'+id+'">'+esc(t("add_cart"))+'</button>'+
-      '<p><button type="button" class="size-link" data-open="sizeguide">'+esc(t("size_link"))+'</button></p>';
+    if(P.price){
+      body+='<p class="price">'+esc(t("price_label"))+" "+esc(priceLine(P.price))+"</p>";
+      body+='<div class="sizes"><p class="pv-vh" id="size-pick-h">'+esc(t("size_pick"))+'</p><div class="size-pick" role="group" aria-labelledby="size-pick-h">'+
+        ["XS","S","M","L","XL"].map(function(s){return '<button type="button" class="sz" data-size="'+s+'" aria-pressed="false">'+s+"</button>"}).join("")+
+        '</div><p class="err" role="alert" id="size-err"></p></div>'+
+        '<button type="button" class="btn add-cart" data-add-cart="'+id+'">'+esc(t("add_cart"))+'</button>'+
+        '<p><button type="button" class="size-link" data-open="sizeguide">'+esc(t("size_link"))+'</button></p>';
+    }
     if(P.predict)body+='<div class="predict"><p class="pl">'+esc(t(P.predict[0]))+'</p><p class="pt">'+esc(t(P.predict[1]))+"</p></div>";
     var bk=P.back||["#/little","n_y"],vr="";
     if(P.variants){
