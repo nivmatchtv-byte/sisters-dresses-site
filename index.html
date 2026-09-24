@@ -181,6 +181,7 @@ ul{list-style:none;margin:0;padding:0}
 .pv-thumbs button[aria-current="true"]{outline:2px solid var(--gold);outline-offset:1px}
 .pv-thumbs button[aria-pressed="true"]{outline:2px solid var(--ink);outline-offset:1px}
 .combo-slot{margin:1.4em 0}
+.combo-slot-price{margin:0 0 10px;font:500 18px/1.3 var(--serif)}
 .combo-total{margin-top:.3em}
 .combo-save{color:var(--gold-ink);font-size:14px;margin:1.4em 0 0;min-height:1.4em}
 .page-photo{position:sticky;top:calc(env(safe-area-inset-top,0px) + 150px);aspect-ratio:3/4;background:var(--img) var(--pos,50% 30%)/cover}
@@ -868,7 +869,7 @@ footer{padding:clamp(40px,6vw,72px) clamp(16px,4vw,56px) 28px}
       var SP=PRODUCTS[spid],sw="";
       SP.colors.forEach(function(c){sw+='<button type="button" class="cs" data-slot="'+spid+'" data-cid="'+c[0]+'" data-price="'+SP.price+'" data-label="'+esc(t(SP.title))+'" aria-label="'+esc(t(c[1]))+'" style="--img:var(--i-'+c[0]+')"></button>'});
       var sizes=["XS","S","M","L","XL"].map(function(s){return '<button type="button" class="sz" data-csize="'+spid+'" data-size="'+s+'" aria-pressed="false">'+s+"</button>"}).join("");
-      return '<div class="combo-slot"><p class="pv-vh">'+esc(label)+'</p><div class="pv-thumbs combo-thumbs" data-slotgroup="'+spid+'">'+sw+'</div>'+
+      return '<div class="combo-slot"><p class="pv-vh">'+esc(label)+'</p><p class="combo-slot-price">'+esc(priceLine(SP.price))+'</p><div class="pv-thumbs combo-thumbs" data-slotgroup="'+spid+'">'+sw+'</div>'+
         '<div class="size-pick" data-sizegroup="'+spid+'" role="group" aria-label="'+esc(t("size_pick"))+'">'+sizes+'</div>'+
         '<p class="err" role="alert" id="size-err-'+spid+'"></p></div>';
     }
