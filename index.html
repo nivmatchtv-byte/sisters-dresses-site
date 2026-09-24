@@ -181,7 +181,8 @@ ul{list-style:none;margin:0;padding:0}
 .pv-thumbs button[aria-current="true"]{outline:2px solid var(--gold);outline-offset:1px}
 .pv-thumbs button[aria-pressed="true"]{outline:2px solid var(--ink);outline-offset:1px}
 .combo-slot{margin:1.4em 0}
-.combo-total{margin-top:1.4em}
+.combo-total{margin-top:.3em}
+.combo-save{color:var(--gold-ink);font-size:14px;margin:1.4em 0 0;min-height:1.4em}
 .page-photo{position:sticky;top:calc(env(safe-area-inset-top,0px) + 150px);aspect-ratio:3/4;background:var(--img) var(--pos,50% 30%)/cover}
 
 /* newsletter */
@@ -877,6 +878,7 @@ footer{padding:clamp(40px,6vw,72px) clamp(16px,4vw,56px) 28px}
     }
     body+=slot(t("cs_top"),"olgatop")+slot(t("cs_skirt"),"olgaskirt")+slot(t("cs_blouse"),"olgablouse");
     body+='<p><button type="button" class="size-link" data-open="sizeguide">'+esc(t("size_link"))+'</button></p>';
+    body+='<p class="combo-save" id="comboSavings"></p>';
     body+='<div class="cart-total combo-total"><span>'+esc(t("cs_total"))+'</span><span id="comboTotalVal">—</span></div>';
     body+='<p class="err" role="alert" id="combo-err"></p>';
     body+='<button type="button" class="btn add-cart" id="comboAdd" data-combo-add="olga">'+esc(t("cs_add"))+'</button>';
@@ -893,12 +895,16 @@ footer{padding:clamp(40px,6vw,72px) clamp(16px,4vw,56px) 28px}
   }
   function comboUpdate(){
     var el=$("#comboTotalVal");if(!el)return;
+    var sv=$("#comboSavings");
     var parts=[];
     ["olgatop","olgaskirt","olgablouse"].forEach(function(pid){
       var b=$('.combo-thumbs[data-slotgroup="'+pid+'"] .cs[aria-pressed="true"]');
       if(b)parts.push({price:+b.getAttribute("data-price")});
     });
-    el.textContent=parts.length?priceLine(comboPrice(parts)):"—";
+    if(!parts.length){el.textContent="—";if(sv)sv.textContent="";return}
+    var total=comboPrice(parts),sum=parts.reduce(function(n,p){return n+p.price},0),save=sum-total;
+    el.textContent=priceLine(total);
+    if(sv)sv.textContent=save>0?t("os_save").replace("{n}",priceLine(save)):"";
   }
   var FAB_N=25;
   function fabricsHTML(){
