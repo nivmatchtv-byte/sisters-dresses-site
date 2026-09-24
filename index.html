@@ -847,7 +847,7 @@ footer{padding:clamp(40px,6vw,72px) clamp(16px,4vw,56px) 28px}
       vr='<p class="pv-vh">'+esc(t(P.vh||"v_h"))+'</p><div class="pv-thumbs">'+vb+'</div>';
     }
     return '<div class="page-wide"><p class="crumb"><a class="back" href="'+bk[0]+'">← '+esc(t(bk[1]))+'</a></p><div class="pv"><div class="pv-gallery">'+
-      '<div class="pv-main cover" id="pvmain" data-cur="'+I[0][0]+'" role="img" aria-label="'+esc(t(I[0][3]))+'" style="--img:var(--i-'+I[0][0]+');--pos:'+I[0][2]+'"></div>'+(I.length>1?'<div class="pv-thumbs">'+th+'</div>':'')+vr+'</div>'+
+      '<div class="pv-main cover" id="pvmain" data-cur="'+I[0][0]+'" role="img" aria-label="'+esc(t(I[0][3]))+'" style="--img:var(--i-'+I[0][0]+');--pos:'+I[0][2]+'"></div>'+(I.length>1||P.variants?'<div class="pv-thumbs">'+th+'</div>':'')+vr+'</div>'+
       '<div class="prose"><h1 tabindex="-1">'+esc(t(P.title))+'</h1>'+body+'</div></div></div>';
   }
   function pvSet(btn){
