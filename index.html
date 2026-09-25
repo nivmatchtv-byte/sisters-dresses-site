@@ -1139,7 +1139,7 @@ footer{padding:clamp(40px,6vw,72px) clamp(16px,4vw,56px) 28px}
     var em=$("#collEmpty");if(em)em.hidden=any;
   }
   function eldestHTML(){
-    var G=[["kr1","kra1","50% 15%","cap_kr","#/kristina"],["vr1","vra1","50% 8%","cap_vr","#/vera"],["kg1","kga1","50% 15%","cap_kong","#/kong"],["kgset1","kgsa1","50% 12%","cap_kongset","#/kongset"],["kgset2","kgsa2","50% 5%","cap_konglong","#/konglong"],["tm1","tma1","50% 8%","cap_toma","#/toma"],["ts2","tsa2","50% 8%","cap_tomashirt","#/tomashirt"],["tm3","tpa1","50% 8%","cap_tomapants","#/tomapants"]],gal="";
+    var G=[["kr1","kra1","50% 15%","cap_kr","#/kristina"],["vr1","vra1","50% 8%","cap_vr","#/vera"],["kgset1","kgsa1","50% 12%","cap_kong","#/kong"],["kgset2","kgsa2","50% 5%","cap_konglong","#/konglong"],["tm1","tma1","50% 8%","cap_toma","#/toma"],["ts2","tsa2","50% 8%","cap_tomashirt","#/tomashirt"],["tm3","tpa1","50% 8%","cap_tomapants","#/tomapants"]],gal="";
     G.forEach(function(g){gal+='<a class="tile" href="'+g[4]+'"><div class="ph" role="img" aria-label="'+esc(t(g[1]))+'" style="--img:var(--i-'+g[0]+');--pos:'+g[2]+'"></div><p><span class="nm">'+esc(t(g[3]))+'</span><span class="go">'+esc(t("shop_now"))+'</span></p></a>'});
     return '<div class="page-wide"><article class="prose"><a class="back" href="#top">← '+esc(t("back"))+'</a><h1 tabindex="-1">'+esc(t("n_e"))+'</h1><p>'+esc(t("eldest_p1"))+'</p><p>'+esc(t("eldest_p2"))+'</p><p>'+esc(t("eldest_p3"))+'</p><p>'+esc(t("eldest_p4"))+'</p></article><div class="gal">'+gal+'</div></div>';
   }
