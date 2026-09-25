@@ -1006,16 +1006,25 @@ footer{padding:clamp(40px,6vw,72px) clamp(16px,4vw,56px) 28px}
   };
   var COLL_CATS=["dress","set","blouse","top","skirt","pants","shirt","kimono","shorts"];
   var COLL_CAT_LABEL={dress:"l_dresses",set:"l_sets",blouse:"l_blouses",top:"l_tops",skirt:"l_skirts",pants:"l_trousers",shirt:"l_shirts",kimono:"l_kimonos",shorts:"l_shorts"};
+  var COLL_ALIAS={
+    karina:"карина",roza:"роза",mia:"мия миа",kristina:"кристина",vera:"вера",annushka:"аннушка",lera:"лера",lidia:"лидия",irina:"ирина",
+    olgablouse:"ольга",olgaskirt:"ольга",olgatop:"ольга",
+    victoriablouse:"виктория",victoriapants:"виктория",
+    sofakimono:"софа",sofashorts:"софа",
+    tomashirt:"тома",tomapants:"тома",
+    olga_h:"ольга",sofa_h:"софа",vic_h:"виктория",toma_h:"тома"
+  };
   var COLL_EXCLUDE={roza:["rz3"],mia:["mm"],tomashirt:["tm3"],tomapants:["tm4"]};
   function collectionTiles(){
-    var groups=[COLL_SETS.map(function(s){return {img:s[0],alt:s[1],name:t(s[2]),cat:"set",href:s[3]}})];
+    var groups=[COLL_SETS.map(function(s){var ti=t(s[2]);return {img:s[0],alt:s[1],title:ti,search:ti+" "+(COLL_ALIAS[s[2]]||""),cat:"set",href:s[3]}})];
     COLL_ORDER.forEach(function(id){
       var P=PRODUCTS[id];
       if(!P||!P.variants||!P.variants.length)return;
       var excl=COLL_EXCLUDE[id]||[];
       var flat=P.variants.filter(function(v){return excl.indexOf(v[0])===-1});
       if(!flat.length)return;
-      groups.push(flat.map(function(v){return {img:v[0],alt:v[1],name:t(P.title),cat:COLL_CAT[id],href:"#/"+id}}));
+      var ti=t(P.title),se=ti+" "+(COLL_ALIAS[id]||"");
+      groups.push(flat.map(function(v){return {img:v[0],alt:v[1],title:ti,search:se,cat:COLL_CAT[id],href:"#/"+id}}));
     });
     var max=0;groups.forEach(function(g){if(g.length>max)max=g.length});
     var tiles=[];
@@ -1026,7 +1035,7 @@ footer{padding:clamp(40px,6vw,72px) clamp(16px,4vw,56px) 28px}
     collActiveCat="all";
     var tiles=collectionTiles();
     var gal=tiles.map(function(x){
-      return '<a class="tile" href="'+x.href+'" data-cat="'+x.cat+'" data-name="'+esc(x.name.toLowerCase())+'" aria-label="'+esc(x.name)+'"><div class="ph" role="img" aria-label="'+esc(t(x.alt))+'" style="--img:var(--i-'+x.img+')"></div></a>';
+      return '<a class="tile" href="'+x.href+'" data-cat="'+x.cat+'" data-name="'+esc(x.search.toLowerCase())+'" aria-label="'+esc(x.title)+'"><div class="ph" role="img" aria-label="'+esc(t(x.alt))+'" style="--img:var(--i-'+x.img+')"></div></a>';
     }).join("")+'<p class="coll-empty" id="collEmpty" hidden>'+esc(t("coll_empty"))+'</p>';
     var tabs='<button type="button" class="on" data-coll-cat="all" aria-pressed="true">'+esc(t("coll_all"))+'</button>'+
       COLL_CATS.map(function(c){return '<button type="button" data-coll-cat="'+c+'" aria-pressed="false">'+esc(t(COLL_CAT_LABEL[c]))+'</button>'}).join("");
