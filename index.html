@@ -91,13 +91,19 @@ ul{list-style:none;margin:0;padding:0}
 
 /* hero: photo carousel */
 .hero{position:relative;isolation:isolate;display:flex;align-items:center;min-height:clamp(560px,calc(100svh - 130px),880px);color:#fff;background:#0B121F}
-.hero-carousel{position:absolute;inset:0;z-index:-1;overflow:hidden;touch-action:pan-y}
+.hero-stage{position:absolute;inset:0;z-index:-1}
+.hero-carousel{position:absolute;inset:0;overflow:hidden;touch-action:pan-y}
 .hero-bg{position:absolute;inset:0;background:var(--img) var(--pos,58% 30%)/cover no-repeat;opacity:0;transition:opacity 1s ease}
 .hero-bg.on{opacity:1}
 .hero-bg::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(5,12,8,.5),rgba(5,12,8,0) 55%)}
-.hero-dots{position:absolute;left:50%;bottom:16px;transform:translateX(-50%);display:flex;gap:8px;z-index:1}
-.hero-dots button{width:7px;height:7px;border-radius:50%;background:rgba(255,255,255,.45);border:0;padding:0;cursor:pointer}
-.hero-dots button.on{background:#fff}
+@keyframes heroPeek{0%,100%{transform:translateX(0)}30%{transform:translateX(-16px)}60%{transform:translateX(5px)}}
+.hero-bg.on.peek{animation:heroPeek .9s ease}
+.hero-navbar{position:absolute;left:50%;bottom:18px;transform:translateX(-50%);display:flex;align-items:center;gap:8px;z-index:1;padding:6px 8px;background:rgba(5,12,8,.32);border-radius:22px;backdrop-filter:blur(2px)}
+.hero-arrow{width:28px;height:28px;border-radius:50%;border:0;background:transparent;color:#fff;font:400 19px/1 var(--serif);cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background .2s ease}
+.hero-arrow:hover{background:rgba(255,255,255,.18)}
+.hero-dots{display:flex;align-items:center;gap:9px}
+.hero-dots button{width:8px;height:8px;border-radius:50%;background:rgba(255,255,255,.55);border:0;padding:0;cursor:pointer;transition:width .25s ease,background .25s ease}
+.hero-dots button.on{width:22px;border-radius:5px;background:#fff}
 .hero-copy{padding:0 clamp(24px,6vw,96px);max-width:min(640px,62%)}
 .hero h1{font:500 clamp(42px,5.6vw,84px)/1.02 var(--serif);margin:0 0 14px;text-shadow:0 2px 28px rgba(0,0,0,.35)}
 .hero .sub{font:400 clamp(20px,2vw,28px)/1.25 var(--serif);margin:0 0 30px}
@@ -331,7 +337,7 @@ footer{padding:clamp(40px,6vw,72px) clamp(16px,4vw,56px) 28px}
 }
 @media (max-width:760px){
   .hero{display:block;min-height:0;background:var(--promo-bg)}
-  .hero-carousel{position:relative;inset:auto;z-index:auto;aspect-ratio:4/5}
+  .hero-stage{position:relative;inset:auto;z-index:auto;aspect-ratio:4/5}
   .hero-bg::after{display:none}
   .hero-copy{max-width:none;padding:28px 20px 38px}
   .hero h1{font-size:42px}
@@ -383,8 +389,14 @@ footer{padding:clamp(40px,6vw,72px) clamp(16px,4vw,56px) 28px}
 <main id="main">
 
   <section class="hero">
-    <div class="hero-carousel" id="heroCarousel"></div>
-    <div class="hero-dots" id="heroDots" hidden></div>
+    <div class="hero-stage">
+      <div class="hero-carousel" id="heroCarousel"></div>
+      <div class="hero-navbar" id="heroNavBar" hidden>
+        <button class="hero-arrow" type="button" data-hero-nav="-1" data-i18n-aria="lb_prev">‹</button>
+        <div class="hero-dots" id="heroDots"></div>
+        <button class="hero-arrow" type="button" data-hero-nav="1" data-i18n-aria="lb_next">›</button>
+      </div>
+    </div>
     <div class="hero-copy">
       <h1 data-i18n="hero_h1"></h1>
       <p class="sub" data-i18n="hero_sub"></p>
@@ -1083,19 +1095,26 @@ footer{padding:clamp(40px,6vw,72px) clamp(16px,4vw,56px) 28px}
   ];
   var heroI=0,heroTimer=null;
   function heroBuild(){
-    var wrap=$("#heroCarousel"),dots=$("#heroDots");
+    var wrap=$("#heroCarousel"),dots=$("#heroDots"),bar=$("#heroNavBar");
     if(!wrap)return;
     wrap.innerHTML=HERO_SLIDES.map(function(s,i){
       return '<div class="hero-bg'+(i===0?" on":"")+'" role="img" aria-label="'+esc(t(s.alt))+'" style="--img:var(--i-'+s.img+');--pos:'+s.pos+'"></div>';
     }).join("");
-    if(dots){
+    if(bar){
       if(HERO_SLIDES.length>1){
-        dots.hidden=false;
-        dots.innerHTML=HERO_SLIDES.map(function(_,i){return '<button data-hero-go="'+i+'" aria-label="'+(i+1)+"/"+HERO_SLIDES.length+'"'+(i===0?' class="on"':"")+"></button>"}).join("");
-      }else{dots.hidden=true;dots.innerHTML=""}
+        bar.hidden=false;
+        if(dots)dots.innerHTML=HERO_SLIDES.map(function(_,i){return '<button data-hero-go="'+i+'" aria-label="'+(i+1)+"/"+HERO_SLIDES.length+'"'+(i===0?' class="on"':"")+"></button>"}).join("");
+      }else{bar.hidden=true;if(dots)dots.innerHTML=""}
     }
     heroI=0;
     heroRestart();
+    if(HERO_SLIDES.length>1)heroPeek();
+  }
+  function heroPeek(){
+    var on=$(".hero-bg.on",$("#heroCarousel"));
+    if(!on)return;
+    on.classList.add("peek");
+    setTimeout(function(){on.classList.remove("peek")},950);
   }
   function heroShow(i){
     if(!HERO_SLIDES.length)return;
@@ -1224,6 +1243,8 @@ footer{padding:clamp(40px,6vw,72px) clamp(16px,4vw,56px) 28px}
     var el=e.target;
     var hgb=el.closest("[data-hero-go]");
     if(hgb){heroGoto(+hgb.getAttribute("data-hero-go"));return}
+    var hnb=el.closest("[data-hero-nav]");
+    if(hnb){heroNext(+hnb.getAttribute("data-hero-nav"));return}
     var fbb=el.closest("[data-fab]");
     if(fbb){var fi=+fbb.getAttribute("data-fab"),flist=[];for(var fk=1;fk<=FAB_N;fk++)flist.push(["fab"+fk,"fab_item",fk]);openLb(flist,fi-1);return}
     if(el.closest("[data-lbn]")){moveLb(+el.closest("[data-lbn]").getAttribute("data-lbn"));return}
