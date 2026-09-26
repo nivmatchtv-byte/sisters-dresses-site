@@ -1360,7 +1360,7 @@ footer{padding:clamp(40px,6vw,72px) clamp(16px,4vw,56px) 28px}
     return '<div class="page-wide"><article class="prose"><a class="back" href="#top">← '+esc(t("back"))+'</a><h1 tabindex="-1">'+esc(t("n_e"))+'</h1><p>'+esc(t("eldest_p1"))+'</p><p>'+esc(t("eldest_p2"))+'</p><p>'+esc(t("eldest_p3"))+'</p><p>'+esc(t("eldest_p4"))+'</p></article><div class="gal">'+gal+'</div></div>';
   }
   function brothersHTML(){
-    var G=[["jo20","joa20","50% 15%","cap_johnnyset","#/johnnyset"],["jo1","joa1","50% 10%","cap_johnny","#/johnny"],["jo21","joa21","50% 8%","cap_johnnypants","#/johnnypants"]],gal="";
+    var G=[["jo2","joa2","50% 5%","cap_johnnyset","#/johnnyset"],["jo24","joa24","50% 45%","cap_johnny","#/johnny"],["jo28","joa28","50% 8%","cap_johnnypants","#/johnnypants"]],gal="";
     G.forEach(function(g){gal+='<a class="tile" href="'+g[4]+'"><div class="ph" role="img" aria-label="'+esc(t(g[1]))+'" style="--img:var(--i-'+g[0]+');--pos:'+g[2]+'"></div><p><span class="nm">'+esc(t(g[3]))+'</span><span class="go">'+esc(t("shop_now"))+'</span></p></a>'});
     return '<div class="page-wide"><article class="prose"><a class="back" href="#top">← '+esc(t("back"))+'</a><h1 tabindex="-1">'+esc(t("n_b"))+'</h1><p>'+esc(t("brothers_p1"))+'</p><p>'+esc(t("brothers_p2"))+'</p><p>'+esc(t("brothers_p3"))+'</p><p>'+esc(t("brothers_p4"))+'</p></article><div class="gal">'+gal+'</div></div>';
   }
