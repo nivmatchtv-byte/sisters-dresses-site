@@ -1727,7 +1727,12 @@ footer{padding:clamp(40px,6vw,72px) clamp(16px,4vw,56px) 28px}
    ]}
   }
   };
-  var HREF={l_brand:"#/brand",l_letter:"#/letter",n_about:"#/brand",n_y:"#/little",n_m:"#/middle",n_e:"#/eldest",n_b:"#/brothers"};
+  var HREF={l_brand:"#/brand",l_letter:"#/letter",n_about:"#/brand",n_y:"#/little",n_m:"#/middle",n_e:"#/eldest",n_b:"#/brothers",
+    l_all_new:"#/collection?gender=women",l_best:"#/collection?gender=women",
+    l_dresses:"#/collection?cat=dress&gender=women",l_sets:"#/collection?cat=set&gender=women",l_tops:"#/collection?cat=top&gender=women",
+    l_shorts_skirts:"#/collection?cat=skirt,shorts&gender=women",l_kimonos:"#/collection?cat=kimono&gender=women",
+    l_evening:"#/collection?cat=dress&gender=women",l_jumpsuits:"#/collection?gender=women",l_skirts:"#/collection?cat=skirt&gender=women",
+    l_shirts:"#/collection?cat=shirt&gender=men",l_kshirts:"#/collection?cat=kimono&gender=men",l_trousers:"#/collection?cat=pants&gender=men",l_shorts:"#/collection?cat=shorts&gender=men"};
   var PHOTO={brand:["jungle","alt_brand","50% 50%","1/1","50% 15%"],letter:["hoian","alt_letter","50% 50%","1/1","50% 100%"]};
   var cur=null;
   function lk(key,cls){
@@ -1937,16 +1942,20 @@ footer{padding:clamp(40px,6vw,72px) clamp(16px,4vw,56px) 28px}
     return tiles;
   }
   function collectionHTML(){
-    collActiveCat="all";
-    collActiveGender="women";
+    var qs=new URLSearchParams(curQuery||"");
+    var qCat=(qs.get("cat")||"").split(",").filter(function(c){return COLL_CATS.indexOf(c)>-1});
+    var qGender=qs.get("gender");
+    collActiveCat=qCat.length?(qCat.length===1?qCat[0]:qCat):"all";
+    collActiveGender=(qGender==="men"||qGender==="women")?qGender:"women";
+    var tabCat=Array.isArray(collActiveCat)?null:collActiveCat;
     var tiles=collectionTiles();
     var gal=tiles.map(function(x){
       return '<a class="tile" href="'+x.href+'" data-cat="'+x.cat+'" data-gender="'+x.gender+'" data-name="'+esc(x.search.toLowerCase())+'" aria-label="'+esc(x.title)+'"><div class="ph" role="img" aria-label="'+esc(t(x.alt))+'" style="--img:var(--i-'+x.img+')"></div></a>';
     }).join("")+'<p class="coll-empty" id="collEmpty" hidden>'+esc(t("coll_empty"))+'</p>';
-    var genderTabs='<button type="button" class="on" data-coll-gender="women" aria-pressed="true">'+esc(t("coll_women"))+'</button>'+
-      '<button type="button" data-coll-gender="men" aria-pressed="false">'+esc(t("coll_men"))+'</button>';
-    var tabs='<button type="button" class="on" data-coll-cat="all" aria-pressed="true">'+esc(t("coll_all"))+'</button>'+
-      COLL_CATS.map(function(c){return '<button type="button" data-coll-cat="'+c+'" aria-pressed="false">'+esc(t(COLL_CAT_LABEL[c]))+'</button>'}).join("");
+    var genderTabs='<button type="button" class="'+(collActiveGender==="women"?"on":"")+'" data-coll-gender="women" aria-pressed="'+(collActiveGender==="women"?"true":"false")+'">'+esc(t("coll_women"))+'</button>'+
+      '<button type="button" class="'+(collActiveGender==="men"?"on":"")+'" data-coll-gender="men" aria-pressed="'+(collActiveGender==="men"?"true":"false")+'">'+esc(t("coll_men"))+'</button>';
+    var tabs='<button type="button" class="'+(tabCat===null||tabCat==="all"?"on":"")+'" data-coll-cat="all" aria-pressed="'+(tabCat===null||tabCat==="all"?"true":"false")+'">'+esc(t("coll_all"))+'</button>'+
+      COLL_CATS.map(function(c){return '<button type="button" class="'+(tabCat===c?"on":"")+'" data-coll-cat="'+c+'" aria-pressed="'+(tabCat===c?"true":"false")+'">'+esc(t(COLL_CAT_LABEL[c]))+'</button>'}).join("");
     return '<div class="page-wide"><article class="prose"><a class="back" href="#top">← '+esc(t("back"))+'</a><h1 tabindex="-1">'+esc(t("collection_h"))+'</h1></article>'+
       '<div class="coll-tools"><div class="coll-tabs coll-tabs-gender" role="group">'+genderTabs+'</div><div class="coll-tabs coll-tabs-cat" role="group">'+tabs+'</div><div class="coll-search"><input type="search" id="collSearch" placeholder="'+esc(t("coll_search_ph"))+'" aria-label="'+esc(t("coll_search_ph"))+'"></div></div>'+
       '<div class="gal gal-compact" id="collGrid">'+gal+'</div></div>';
@@ -1955,7 +1964,8 @@ footer{padding:clamp(40px,6vw,72px) clamp(16px,4vw,56px) 28px}
   function collFilter(){
     var q=(($("#collSearch")||{}).value||"").trim().toLowerCase(),any=false;
     $$("#collGrid .tile").forEach(function(a){
-      var show=a.getAttribute("data-gender")===collActiveGender&&(collActiveCat==="all"||a.getAttribute("data-cat")===collActiveCat)&&(!q||a.getAttribute("data-name").indexOf(q)>-1);
+      var cat=a.getAttribute("data-cat"),catOk=collActiveCat==="all"||(Array.isArray(collActiveCat)?collActiveCat.indexOf(cat)>-1:cat===collActiveCat);
+      var show=a.getAttribute("data-gender")===collActiveGender&&catOk&&(!q||a.getAttribute("data-name").indexOf(q)>-1);
       a.hidden=!show;
       if(show)any=true;
     });
@@ -2000,9 +2010,11 @@ footer{padding:clamp(40px,6vw,72px) clamp(16px,4vw,56px) 28px}
     if(cur==="collection")collFilter();
     document.title=(cur==="little"?t("little_h"):cur==="middle"?t("n_m"):cur==="eldest"?t("n_e"):cur==="brothers"?t("n_b"):PRODUCTS[cur]?t(PRODUCTS[cur].title):cur==="fabrics"?t("fab_h"):cur==="collection"?t("collection_h"):PAGES[cur][lang].h)+" | Sisters’ Dresses";
   }
+  var curQuery="";
   function route(){
-    var h=location.hash,m=h.match(/^#\/(brand|letter|little|middle|karina|lera|roza|eldest|olga|olgablouse|olgatop|olgaskirt|victoria|victoriapants|victoriablouse|sofa|sofashorts|sofakimono|kristina|vera|kong|konglong|kongset|mariaset|mariavest|mariapants|toma|tomashirt|tomapants|annushka|irina|lidia|mia|fabrics|collection|brothers|johnny|johnnypants|johnnyset|guykimono|guypants|guytshirt|guyset|bugi|lolita|marina|dimashirt|dimapants|dimaset|minshorts)$/),home=$("#main"),pg=$("#page");
+    var h=location.hash,m=h.match(/^#\/(brand|letter|little|middle|karina|lera|roza|eldest|olga|olgablouse|olgatop|olgaskirt|victoria|victoriapants|victoriablouse|sofa|sofashorts|sofakimono|kristina|vera|kong|konglong|kongset|mariaset|mariavest|mariapants|toma|tomashirt|tomapants|annushka|irina|lidia|mia|fabrics|collection|brothers|johnny|johnnypants|johnnyset|guykimono|guypants|guytshirt|guyset|bugi|lolita|marina|dimashirt|dimapants|dimaset|minshorts)(?:\?([^]*))?$/),home=$("#main"),pg=$("#page");
     if(m){
+      curQuery=m[2]||"";
       var changed=cur!==m[1];cur=m[1];
       home.hidden=true;pg.hidden=false;renderPage();
       if(changed){window.scrollTo(0,0);var h1=$("h1",pg);if(h1)h1.focus({preventScroll:true})}
