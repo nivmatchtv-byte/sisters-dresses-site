@@ -1922,7 +1922,11 @@ footer{padding:clamp(40px,6vw,72px) clamp(16px,4vw,56px) 28px}
       return;
     }
     var crm=el.closest("[data-cart-rm]");
-    if(crm){cart.splice(+crm.getAttribute("data-cart-rm"),1);saveCart();renderCart();return}
+    if(crm){
+      var rmIdx=+crm.getAttribute("data-cart-rm"),rmIt=cart[rmIdx];
+      if(rmIt&&!rmIt.combo&&rmIt.qty>1)rmIt.qty--;else cart.splice(rmIdx,1);
+      saveCart();renderCart();return
+    }
     var csb=el.closest("[data-slot]");
     if(csb){
       var grp=csb.closest("[data-slotgroup]"),already=csb.getAttribute("aria-pressed")==="true";
