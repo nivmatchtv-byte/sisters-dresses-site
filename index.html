@@ -953,6 +953,13 @@ footer{padding:clamp(40px,6vw,72px) clamp(16px,4vw,56px) 28px}
     m_hips:"Обхват бёдер",
     m_chest:"Обхват груди",
     m_height:"Рост",
+    m_overbust:"Обхват над грудью", m_underbust:"Обхват под грудью", m_shoulder:"Ширина плеч", m_sleeve:"Длина рукава", m_length:"Длина изделия",
+    m_bustheight:"Высота груди (от плеча до центра груди)", m_bustpoint:"Расстояние между точками груди", m_backlength:"Длина спины (от плеча до талии)",
+    m_armhole_waist:"Длина от проймы до талии", m_side_hip:"Длина по боку (от талии до бедра)", m_waistknee:"Длина от талии до колена", m_dresslength:"Длина платья",
+    m_neck:"Обхват шеи", m_shirtlength:"Длина рубашки", m_bicep:"Обхват бицепса (широкая часть руки)", m_wrist:"Обхват запястья (узкая часть руки)",
+    m_armhole:"Пройма", m_shoulder_armhole:"Длина от плеча до проймы", m_backwidth:"Ширина спины (от подмышки до подмышки)", m_skirtlength:"Длина юбки",
+    m_thigh:"Обхват бедра (одной ноги)", m_calf:"Обхват икры", m_knee:"Обхват колена", m_inseam:"Длина по внутреннему шву",
+    m_rise_knee:"Длина от посадки до колена", m_rise_hip:"Длина от посадки до бедра",
     measure_ph:"см",
     measure_note:"Как правильно снять мерки — смотри в гиде по размерам.",
     err_measure_fill:"Пожалуйста, заполни все мерки",
@@ -1305,6 +1312,13 @@ footer{padding:clamp(40px,6vw,72px) clamp(16px,4vw,56px) 28px}
     m_hips:"Hips",
     m_chest:"Chest",
     m_height:"Height",
+    m_overbust:"Over-bust", m_underbust:"Under-bust", m_shoulder:"Shoulder width", m_sleeve:"Sleeve length", m_length:"Garment length",
+    m_bustheight:"Bust height (shoulder to bust point)", m_bustpoint:"Bust point to bust point", m_backlength:"Back length (shoulder to waist)",
+    m_armhole_waist:"Armhole to waist length", m_side_hip:"Side length (waist to hip)", m_waistknee:"Waist to knee length", m_dresslength:"Dress length",
+    m_neck:"Neck", m_shirtlength:"Shirt length", m_bicep:"Bicep circumference", m_wrist:"Wrist circumference",
+    m_armhole:"Armhole", m_shoulder_armhole:"Shoulder to armhole length", m_backwidth:"Back width (underarm to underarm)", m_skirtlength:"Skirt length",
+    m_thigh:"Thigh circumference", m_calf:"Calf circumference", m_knee:"Knee circumference", m_inseam:"Inseam length",
+    m_rise_knee:"Rise to knee length", m_rise_hip:"Rise to hip length",
     measure_ph:"cm",
     measure_note:"See the size guide for how to measure correctly.",
     err_measure_fill:"Please fill in all measurements",
@@ -1657,6 +1671,13 @@ footer{padding:clamp(40px,6vw,72px) clamp(16px,4vw,56px) 28px}
     m_hips:"Vòng mông",
     m_chest:"Vòng ngực",
     m_height:"Chiều cao",
+    m_overbust:"Vòng trên ngực", m_underbust:"Vòng dưới ngực", m_shoulder:"Rộng vai", m_sleeve:"Dài tay áo", m_length:"Dài áo",
+    m_bustheight:"Cao ngực (từ vai đến đỉnh ngực)", m_bustpoint:"Khoảng cách hai đầu ngực", m_backlength:"Dài lưng (từ vai đến eo)",
+    m_armhole_waist:"Dài từ nách đến eo", m_side_hip:"Dài hông (từ eo đến hông)", m_waistknee:"Dài từ eo đến đầu gối", m_dresslength:"Dài đầm",
+    m_neck:"Vòng cổ", m_shirtlength:"Dài áo sơ mi", m_bicep:"Vòng bắp tay", m_wrist:"Vòng cổ tay",
+    m_armhole:"Vòng nách", m_shoulder_armhole:"Dài từ vai đến nách", m_backwidth:"Rộng lưng (từ nách đến nách)", m_skirtlength:"Dài chân váy",
+    m_thigh:"Vòng đùi", m_calf:"Vòng bắp chân", m_knee:"Vòng đầu gối", m_inseam:"Dài đường may trong",
+    m_rise_knee:"Dài từ đũng quần đến đầu gối", m_rise_hip:"Dài từ đũng quần đến hông",
     measure_ph:"cm",
     measure_note:"Xem hướng dẫn chọn size để biết cách đo đúng.",
     err_measure_fill:"Vui lòng điền đầy đủ số đo",
@@ -1901,6 +1922,23 @@ footer{padding:clamp(40px,6vw,72px) clamp(16px,4vw,56px) 28px}
     var usd=Math.round(n/FX_VND_USD),rub=Math.round(n*FX_USD_RUB/FX_VND_USD);
     return money(n)+" · $"+fmtNum(usd)+" · "+fmtNum(rub)+" ₽"
   }
+  var MEASURE_SETS={
+    dress:["m_bust","m_waist2","m_hips","m_height","m_shoulder","m_sleeve","m_overbust","m_underbust","m_bustheight","m_bustpoint","m_backlength","m_armhole_waist","m_side_hip","m_waistknee","m_dresslength"],
+    kimono:["m_bust","m_waist2","m_hips","m_sleeve","m_length"],
+    blouse:["m_bust","m_waist2","m_shoulder","m_sleeve","m_length","m_overbust","m_underbust","m_backlength"],
+    top:["m_bust","m_waist2","m_shoulder"],
+    tshirt:["m_bust","m_waist2","m_shoulder"],
+    vest:["m_bust","m_waist2","m_armhole","m_length","m_shoulder_armhole","m_bustheight","m_bustpoint","m_backwidth","m_backlength","m_side_hip"],
+    skirt:["m_waist2","m_hips","m_skirtlength","m_side_hip"],
+    shirt:["m_chest","m_waist2","m_neck","m_shoulder","m_sleeve","m_shirtlength","m_bicep","m_wrist"],
+    jacket:["m_chest","m_waist2","m_shoulder","m_sleeve","m_length"],
+    pants:["m_waist2","m_hips","m_thigh","m_calf","m_knee","m_inseam","m_rise_knee","m_rise_hip"],
+    shorts:["m_waist2","m_hips","m_thigh","m_calf","m_knee","m_rise_knee","m_rise_hip"]
+  };
+  function measureFields(id,P){
+    var cat=COLL_CAT[id]||(P.gender==="men"?"shirt":"dress");
+    return MEASURE_SETS[cat]||(P.gender==="men"?["m_chest","m_waist2","m_height"]:["m_bust","m_waist2","m_hips","m_height"]);
+  }
   function productHTML(id){
     var P=PRODUCTS[id],I=P.imgs,th="",body="";
     curGalleryImgs=I;
@@ -1917,7 +1955,7 @@ footer{padding:clamp(40px,6vw,72px) clamp(16px,4vw,56px) 28px}
       body+='<div class="sizes" id="stdSizes"><p class="pv-vh" id="size-pick-h">'+esc(t("size_pick"))+'</p><div class="size-pick" role="group" aria-labelledby="size-pick-h">'+
         (P.sizes||["XS","S","M","L","XL"]).map(function(s){return '<button type="button" class="sz" data-size="'+s+'" aria-pressed="false">'+s+"</button>"}).join("")+
         '</div><p class="err" role="alert" id="size-err"></p></div>';
-      var mfields=P.gender==="men"?["m_chest","m_waist2","m_height"]:["m_bust","m_waist2","m_hips","m_height"];
+      var mfields=measureFields(id,P);
       body+='<div class="measure-pick" id="customSizes" hidden><p class="pv-vh">'+esc(t("measure_h"))+'</p><div class="measure-grid">'+
         mfields.map(function(k){return '<label class="measure-field"><span>'+esc(t(k))+'</span><input type="number" inputmode="decimal" min="1" data-measure="'+k+'" placeholder="'+esc(t("measure_ph"))+'"></label>'}).join("")+
         '</div><p class="measure-note">'+esc(t("measure_note"))+'</p><p class="err" role="alert" id="measure-err"></p></div>';
