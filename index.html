@@ -81,6 +81,7 @@ ul{list-style:none;margin:0;padding:0}
 .measure-field{display:flex;flex-direction:column;gap:4px;font-size:13px}
 .measure-field input{padding:9px 10px;border:1px solid var(--line);border-radius:6px;font-size:14px;background:var(--bg);color:var(--ink)}
 .measure-note{font-size:12px;color:var(--ink-soft);margin-top:8px}
+.measure-note-link{background:none;border:0;padding:0;font:inherit;font-size:12px;color:var(--ink-soft);text-decoration:underline;text-underline-offset:3px;cursor:pointer;text-align:left}
 .ci-measure{font-size:12px;color:var(--ink-soft)}
 .mob-custom{display:block;padding:14px 2px;color:var(--gold);text-decoration:none;font-weight:600;border-bottom:1px solid var(--line)}
 .nav-item:hover>.nav-link,.nav-item:focus-within>.nav-link{border-bottom-color:var(--gold)}
@@ -1958,7 +1959,7 @@ footer{padding:clamp(40px,6vw,72px) clamp(16px,4vw,56px) 28px}
       var mfields=measureFields(id,P);
       body+='<div class="measure-pick" id="customSizes" hidden><p class="pv-vh">'+esc(t("measure_h"))+'</p><div class="measure-grid">'+
         mfields.map(function(k){return '<label class="measure-field"><span>'+esc(t(k))+'</span><input type="number" inputmode="decimal" min="1" data-measure="'+k+'" placeholder="'+esc(t("measure_ph"))+'"></label>'}).join("")+
-        '</div><p class="measure-note">'+esc(t("measure_note"))+'</p><p class="err" role="alert" id="measure-err"></p></div>';
+        '</div><p class="measure-note"><button type="button" class="measure-note-link" data-open="'+(P.gender==="men"?"sizeguidemen":"sizeguide")+'">'+esc(t("measure_note"))+'</button></p><p class="err" role="alert" id="measure-err"></p></div>';
       body+='<button type="button" class="btn add-cart" data-add-cart="'+id+'">'+esc(t("add_cart"))+'</button>'+
         '<p><button type="button" class="size-link" data-open="'+(P.gender==="men"?"sizeguidemen":"sizeguide")+'">'+esc(t("size_link"))+'</button></p>';
     }
