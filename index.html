@@ -73,6 +73,16 @@ ul{list-style:none;margin:0;padding:0}
 .nav{position:relative;border-top:1px solid transparent}
 .nav>ul{display:flex;justify-content:center;gap:clamp(18px,2.6vw,40px);padding:0 24px}
 .nav-link{display:block;padding:12px 2px 13px;font-size:15px;letter-spacing:.03em;text-decoration:none;border-bottom:1px solid transparent}
+.nav-link-custom{color:var(--gold)}
+.mode-pick{display:flex;gap:10px;flex-wrap:wrap;margin:10px 0}
+.mode-btn{padding:9px 16px;border:1px solid #ccc;border-radius:999px;background:#fff;font-size:13px;letter-spacing:.02em;cursor:pointer}
+.mode-btn.on{border-color:var(--ink);background:var(--ink);color:#fff}
+.measure-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px 14px;margin-top:8px}
+.measure-field{display:flex;flex-direction:column;gap:4px;font-size:13px}
+.measure-field input{padding:9px 10px;border:1px solid #ccc;border-radius:6px;font-size:14px}
+.measure-note{font-size:12px;color:#777;margin-top:8px}
+.ci-measure{font-size:12px;color:#666}
+.mob-custom{display:block;padding:14px 20px;color:var(--gold);text-decoration:none;font-weight:600;border-bottom:1px solid #eee}
 .nav-item:hover>.nav-link,.nav-item:focus-within>.nav-link{border-bottom-color:var(--gold)}
 .mega{position:absolute;left:0;right:0;top:100%;background:var(--bg);border-bottom:1px solid var(--line);box-shadow:0 18px 30px -22px rgba(0,0,0,.35);visibility:hidden;opacity:0;transition:opacity .16s ease}
 .nav-item:hover>.mega,.nav-item:focus-within>.mega{visibility:visible;opacity:1}
@@ -108,9 +118,13 @@ ul{list-style:none;margin:0;padding:0}
 .hero h1{font:500 clamp(42px,5.6vw,84px)/1.02 var(--serif);margin:0 0 14px;text-shadow:0 2px 28px rgba(0,0,0,.35)}
 .hero .sub{font:400 clamp(20px,2vw,28px)/1.25 var(--serif);margin:0 0 30px}
 .hero .rule{display:block;width:76px;height:1px;background:#C9A45C;margin:0 0 22px}
+.hero-cta-row{display:flex;flex-wrap:wrap;align-items:center;gap:14px 28px}
 .hero-cta{display:inline-flex;align-items:center;gap:12px;color:#fff;text-decoration:none;font-size:14px;letter-spacing:.14em;text-transform:uppercase}
 .hero-cta svg{width:22px;height:12px;stroke:currentColor;fill:none;stroke-width:1.5}
 .hero-cta:hover span{text-decoration:underline;text-underline-offset:6px}
+.hero-cta-alt{border:1px solid var(--gold);padding:10px 18px;border-radius:999px}
+.hero-cta-alt:hover{background:var(--gold);color:#1a1a1a}
+.hero-cta-alt:hover span{text-decoration:none}
 
 /* rubrics */
 .rubrics{display:grid;grid-template-columns:repeat(4,1fr)}
@@ -412,7 +426,10 @@ footer{padding:clamp(40px,6vw,72px) clamp(16px,4vw,56px) 28px}
       <h1 data-i18n="hero_h1"></h1>
       <p class="sub" data-i18n="hero_sub"></p>
       <span class="rule"></span>
-      <a class="hero-cta" href="#/collection"><span data-i18n="hero_cta"></span><svg viewBox="0 0 22 12"><path d="M0 6h20M15 1l5 5-5 5"/></svg></a>
+      <div class="hero-cta-row">
+        <a class="hero-cta" href="#/collection"><span data-i18n="hero_cta"></span><svg viewBox="0 0 22 12"><path d="M0 6h20M15 1l5 5-5 5"/></svg></a>
+        <a class="hero-cta hero-cta-alt" href="#/custom"><span data-i18n="n_custom"></span><svg viewBox="0 0 22 12"><path d="M0 6h20M15 1l5 5-5 5"/></svg></a>
+      </div>
     </div>
   </section>
 
@@ -919,7 +936,27 @@ footer{padding:clamp(40px,6vw,72px) clamp(16px,4vw,56px) 28px}
     lera1:"Платье: чёрный жаккард с эффектом потрескавшегося мрамора", lera2:"Платье: серебристо-бежевый жаккард с эффектом потрескавшегося мрамора", lera3:"Платье: красно-золотой жаккард с эффектом потрескавшегося мрамора", lera4:"Платье: розовый жаккард с эффектом потрескавшегося мрамора", lera5:"Платье: разноцветный принт в виде мозаичных медальонов", lera6:"Платье: изумрудно-зелёный жаккард с эффектом потрескавшегося мрамора", lera7:"Платье: чёрное с сине-красным принтом пейсли", ip1:"Те самые брюки, которые ты возьмёшь в отпуск. А потом не захочешь снимать.", ip2:"Идеальные хлопковые брюки прямого кроя для путешествий и повседневной жизни. Натуральная дышащая ткань практически не мнётся и отлично держит форму.", ip3:"Свободный силуэт, мягкий пояс и глубокие карманы, из которых ничего не выпадает, — особенно удобно, когда ты на байке.", ip4:"Красота, комфорт и свобода в каждом движении.", ip_pl:"Маленькое предсказание от Sisters’ Dresses:", ip_pt:"В этих брюках тебя ждёт путешествие, которое изменит твою жизнь.", ia0:"Штаны Ирина на модели: широкие брюки с розовым узором и белый топ", ia1:"Брюки, вид спереди", ia2:"Брюки, вид сбоку", ia3:"Брюки, вид сзади", irv_h:"Эти же брюки в других цветах и тканях", ia4:"Брюки-палаццо: чёрные", ia5:"Брюки-палаццо: кремовые, лён", ia6:"Брюки-палаццо: чёрно-белый принт с орнаментом", ia7:"Брюки-палаццо: цветочный принт", ia8:"Брюки-палаццо: клетка", ia9:"Брюки-палаццо: розовая клетка виши", fab_h:"Ткани младших сестёр", fab_item:"Ткань", lb_prev:"Предыдущая ткань", lb_next:"Следующая ткань", fbanner_alt:"Яркая ткань с лодками, пальмами и цветами", fab_p:"Только натуральный хлопок.", see:"Смотреть", fn1:"Софа", fn2:"Мия", fn3:"Лидия", fn4:"Ирина", fa1:"Ткань с пальмовым принтом в розовых и зелёных тонах", fa2:"Красная ткань с принтом из рыбок", fa3:"Зелёная ткань с тропическими листьями", fa4:"Ткань с розовым орнаментом", sofa_p1:"Кимоно и шорты с пальмовым принтом. Только натуральный хлопок.", p0:"Костюм Софа на модели: розовое кимоно и шорты с пальмовым принтом", p1:"Кимоно, вид спереди", p2:"Кимоно, вид сбоку", p3:"Кимоно, вид сзади", p4:"Шорты, вид спереди", p5:"Шорты, вид сзади", p6:"Шорты, вид сбоку", little_p1:"Младшие сёстры. Молодые, разные, эмоциональные и свободные. Каждая со своим характером, настроением и представлением о том, как должен выглядеть идеальный день во Вьетнаме.", little_p2:"Это маленькие капсулы для жизни в тропиках — лёгкие, женственные, яркие и комфортные. Только натуральный хлопок.", little_p2b:"Одежда, в которой можно отправиться на пляж, проехать через весь город на байке, выпить кофе с подругой, встретить закат у моря и неожиданно остаться на вечеринку.", little_p3:"Все модели могут выполняться в разных цветах и принтах.", eldest_p1:"Женщины, у которых уже всё есть. Они точно знают цену вещам — и цену качеству, потому что сами и есть качество.", eldest_p2:"Здесь не бывает компромиссов. Только вещи, которым не страшны годы — чтобы носить их и в пир, и в мир, и в добрые люди.", eldest_p3:"Премиальные ткани, жаккард, кружево. Больше вечерних образов для моментов, ради которых стоит наряжаться.", eldest_p4:"Богатые, известные, самые счастливые на свете. Сильные женщины. Настоящие женщины.", cap1:"Костюм Софа", cap2:"Платье Мия", cap3:"Платье Лидия", cap4:"Штаны Ирина", g1:"Женщина в розовом кимоно и шортах с пальмовым принтом у тележки с кокосами", g2:"Красное платье с рыбками и соломенная шляпа, бег по морю", g3:"Девушка пьёт кокосовую воду под пальмами, платье с тропическим принтом на пуговицах", g4:"Широкие брюки с розовым узором и белый топ среди гигантских листьев", l_brand:"О бренде", l_letter:"Письмо сестре", back:"На главную", more_brand:"Читать о бренде", more_letter:"Читать письмо сестре", alt_brand:"Женщина в белой полупрозрачной блузке с завязками и шёлковой юбке с воланами среди тропической зелени, руки подняты", alt_letter:"Женщина в оранжевом кимоно и широких брюках с цветочным узором идёт мимо жёлтой стены, над которой цветёт бугенвиллея",vic_h:"Victoria Set",cap_v:"Костюм Виктория",vic_1:"Твой ритм. Твоя свобода. Твой идеальный костюм!",vic_2:"Утром — пилатес, днём — дела и встречи, вечером — ужин у моря. Victoria всегда в движении, и её одежда живёт в том же ритме!",vic_3:"Лёгкая свободная блузка и широкие струящиеся брюки-палаццо создают невероятно женственный силуэт. Никаких ограничений — только свобода, красота и уверенность в каждом движении.",vic_4:"Носи вместе или по отдельности. Этот костюм готов ко всему, что приготовил тебе день!",vic_pt:"В этом костюме ты всегда окажешься в нужном месте в нужное время. И обязательно встретишь того, кого давно хотела!",vic_sh:"Собери свой VICTORIA SET:",vic_c1:"Полный костюм",vic_vh:"Этот же костюм в других цветах и тканях",vica01:"Костюм Виктория на модели: блузка и широкие брюки-палаццо с лоскутным цветочным принтом среди банановых листьев",vica02:"Костюм Виктория на модели: блузка и брюки-палаццо с лоскутным принтом на белом фоне",vica03:"Блузка: лоскутный принт, вид спереди",vica04:"Блузка: лоскутный принт, вид сбоку",vica05:"Блузка: лоскутный принт, вид сзади",vica06:"Блузка: бежевая, полупрозрачная",vica07:"Блузка: чёрная, полупрозрачная",vica08:"Блузка: пудрово-розовая, полупрозрачная",vica09:"Брюки-палаццо: лоскутный принт, вид спереди крупно",vica10:"Брюки-палаццо: лоскутный принт, вид спереди",vica11:"Брюки-палаццо: лоскутный принт, вид сбоку",vica12:"Брюки-палаццо: лоскутный принт, вид сзади",vica13:"Брюки-палаццо: бежевые",vica14:"Брюки-палаццо: пудрово-розовые",vica15:"Брюки-палаццо: чёрные",ov_h:"Эта же тройка в других цветах и тканях",ova01:"Блузка: белая",ova02:"Блузка: зелёный принт, вид спереди",ova03:"Блузка: зелёный принт, вид сзади",ova04:"Блузка: серый принт пейсли",ova05:"Блузка: синий принт пейсли",ova06:"Ольга: светло-жёлтые топ и юбка с воланом на модели",ova07:"Юбка: светло-жёлтая",ova08:"Юбка: белая",ova09:"Юбка: красная",ova10:"Юбка: чёрная",ova11:"Юбка: зелёная",ova12:"Юбка: горчичная, вид сзади",ova13:"Юбка: горчичная, вид сбоку",ova14:"Юбка: горчичная, вид спереди",ova15:"Топ: белый",ova16:"Топ: светло-жёлтый",ova17:"Топ: красный",ova18:"Топ: зелёный, вид сбоку",ova19:"Топ: зелёный, вид сзади",ova20:"Топ: зелёный, вид спереди",
     size_link:"Таблица размеров", size_h:"Таблица размеров", size_note:"Готовые вещи фиксированных размеров. Ориентируйтесь на обхваты в сантиметрах.", size_col:"Размер", size_bust:"Обхват груди, см", size_waist:"Обхват талии, см", size_hips:"Обхват бёдер, см", size_pick:"Выберите размер",
     size_h_men:"Мужская таблица размеров", size_neck:"Обхват шеи, см", size_shoulder:"Обхват плеча, см", size_chestw:"Ширина груди, см", size_backw:"Ширина спины, см", size_shoulderw:"Ширина плеча, см", size_height_col:"Рост/размер",
-    size_h1:"1 (170–176 см)", size_h2:"2 (178–184 см)", size_h3:"3 (186–192 см)", size_h4:"4 (194–200 см)", err_size_pick:"Пожалуйста, выберите размер", add_cart:"В корзину", added_cart:"Добавлено в корзину", remove:"Удалить", checkout:"Оформить заказ", cart_total:"Итого:", cs_top:"Топ", collection_h:"Коллекция", cs_skirt:"Юбка", cs_blouse:"Блузка", cs_pants:"Брюки", vs_combo_name:"Комплект Виктория", cs_kimono:"Кимоно", cs_shorts:"Шорты", sf_combo_name:"Комплект Софа", cs_teaser:"Собери комплект целиком — вместе выгоднее, чем по отдельности!", cs_shirt:"Рубашка", cs_tshirt:"Футболка", toma_combo_name:"Комплект Тома", cs_total:"Итого за комплект:", cs_add:"Добавить комплект в корзину", cs_err:"Выбери хотя бы одну вещь", cs_combo_name:"Комплект Ольга", middle_p1:"Женщины, которые уже хорошо знают себя, но всё ещё с удовольствием меняются. У каждой своя жизнь, свой ритм и своё представление о женственности.", middle_p2:"Это капсулы для настоящей жизни — работы, семьи, путешествий, встреч, творчества и вечеров, которые начинаются с обычного ужина и неизвестно чем закончатся.", middle_p3:"Здесь больше шёлка, шифона, струящихся тканей, сложных силуэтов и вещей, которые легко меняют настроение. Их можно носить расслабленно днём и сделать частью вечернего образа через пять минут.", middle_p4:"Одежда для женщины, которой уже не нужно выбирать между красотой и комфортом. Она хочет и то, и другое. И желательно сразу.", price_label:"Цена:", olgablouse_h:"Olga Blouse", oblv_h:"Эта же блузка в других цветах и тканях", obl_t1:"Блузка, которая подойдёт к любому образу. Лёгкая, дышащая ткань защищает от солнца и не даёт перегреться — узелки-завязки пропускают воздух, а кожа дышит.", obl_t2:"Сдержанный крой без глубокого выреза, но с изюминкой: получается лёгкий, чуть соблазнительный образ без лишней открытости. Идеально с джинсами или джинсовыми шортами, а если надеть поверх топа — можно носить не только летом.", obl_pt:"Развяжи хотя бы один узелок — и судьба свяжет тебя с тем, о ком ты давно думаешь.", obla0:"Блузка Ольга: зелёно-золотой абстрактный принт с завязками на груди", obla1:"Блузка: тёмно-красный цветочный принт", obla2:"Блузка: разноцветный принт пейсли", obla3:"Блузка: розовый цветочный принт с хризантемами", obla4:"Блузка: тропический принт с пальмовыми листьями"
+    size_h1:"1 (170–176 см)", size_h2:"2 (178–184 см)", size_h3:"3 (186–192 см)", size_h4:"4 (194–200 см)", err_size_pick:"Пожалуйста, выберите размер", add_cart:"В корзину", added_cart:"Добавлено в корзину", remove:"Удалить", checkout:"Оформить заказ", cart_total:"Итого:", cs_top:"Топ", collection_h:"Коллекция",
+    n_custom:"Индивидуальный пошив",
+    custom_h:"Индивидуальный пошив",
+    custom_p1:"Любую вещь из нашей коллекции можно сшить по твоим собственным меркам — не подгонять готовое, а сразу сделать так, как сядет только на тебя.",
+    custom_p2:"Открой любую карточку товара, переключи «Стандартный размер» на «Свои мерки» и впиши свои цифры. Стоимость такого пошива — +30% к цене вещи.",
+    custom_p3:"Дальше всё как обычно: добавляешь в корзину, мерки сохраняются вместе с заказом, и мы шьём именно под тебя.",
+    custom_cta:"Смотреть коллекцию",
+    mode_pick_h:"Формат заказа",
+    mode_std:"Стандартный размер",
+    mode_custom:"Свои мерки (+30%)",
+    mode_custom_short:"Свои мерки",
+    measure_h:"Твои мерки, см",
+    m_bust:"Обхват груди",
+    m_waist2:"Обхват талии",
+    m_hips:"Обхват бёдер",
+    m_chest:"Обхват груди",
+    m_height:"Рост",
+    measure_ph:"см",
+    measure_note:"Как правильно снять мерки — смотри в гиде по размерам.",
+    err_measure_fill:"Пожалуйста, заполни все мерки",
+    cm_unit:"см", cs_skirt:"Юбка", cs_blouse:"Блузка", cs_pants:"Брюки", vs_combo_name:"Комплект Виктория", cs_kimono:"Кимоно", cs_shorts:"Шорты", sf_combo_name:"Комплект Софа", cs_teaser:"Собери комплект целиком — вместе выгоднее, чем по отдельности!", cs_shirt:"Рубашка", cs_tshirt:"Футболка", toma_combo_name:"Комплект Тома", cs_total:"Итого за комплект:", cs_add:"Добавить комплект в корзину", cs_err:"Выбери хотя бы одну вещь", cs_combo_name:"Комплект Ольга", middle_p1:"Женщины, которые уже хорошо знают себя, но всё ещё с удовольствием меняются. У каждой своя жизнь, свой ритм и своё представление о женственности.", middle_p2:"Это капсулы для настоящей жизни — работы, семьи, путешествий, встреч, творчества и вечеров, которые начинаются с обычного ужина и неизвестно чем закончатся.", middle_p3:"Здесь больше шёлка, шифона, струящихся тканей, сложных силуэтов и вещей, которые легко меняют настроение. Их можно носить расслабленно днём и сделать частью вечернего образа через пять минут.", middle_p4:"Одежда для женщины, которой уже не нужно выбирать между красотой и комфортом. Она хочет и то, и другое. И желательно сразу.", price_label:"Цена:", olgablouse_h:"Olga Blouse", oblv_h:"Эта же блузка в других цветах и тканях", obl_t1:"Блузка, которая подойдёт к любому образу. Лёгкая, дышащая ткань защищает от солнца и не даёт перегреться — узелки-завязки пропускают воздух, а кожа дышит.", obl_t2:"Сдержанный крой без глубокого выреза, но с изюминкой: получается лёгкий, чуть соблазнительный образ без лишней открытости. Идеально с джинсами или джинсовыми шортами, а если надеть поверх топа — можно носить не только летом.", obl_pt:"Развяжи хотя бы один узелок — и судьба свяжет тебя с тем, о ком ты давно думаешь.", obla0:"Блузка Ольга: зелёно-золотой абстрактный принт с завязками на груди", obla1:"Блузка: тёмно-красный цветочный принт", obla2:"Блузка: разноцветный принт пейсли", obla3:"Блузка: розовый цветочный принт с хризантемами", obla4:"Блузка: тропический принт с пальмовыми листьями"
   },
   en:{
     title:"Sisters’ Dresses | Atelier & Wardrobe Concierge",
@@ -1251,7 +1288,27 @@ footer{padding:clamp(40px,6vw,72px) clamp(16px,4vw,56px) 28px}
     lera1:"Dress: black jacquard with a cracked marble effect", lera2:"Dress: silvery beige jacquard with a cracked marble effect", lera3:"Dress: red and gold jacquard with a cracked marble effect", lera4:"Dress: pink jacquard with a cracked marble effect", lera5:"Dress: colorful mosaic medallion print", lera6:"Dress: emerald green jacquard with a cracked marble effect", lera7:"Dress: black with a blue and red paisley print", ip1:"The pants you’ll take on vacation. And then won’t want to take off.", ip2:"Perfect straight-cut cotton trousers for travel and everyday life. The natural, breathable fabric barely wrinkles and holds its shape beautifully.", ip3:"A relaxed silhouette, a soft waistband and deep pockets that keep everything in — especially handy when you’re on a motorbike.", ip4:"Beauty, comfort and freedom in every move.", ip_pl:"A little prediction from Sisters’ Dresses:", ip_pt:"In these pants, a journey that will change your life is waiting for you.", ia0:"Irina pants on a model: wide-leg pink-print trousers with a white top", ia1:"Trousers, front", ia2:"Trousers, side", ia3:"Trousers, back", irv_h:"These pants in other colors and fabrics", ia4:"Palazzo pants: black", ia5:"Palazzo pants: cream linen", ia6:"Palazzo pants: black-and-white ornamental print", ia7:"Palazzo pants: floral print", ia8:"Palazzo pants: plaid", ia9:"Palazzo pants: pink gingham", fab_h:"Fabrics of the younger sisters", fab_item:"Fabric", lb_prev:"Previous fabric", lb_next:"Next fabric", fbanner_alt:"Bright fabric with boats, palms and flowers", fab_p:"Only natural cotton.", see:"View", fn1:"Sofa", fn2:"Mia", fn3:"Lidia", fn4:"Irina", fa1:"Fabric with a pink and green palm print", fa2:"Red fabric with a fish print", fa3:"Green fabric with a tropical leaf print", fa4:"Fabric with a pink ornamental print", sofa_p1:"Kimono jacket and shorts in a palm print. Only natural cotton.", p0:"Sofa suit on a model: pink palm-print kimono jacket and shorts", p1:"Kimono jacket, front", p2:"Kimono jacket, side", p3:"Kimono jacket, back", p4:"Shorts, front", p5:"Shorts, back", p6:"Shorts, side", little_p1:"The younger sisters. Young, different, emotional and free. Each with her own character, mood and idea of what a perfect day in Vietnam should look like.", little_p2:"These are small capsules for life in the tropics — light, feminine, bright and comfortable. Only natural cotton.", little_p2b:"Clothes you can wear to the beach, to ride across the whole city on a motorbike, to have coffee with a friend, to watch the sunset by the sea — and to unexpectedly stay for a party.", little_p3:"All styles can be made in different colors and prints.", eldest_p1:"Women who already have it all. They know the true price of things — and of quality, because they are quality themselves.", eldest_p2:"No compromises here. Only pieces that fear no years — to wear anywhere, on any occasion.", eldest_p3:"Premium fabrics, jacquard, lace. More evening looks — for the moments worth dressing up for.", eldest_p4:"Rich, well-known, the happiest women alive. Strong women. True women.", cap1:"Sofa suit", cap2:"Mia dress", cap3:"Lidia dress", cap4:"Irina trousers", g1:"Woman in a pink palm-print kimono jacket and shorts beside a coconut cart", g2:"Red fish-print dress and straw hat, running through the sea", g3:"Woman drinking coconut water under palm trees, in a button-front tropical-print dress", g4:"Wide-leg pink-print trousers with a white top among giant leaves", l_brand:"About the brand", l_letter:"A letter to my sister", back:"Back to home", more_brand:"Read about the brand", more_letter:"Read the letter to my sister", alt_brand:"Woman in a white sheer tie-front blouse and ruffled silk wrap skirt among tropical foliage, arms raised", alt_letter:"Woman in an orange kimono and wide floral-print trousers walking past a yellow wall under blooming bougainvillea",vic_h:"Victoria Set",cap_v:"Victoria set",vic_1:"Your rhythm. Your freedom. Your perfect set!",vic_2:"Pilates in the morning, errands and meetings by day, dinner by the sea in the evening. Victoria is always on the move, and her clothes live at the same rhythm!",vic_3:"A light, relaxed blouse and wide, flowing palazzo pants create an incredibly feminine silhouette. No limits — only freedom, beauty and confidence in every move.",vic_4:"Wear them together or separately. This set is ready for whatever the day has in store for you!",vic_pt:"In this set, you will always end up in the right place at the right time. And you will definitely meet the one you have been waiting for!",vic_sh:"Build your VICTORIA SET:",vic_c1:"Full set",vic_vh:"The same set in other colors and fabrics",vica01:"Victoria set on a model: blouse and wide palazzo pants in a patchwork floral print among banana leaves",vica02:"Victoria set on a model: blouse and palazzo pants in a patchwork print on a white background",vica03:"Blouse: patchwork print, front",vica04:"Blouse: patchwork print, side",vica05:"Blouse: patchwork print, back",vica06:"Blouse: beige, sheer",vica07:"Blouse: black, sheer",vica08:"Blouse: powder pink, sheer",vica09:"Palazzo pants: patchwork print, front detail",vica10:"Palazzo pants: patchwork print, front",vica11:"Palazzo pants: patchwork print, side",vica12:"Palazzo pants: patchwork print, back",vica13:"Palazzo pants: beige",vica14:"Palazzo pants: powder pink",vica15:"Palazzo pants: black",ov_h:"The same set in other colors and fabrics",ova01:"Blouse: white",ova02:"Blouse: green print, front",ova03:"Blouse: green print, back",ova04:"Blouse: grey paisley print",ova05:"Blouse: blue paisley print",ova06:"Olga: soft yellow top and ruffle skirt on a model",ova07:"Skirt: soft yellow",ova08:"Skirt: white",ova09:"Skirt: red",ova10:"Skirt: black",ova11:"Skirt: green",ova12:"Skirt: mustard, back",ova13:"Skirt: mustard, side",ova14:"Skirt: mustard, front",ova15:"Top: white",ova16:"Top: soft yellow",ova17:"Top: red",ova18:"Top: green, side",ova19:"Top: green, back",ova20:"Top: green, front",
     size_link:"Size guide", size_h:"Size guide", size_note:"Ready-to-wear in fixed sizes. Use the measurements in centimeters as a guide.", size_col:"Size", size_bust:"Bust, cm", size_waist:"Waist, cm", size_hips:"Hips, cm", size_pick:"Select size",
     size_h_men:"Men's size guide", size_neck:"Neck, cm", size_shoulder:"Shoulder circumference, cm", size_chestw:"Chest width, cm", size_backw:"Back width, cm", size_shoulderw:"Shoulder width, cm", size_height_col:"Height/size",
-    size_h1:"1 (170–176 cm)", size_h2:"2 (178–184 cm)", size_h3:"3 (186–192 cm)", size_h4:"4 (194–200 cm)", err_size_pick:"Please select a size", add_cart:"Add to cart", added_cart:"Added to cart", remove:"Remove", checkout:"Checkout", cart_total:"Total:", cs_top:"Top", collection_h:"Collection", cs_skirt:"Skirt", cs_blouse:"Blouse", cs_pants:"Pants", vs_combo_name:"Victoria Set", cs_kimono:"Kimono", cs_shorts:"Shorts", sf_combo_name:"Sofa Set", cs_teaser:"Get the whole set — it works out cheaper together than piece by piece!", cs_shirt:"Shirt", cs_tshirt:"T-Shirt", toma_combo_name:"Toma Suit", cs_total:"Set total:", cs_add:"Add the set to cart", cs_err:"Choose at least one piece", cs_combo_name:"Olga Set", middle_p1:"Women who already know themselves well, but still enjoy changing. Each with her own life, her own rhythm, her own idea of femininity.", middle_p2:"These are capsules for real life — work, family, travel, gatherings, creativity, and evenings that start with an ordinary dinner and end who knows where.", middle_p3:"More silk here, more chiffon, flowing fabrics, elaborate silhouettes and pieces that shift mood in an instant. Wear them relaxed by day, and turn them into an evening look in five minutes.", middle_p4:"Clothes for a woman who no longer has to choose between beauty and comfort. She wants both. Preferably at once.", price_label:"Price:", olgablouse_h:"Olga Blouse", oblv_h:"This same blouse in other colors and fabrics", obl_t1:"A blouse that works with any outfit. Light, breathable fabric shields you from the sun without ever feeling hot — the tie knots let air through, so your skin can breathe.", obl_t2:"A modest cut with no plunging neckline, but with a twist: a light, subtly alluring look without being too revealing. Perfect with jeans or denim shorts — and layered over a top, it works beyond summer too.", obl_pt:"Untie just one knot — and fate will tie you to someone you've been thinking about for a while.", obla0:"Olga Blouse: green and gold abstract print with tie closures", obla1:"Blouse: dark red floral print", obla2:"Blouse: colorful paisley print", obla3:"Blouse: pink chrysanthemum floral print", obla4:"Blouse: tropical palm leaf print"
+    size_h1:"1 (170–176 cm)", size_h2:"2 (178–184 cm)", size_h3:"3 (186–192 cm)", size_h4:"4 (194–200 cm)", err_size_pick:"Please select a size", add_cart:"Add to cart", added_cart:"Added to cart", remove:"Remove", checkout:"Checkout", cart_total:"Total:", cs_top:"Top", collection_h:"Collection",
+    n_custom:"Custom Tailoring",
+    custom_h:"Custom Tailoring",
+    custom_p1:"Any piece from our collection can be made to your own measurements — not altered after the fact, but cut to fit you from the start.",
+    custom_p2:"Open any product page, switch \"Standard size\" to \"Custom measurements\" and enter your numbers. Custom tailoring costs +30% of the item's price.",
+    custom_p3:"Everything else works as usual: add to cart, your measurements are saved with the order, and we make it just for you.",
+    custom_cta:"View the collection",
+    mode_pick_h:"Order type",
+    mode_std:"Standard size",
+    mode_custom:"Custom measurements (+30%)",
+    mode_custom_short:"Custom measurements",
+    measure_h:"Your measurements, cm",
+    m_bust:"Bust",
+    m_waist2:"Waist",
+    m_hips:"Hips",
+    m_chest:"Chest",
+    m_height:"Height",
+    measure_ph:"cm",
+    measure_note:"See the size guide for how to measure correctly.",
+    err_measure_fill:"Please fill in all measurements",
+    cm_unit:"cm", cs_skirt:"Skirt", cs_blouse:"Blouse", cs_pants:"Pants", vs_combo_name:"Victoria Set", cs_kimono:"Kimono", cs_shorts:"Shorts", sf_combo_name:"Sofa Set", cs_teaser:"Get the whole set — it works out cheaper together than piece by piece!", cs_shirt:"Shirt", cs_tshirt:"T-Shirt", toma_combo_name:"Toma Suit", cs_total:"Set total:", cs_add:"Add the set to cart", cs_err:"Choose at least one piece", cs_combo_name:"Olga Set", middle_p1:"Women who already know themselves well, but still enjoy changing. Each with her own life, her own rhythm, her own idea of femininity.", middle_p2:"These are capsules for real life — work, family, travel, gatherings, creativity, and evenings that start with an ordinary dinner and end who knows where.", middle_p3:"More silk here, more chiffon, flowing fabrics, elaborate silhouettes and pieces that shift mood in an instant. Wear them relaxed by day, and turn them into an evening look in five minutes.", middle_p4:"Clothes for a woman who no longer has to choose between beauty and comfort. She wants both. Preferably at once.", price_label:"Price:", olgablouse_h:"Olga Blouse", oblv_h:"This same blouse in other colors and fabrics", obl_t1:"A blouse that works with any outfit. Light, breathable fabric shields you from the sun without ever feeling hot — the tie knots let air through, so your skin can breathe.", obl_t2:"A modest cut with no plunging neckline, but with a twist: a light, subtly alluring look without being too revealing. Perfect with jeans or denim shorts — and layered over a top, it works beyond summer too.", obl_pt:"Untie just one knot — and fate will tie you to someone you've been thinking about for a while.", obla0:"Olga Blouse: green and gold abstract print with tie closures", obla1:"Blouse: dark red floral print", obla2:"Blouse: colorful paisley print", obla3:"Blouse: pink chrysanthemum floral print", obla4:"Blouse: tropical palm leaf print"
   },
   vi:{
     title:"Sisters’ Dresses | Tiệm may & Quản gia tủ đồ",
@@ -1583,7 +1640,27 @@ footer{padding:clamp(40px,6vw,72px) clamp(16px,4vw,56px) 28px}
     lera1:"Váy: vải jacquard đen với hiệu ứng đá cẩm thạch nứt", lera2:"Váy: vải jacquard bạc be với hiệu ứng đá cẩm thạch nứt", lera3:"Váy: vải jacquard đỏ vàng với hiệu ứng đá cẩm thạch nứt", lera4:"Váy: vải jacquard hồng với hiệu ứng đá cẩm thạch nứt", lera5:"Váy: họa tiết huy hiệu khảm nhiều màu", lera6:"Váy: vải jacquard xanh ngọc lục bảo với hiệu ứng đá cẩm thạch nứt", lera7:"Váy: nền đen với họa tiết paisley xanh đỏ", ip1:"Chiếc quần bạn sẽ mang theo trong kỳ nghỉ. Rồi không muốn cởi ra nữa.", ip2:"Quần cotton dáng suông hoàn hảo cho du lịch và cuộc sống hằng ngày. Chất vải tự nhiên, thoáng khí, gần như không nhăn và giữ form rất tốt.", ip3:"Dáng rộng thoải mái, cạp mềm và túi sâu không làm rơi đồ — đặc biệt tiện khi bạn đi xe máy.", ip4:"Vẻ đẹp, sự thoải mái và tự do trong từng chuyển động.", ip_pl:"Lời tiên tri nhỏ từ Sisters’ Dresses:", ip_pt:"Trong chiếc quần này, một chuyến đi sẽ thay đổi cuộc đời bạn đang chờ bạn.", ia0:"Quần Irina trên người mẫu: quần ống rộng họa tiết hồng cùng áo trắng", ia1:"Quần, mặt trước", ia2:"Quần, góc nghiêng", ia3:"Quần, mặt sau", irv_h:"Quần này với các màu và chất liệu khác", ia4:"Quần palazzo: đen", ia5:"Quần palazzo: vải lanh kem", ia6:"Quần palazzo: họa tiết hoa văn đen trắng", ia7:"Quần palazzo: họa tiết hoa", ia8:"Quần palazzo: kẻ ca-rô", ia9:"Quần palazzo: kẻ caro hồng", fab_h:"Vải của các cô em út", fab_item:"Vải", lb_prev:"Vải trước", lb_next:"Vải sau", fbanner_alt:"Vải rực rỡ họa tiết thuyền, cọ và hoa", fab_p:"Chỉ dùng cotton tự nhiên.", see:"Xem", fn1:"Sofa", fn2:"Mia", fn3:"Lidia", fn4:"Irina", fa1:"Vải họa tiết cọ tông hồng và xanh", fa2:"Vải đỏ họa tiết cá", fa3:"Vải xanh họa tiết lá nhiệt đới", fa4:"Vải họa tiết hoa văn hồng", sofa_p1:"Áo kimono và quần short họa tiết cọ. Chỉ dùng cotton tự nhiên.", p0:"Bộ Sofa trên người mẫu: áo kimono và quần short hồng họa tiết cọ", p1:"Áo kimono, mặt trước", p2:"Áo kimono, góc nghiêng", p3:"Áo kimono, mặt sau", p4:"Quần short, mặt trước", p5:"Quần short, mặt sau", p6:"Quần short, góc nghiêng", little_p1:"Những cô em út. Trẻ trung, mỗi người một vẻ, giàu cảm xúc và tự do. Mỗi cô có tính cách, tâm trạng và quan niệm riêng về một ngày hoàn hảo ở Việt Nam.", little_p2:"Đây là những bộ sưu tập nhỏ dành cho cuộc sống nhiệt đới — nhẹ nhàng, nữ tính, rực rỡ và thoải mái. Chỉ dùng cotton tự nhiên.", little_p2b:"Trang phục để bạn ra biển, chạy xe máy xuyên thành phố, uống cà phê cùng bạn thân, ngắm hoàng hôn bên bờ biển và bất ngờ ở lại dự tiệc.", little_p3:"Tất cả mẫu đều có thể được may với nhiều màu sắc và họa tiết khác nhau.", eldest_p1:"Những người phụ nữ đã có tất cả. Họ biết rõ giá trị thật của mọi thứ — và giá trị của chất lượng, vì chính họ là chất lượng.", eldest_p2:"Ở đây không có sự thỏa hiệp. Chỉ những món đồ không sợ năm tháng — để mặc ở bất cứ đâu, trong bất kỳ dịp nào.", eldest_p3:"Chất liệu cao cấp, jacquard, ren. Nhiều hơn những vẻ ngoài dạ hội — cho những khoảnh khắc đáng để diện đẹp.", eldest_p4:"Giàu có, nổi tiếng, là những người phụ nữ hạnh phúc nhất. Những người phụ nữ mạnh mẽ. Những người phụ nữ đích thực.", cap1:"Bộ Sofa", cap2:"Váy Mia", cap3:"Váy Lidia", cap4:"Quần Irina", g1:"Cô gái mặc áo kimono và quần short hồng họa tiết cọ bên xe dừa", g2:"Váy đỏ họa tiết cá và mũ cói, chạy trên mặt biển", g3:"Cô gái uống nước dừa dưới hàng cọ, mặc váy cài nút họa tiết nhiệt đới", g4:"Quần ống rộng họa tiết hồng cùng áo hai dây trắng giữa những chiếc lá khổng lồ", l_brand:"Về thương hiệu", l_letter:"Thư gửi em gái", back:"Về trang chủ", more_brand:"Đọc về thương hiệu", more_letter:"Đọc thư gửi em gái", alt_brand:"Người phụ nữ mặc áo cánh trắng mỏng thắt dây và chân váy lụa xếp bèo giữa cây cối nhiệt đới, hai tay giơ cao", alt_letter:"Người phụ nữ mặc kimono cam và quần ống rộng họa tiết hoa, bước đi bên bức tường vàng phủ hoa giấy",vic_h:"Victoria Set",cap_v:"Bộ Victoria",vic_1:"Nhịp điệu của bạn. Sự tự do của bạn. Bộ đồ hoàn hảo của bạn!",vic_2:"Buổi sáng tập pilates, ban ngày làm việc và gặp gỡ, buổi tối ăn tối bên biển. Victoria luôn chuyển động, và trang phục của cô ấy sống cùng nhịp điệu ấy!",vic_3:"Chiếc áo cánh nhẹ nhàng, rộng rãi cùng quần palazzo ống rộng buông xuôi tạo nên dáng vẻ vô cùng nữ tính. Không giới hạn — chỉ có tự do, vẻ đẹp và sự tự tin trong từng chuyển động.",vic_4:"Mặc cả bộ hoặc mặc riêng từng món. Bộ đồ này sẵn sàng cho mọi điều ngày mới mang đến cho bạn!",vic_pt:"Trong bộ đồ này, bạn luôn xuất hiện đúng nơi đúng lúc. Và chắc chắn sẽ gặp người mà bạn đã chờ đợi bấy lâu!",vic_sh:"Tự tạo VICTORIA SET của bạn:",vic_c1:"Bộ đầy đủ",vic_vh:"Bộ đồ này với các màu sắc và loại vải khác",vica01:"Bộ Victoria trên người mẫu: áo cánh và quần palazzo ống rộng họa tiết hoa patchwork giữa những tán lá chuối",vica02:"Bộ Victoria trên người mẫu: áo cánh và quần palazzo họa tiết patchwork trên nền trắng",vica03:"Áo cánh: họa tiết patchwork, mặt trước",vica04:"Áo cánh: họa tiết patchwork, góc nghiêng",vica05:"Áo cánh: họa tiết patchwork, mặt sau",vica06:"Áo cánh: màu be, voan mỏng",vica07:"Áo cánh: màu đen, voan mỏng",vica08:"Áo cánh: hồng phấn, voan mỏng",vica09:"Quần palazzo: họa tiết patchwork, cận cảnh mặt trước",vica10:"Quần palazzo: họa tiết patchwork, mặt trước",vica11:"Quần palazzo: họa tiết patchwork, góc nghiêng",vica12:"Quần palazzo: họa tiết patchwork, mặt sau",vica13:"Quần palazzo: màu be",vica14:"Quần palazzo: hồng phấn",vica15:"Quần palazzo: màu đen",ov_h:"Bộ ba món này với các màu sắc và loại vải khác",ova01:"Áo cánh: trắng",ova02:"Áo cánh: họa tiết xanh lục, mặt trước",ova03:"Áo cánh: họa tiết xanh lục, mặt sau",ova04:"Áo cánh: họa tiết paisley xám",ova05:"Áo cánh: họa tiết paisley xanh dương",ova06:"Olga: áo hai dây và chân váy xếp bèo màu vàng nhạt trên người mẫu",ova07:"Chân váy: vàng nhạt",ova08:"Chân váy: trắng",ova09:"Chân váy: đỏ",ova10:"Chân váy: đen",ova11:"Chân váy: xanh lục",ova12:"Chân váy: vàng mù tạt, mặt sau",ova13:"Chân váy: vàng mù tạt, góc nghiêng",ova14:"Chân váy: vàng mù tạt, mặt trước",ova15:"Áo hai dây: trắng",ova16:"Áo hai dây: vàng nhạt",ova17:"Áo hai dây: đỏ",ova18:"Áo hai dây: xanh lục, góc nghiêng",ova19:"Áo hai dây: xanh lục, mặt sau",ova20:"Áo hai dây: xanh lục, mặt trước",
     size_link:"Bảng size", size_h:"Bảng size", size_note:"Hàng may sẵn theo size cố định. Hãy tham khảo số đo tính bằng cm.", size_col:"Size", size_bust:"Vòng ngực, cm", size_waist:"Vòng eo, cm", size_hips:"Vòng mông, cm", size_pick:"Chọn size",
     size_h_men:"Bảng size nam", size_neck:"Vòng cổ, cm", size_shoulder:"Vòng vai, cm", size_chestw:"Rộng ngực, cm", size_backw:"Rộng lưng, cm", size_shoulderw:"Rộng vai, cm", size_height_col:"Chiều cao/size",
-    size_h1:"1 (170–176 cm)", size_h2:"2 (178–184 cm)", size_h3:"3 (186–192 cm)", size_h4:"4 (194–200 cm)", err_size_pick:"Vui lòng chọn size", add_cart:"Thêm vào giỏ", added_cart:"Đã thêm vào giỏ hàng", remove:"Xóa", checkout:"Thanh toán", cart_total:"Tổng cộng:", cs_top:"Áo hai dây", collection_h:"Bộ sưu tập", cs_skirt:"Chân váy", cs_blouse:"Áo blouse", cs_pants:"Quần", vs_combo_name:"Bộ Victoria", cs_kimono:"Áo kimono", cs_shorts:"Quần short", sf_combo_name:"Bộ Sofa", cs_teaser:"Chọn trọn bộ — mua chung sẽ tiết kiệm hơn mua từng món!", cs_shirt:"Áo sơ mi", cs_tshirt:"Áo thun", toma_combo_name:"Bộ Toma", cs_total:"Tổng bộ:", cs_add:"Thêm bộ vào giỏ hàng", cs_err:"Chọn ít nhất một món", cs_combo_name:"Bộ Olga", middle_p1:"Những người phụ nữ đã hiểu rõ bản thân, nhưng vẫn thích thay đổi. Mỗi người có cuộc sống riêng, nhịp điệu riêng và quan niệm riêng về nét nữ tính.", middle_p2:"Đây là những bộ sưu tập cho cuộc sống thực — công việc, gia đình, những chuyến đi, những cuộc gặp gỡ, sáng tạo và những buổi tối bắt đầu từ một bữa ăn bình thường rồi không biết sẽ kết thúc ra sao.", middle_p3:"Ở đây có nhiều lụa, voan, chất liệu mềm mại buông rủ, kiểu dáng tinh tế và những món đồ dễ dàng thay đổi tâm trạng. Có thể mặc thoải mái ban ngày và biến thành trang phục dạ hội chỉ trong năm phút.", middle_p4:"Trang phục cho người phụ nữ không còn phải chọn giữa vẻ đẹp và sự thoải mái. Cô ấy muốn cả hai. Và tốt nhất là cùng một lúc.", price_label:"Giá:", olgablouse_h:"Olga Blouse", oblv_h:"Cùng chiếc áo này với các màu và chất liệu khác", obl_t1:"Chiếc áo hợp với mọi trang phục. Vải nhẹ, thoáng khí giúp che nắng mà không hề nóng bức — các nút thắt cho không khí lọt qua, để làn da được thở.", obl_t2:"Kiểu dáng kín đáo, không cổ sâu, nhưng vẫn có điểm nhấn riêng: tạo nên vẻ ngoài nhẹ nhàng, hơi quyến rũ mà không hở hang. Rất hợp với quần jeans hay short jeans, và khi mặc phối cùng áo hai dây bên trong, có thể mặc quanh năm chứ không chỉ mùa hè.", obl_pt:"Chỉ cần cởi một nút thắt thôi — số phận sẽ gắn kết bạn với người bạn vẫn hằng nghĩ đến.", obla0:"Áo Olga: họa tiết trừu tượng xanh lá và vàng với dây buộc", obla1:"Áo: họa tiết hoa đỏ sẫm", obla2:"Áo: họa tiết paisley nhiều màu", obla3:"Áo: họa tiết hoa cúc hồng", obla4:"Áo: họa tiết lá cọ nhiệt đới"
+    size_h1:"1 (170–176 cm)", size_h2:"2 (178–184 cm)", size_h3:"3 (186–192 cm)", size_h4:"4 (194–200 cm)", err_size_pick:"Vui lòng chọn size", add_cart:"Thêm vào giỏ", added_cart:"Đã thêm vào giỏ hàng", remove:"Xóa", checkout:"Thanh toán", cart_total:"Tổng cộng:", cs_top:"Áo hai dây", collection_h:"Bộ sưu tập",
+    n_custom:"May đo riêng",
+    custom_h:"May đo riêng",
+    custom_p1:"Bất kỳ món nào trong bộ sưu tập của chúng tôi đều có thể may theo số đo của riêng bạn — không phải chỉnh sửa đồ có sẵn, mà may vừa vặn với bạn ngay từ đầu.",
+    custom_p2:"Mở bất kỳ trang sản phẩm nào, chuyển từ «Size tiêu chuẩn» sang «Số đo riêng» và nhập số đo của bạn. May đo riêng có giá +30% giá trị sản phẩm.",
+    custom_p3:"Phần còn lại vẫn như bình thường: thêm vào giỏ hàng, số đo của bạn được lưu cùng đơn hàng, và chúng tôi may riêng cho bạn.",
+    custom_cta:"Xem bộ sưu tập",
+    mode_pick_h:"Loại đơn hàng",
+    mode_std:"Size tiêu chuẩn",
+    mode_custom:"Số đo riêng (+30%)",
+    mode_custom_short:"Số đo riêng",
+    measure_h:"Số đo của bạn, cm",
+    m_bust:"Vòng ngực",
+    m_waist2:"Vòng eo",
+    m_hips:"Vòng mông",
+    m_chest:"Vòng ngực",
+    m_height:"Chiều cao",
+    measure_ph:"cm",
+    measure_note:"Xem hướng dẫn chọn size để biết cách đo đúng.",
+    err_measure_fill:"Vui lòng điền đầy đủ số đo",
+    cm_unit:"cm", cs_skirt:"Chân váy", cs_blouse:"Áo blouse", cs_pants:"Quần", vs_combo_name:"Bộ Victoria", cs_kimono:"Áo kimono", cs_shorts:"Quần short", sf_combo_name:"Bộ Sofa", cs_teaser:"Chọn trọn bộ — mua chung sẽ tiết kiệm hơn mua từng món!", cs_shirt:"Áo sơ mi", cs_tshirt:"Áo thun", toma_combo_name:"Bộ Toma", cs_total:"Tổng bộ:", cs_add:"Thêm bộ vào giỏ hàng", cs_err:"Chọn ít nhất một món", cs_combo_name:"Bộ Olga", middle_p1:"Những người phụ nữ đã hiểu rõ bản thân, nhưng vẫn thích thay đổi. Mỗi người có cuộc sống riêng, nhịp điệu riêng và quan niệm riêng về nét nữ tính.", middle_p2:"Đây là những bộ sưu tập cho cuộc sống thực — công việc, gia đình, những chuyến đi, những cuộc gặp gỡ, sáng tạo và những buổi tối bắt đầu từ một bữa ăn bình thường rồi không biết sẽ kết thúc ra sao.", middle_p3:"Ở đây có nhiều lụa, voan, chất liệu mềm mại buông rủ, kiểu dáng tinh tế và những món đồ dễ dàng thay đổi tâm trạng. Có thể mặc thoải mái ban ngày và biến thành trang phục dạ hội chỉ trong năm phút.", middle_p4:"Trang phục cho người phụ nữ không còn phải chọn giữa vẻ đẹp và sự thoải mái. Cô ấy muốn cả hai. Và tốt nhất là cùng một lúc.", price_label:"Giá:", olgablouse_h:"Olga Blouse", oblv_h:"Cùng chiếc áo này với các màu và chất liệu khác", obl_t1:"Chiếc áo hợp với mọi trang phục. Vải nhẹ, thoáng khí giúp che nắng mà không hề nóng bức — các nút thắt cho không khí lọt qua, để làn da được thở.", obl_t2:"Kiểu dáng kín đáo, không cổ sâu, nhưng vẫn có điểm nhấn riêng: tạo nên vẻ ngoài nhẹ nhàng, hơi quyến rũ mà không hở hang. Rất hợp với quần jeans hay short jeans, và khi mặc phối cùng áo hai dây bên trong, có thể mặc quanh năm chứ không chỉ mùa hè.", obl_pt:"Chỉ cần cởi một nút thắt thôi — số phận sẽ gắn kết bạn với người bạn vẫn hằng nghĩ đến.", obla0:"Áo Olga: họa tiết trừu tượng xanh lá và vàng với dây buộc", obla1:"Áo: họa tiết hoa đỏ sẫm", obla2:"Áo: họa tiết paisley nhiều màu", obla3:"Áo: họa tiết hoa cúc hồng", obla4:"Áo: họa tiết lá cọ nhiệt đới"
   }};
 
   var PAGES={
@@ -1833,11 +1910,18 @@ footer{padding:clamp(40px,6vw,72px) clamp(16px,4vw,56px) 28px}
     P.texts.forEach(function(k){body+="<p>"+esc(t(k))+"</p>"});
     if(P.link)body+='<p><a href="'+P.link[0]+'" style="text-underline-offset:5px">'+esc(t(P.link[1]))+' →</a></p>';
     if(P.price){
-      body+='<p class="price">'+esc(t("price_label"))+" "+esc(priceLine(P.price))+"</p>";
-      body+='<div class="sizes"><p class="pv-vh" id="size-pick-h">'+esc(t("size_pick"))+'</p><div class="size-pick" role="group" aria-labelledby="size-pick-h">'+
+      body+='<p class="price">'+esc(t("price_label"))+' <span class="price-val" id="pvPriceVal" data-base="'+P.price+'">'+esc(priceLine(P.price))+'</span></p>';
+      body+='<div class="mode-pick" role="group" aria-label="'+esc(t("mode_pick_h"))+'">'+
+        '<button type="button" class="mode-btn on" data-mode="std" aria-pressed="true">'+esc(t("mode_std"))+'</button>'+
+        '<button type="button" class="mode-btn" data-mode="custom" aria-pressed="false">'+esc(t("mode_custom"))+'</button></div>';
+      body+='<div class="sizes" id="stdSizes"><p class="pv-vh" id="size-pick-h">'+esc(t("size_pick"))+'</p><div class="size-pick" role="group" aria-labelledby="size-pick-h">'+
         (P.sizes||["XS","S","M","L","XL"]).map(function(s){return '<button type="button" class="sz" data-size="'+s+'" aria-pressed="false">'+s+"</button>"}).join("")+
-        '</div><p class="err" role="alert" id="size-err"></p></div>'+
-        '<button type="button" class="btn add-cart" data-add-cart="'+id+'">'+esc(t("add_cart"))+'</button>'+
+        '</div><p class="err" role="alert" id="size-err"></p></div>';
+      var mfields=P.gender==="men"?["m_chest","m_waist2","m_height"]:["m_bust","m_waist2","m_hips","m_height"];
+      body+='<div class="measure-pick" id="customSizes" hidden><p class="pv-vh">'+esc(t("measure_h"))+'</p><div class="measure-grid">'+
+        mfields.map(function(k){return '<label class="measure-field"><span>'+esc(t(k))+'</span><input type="number" inputmode="decimal" min="1" data-measure="'+k+'" placeholder="'+esc(t("measure_ph"))+'"></label>'}).join("")+
+        '</div><p class="measure-note">'+esc(t("measure_note"))+'</p><p class="err" role="alert" id="measure-err"></p></div>';
+      body+='<button type="button" class="btn add-cart" data-add-cart="'+id+'">'+esc(t("add_cart"))+'</button>'+
         '<p><button type="button" class="size-link" data-open="'+(P.gender==="men"?"sizeguidemen":"sizeguide")+'">'+esc(t("size_link"))+'</button></p>';
     }
     if(P.predict)body+='<div class="predict"><p class="pl">'+esc(t(P.predict[0]))+'</p><p class="pt">'+esc(t(P.predict[1]))+"</p></div>";
@@ -1909,6 +1993,10 @@ footer{padding:clamp(40px,6vw,72px) clamp(16px,4vw,56px) 28px}
     if(sv)sv.textContent=save>0?t("os_save").replace("{n}",priceLine(save)):"";
   }
   var FAB_N=25;
+  function customHTML(){
+    return '<div class="page-in"><article class="prose"><a class="back" href="#top">← '+esc(t("back"))+'</a><h1 tabindex="-1">'+esc(t("custom_h"))+'</h1><p>'+esc(t("custom_p1"))+'</p><p>'+esc(t("custom_p2"))+'</p><p>'+esc(t("custom_p3"))+'</p>'+
+      '<div class="more"><a href="#/collection">'+esc(t("custom_cta"))+' →</a></div></article></div>';
+  }
   function fabricsHTML(){
     var h="";
     for(var i=1;i<=FAB_N;i++)h+='<button type="button" class="fab" data-fab="'+i+'" aria-label="'+esc(t("fab_item"))+' '+i+'"><span class="ph" style="--img:var(--i-fab'+i+')"></span></button>';
@@ -2013,6 +2101,7 @@ footer{padding:clamp(40px,6vw,72px) clamp(16px,4vw,56px) 28px}
     if(id==="middle")return middleHTML();
     if(id==="fabrics")return fabricsHTML();
     if(id==="collection")return collectionHTML();
+    if(id==="custom")return customHTML();
     if(PRODUCTS[id]&&PRODUCTS[id].slots)return comboSetHTML(id);
     if(PRODUCTS[id])return productHTML(id);
     if(id==="little")return littleHTML();
@@ -2034,11 +2123,11 @@ footer{padding:clamp(40px,6vw,72px) clamp(16px,4vw,56px) 28px}
     if(!cur)return;
     $("#page").innerHTML=pageHTML(cur);
     if(cur==="collection")collFilter();
-    document.title=(cur==="little"?t("little_h"):cur==="middle"?t("n_m"):cur==="eldest"?t("n_e"):cur==="brothers"?t("n_b"):PRODUCTS[cur]?t(PRODUCTS[cur].title):cur==="fabrics"?t("fab_h"):cur==="collection"?t("collection_h"):PAGES[cur][lang].h)+" | Sisters’ Dresses";
+    document.title=(cur==="little"?t("little_h"):cur==="middle"?t("n_m"):cur==="eldest"?t("n_e"):cur==="brothers"?t("n_b"):PRODUCTS[cur]?t(PRODUCTS[cur].title):cur==="fabrics"?t("fab_h"):cur==="collection"?t("collection_h"):cur==="custom"?t("custom_h"):PAGES[cur][lang].h)+" | Sisters’ Dresses";
   }
   var curQuery="";
   function route(){
-    var h=location.hash,m=h.match(/^#\/(brand|letter|little|middle|karina|lera|roza|eldest|olga|olgablouse|olgatop|olgaskirt|victoria|victoriapants|victoriablouse|sofa|sofashorts|sofakimono|kristina|vera|kong|konglong|kongset|mariaset|mariavest|mariapants|toma|tomashirt|tomapants|annushka|irina|lidia|mia|fabrics|collection|brothers|johnny|johnnypants|johnnyset|guykimono|guypants|guytshirt|guyset|bugi|lolita|marina|dimashirt|dimapants|dimaset|minshorts|minshirt|romanshirt)(?:\?([^]*))?$/),home=$("#main"),pg=$("#page");
+    var h=location.hash,m=h.match(/^#\/(brand|letter|little|middle|karina|lera|roza|eldest|olga|olgablouse|olgatop|olgaskirt|victoria|victoriapants|victoriablouse|sofa|sofashorts|sofakimono|kristina|vera|kong|konglong|kongset|mariaset|mariavest|mariapants|toma|tomashirt|tomapants|annushka|irina|lidia|mia|fabrics|collection|brothers|johnny|johnnypants|johnnyset|guykimono|guypants|guytshirt|guyset|bugi|lolita|marina|dimashirt|dimapants|dimaset|minshorts|minshirt|romanshirt|custom)(?:\?([^]*))?$/),home=$("#main"),pg=$("#page");
     if(m){
       curQuery=m[2]||"";
       var changed=cur!==m[1];cur=m[1];
@@ -2078,6 +2167,8 @@ footer{padding:clamp(40px,6vw,72px) clamp(16px,4vw,56px) 28px}
       var mob=n.cols.map(function(c){return (c.t?'<li class="sub">'+esc(t(c.t))+"</li>":"")+c.k.map(function(x){return "<li>"+lk(x)+"</li>"}).join("")}).join("");
       h2+="<details><summary>"+esc(t(n.l))+"</summary><ul>"+mob+"</ul></details>";
     });
+    h1+='<li class="nav-item"><a class="nav-link nav-link-custom" href="#/custom">'+esc(t("n_custom"))+'</a></li>';
+    h2+='<a class="mob-custom" href="#/custom">'+esc(t("n_custom"))+'</a>';
     $("#navlist").innerHTML=h1;$("#mobnav").innerHTML=h2;
   }
 
@@ -2151,7 +2242,8 @@ footer{padding:clamp(40px,6vw,72px) clamp(16px,4vw,56px) 28px}
         h+='<div class="cart-item"><div class="ci-ph" style="--img:var(--i-'+it.parts[0].cid+')"></div><div class="ci-info"><p class="ci-name">'+esc(t(comboNameKey))+"</p>"+partsHtml+'<p class="ci-price">'+esc(priceLine(it.price))+"</p>"+'<button type="button" class="ci-x" data-cart-rm="'+i+'">'+esc(t("remove"))+"</button></div></div>";
         return;
       }
-      h+='<div class="cart-item"><div class="ci-ph" style="--img:var(--i-'+it.img+')"></div><div class="ci-info"><p class="ci-name">'+esc(t(it.title))+'</p><p class="ci-size">'+esc(t("size_col"))+": "+esc(it.size)+(it.qty>1?" × "+it.qty:"")+"</p>"+(it.price?'<p class="ci-price">'+esc(priceLine(it.price))+"</p>":"")+'<button type="button" class="ci-x" data-cart-rm="'+i+'">'+esc(t("remove"))+"</button></div></div>";
+      var measureHtml=(it.custom&&it.measurements)?Object.keys(it.measurements).map(function(k){return '<p class="ci-measure">'+esc(t(k))+": "+esc(it.measurements[k])+" "+esc(t("cm_unit"))+"</p>"}).join(""):"";
+      h+='<div class="cart-item"><div class="ci-ph" style="--img:var(--i-'+it.img+')"></div><div class="ci-info"><p class="ci-name">'+esc(t(it.title))+'</p><p class="ci-size">'+esc(t("size_col"))+": "+esc(it.size)+(it.qty>1?" × "+it.qty:"")+"</p>"+measureHtml+(it.price?'<p class="ci-price">'+esc(priceLine(it.price))+"</p>":"")+'<button type="button" class="ci-x" data-cart-rm="'+i+'">'+esc(t("remove"))+"</button></div></div>";
     });
     h+='<div class="cart-total"><span>'+esc(t("cart_total"))+'</span><span>'+esc(priceLine(cartTotal()))+"</span></div>";
     h+='<button class="btn cart-checkout" type="button" data-soon-btn="toast_soon">'+esc(t("checkout"))+'</button><button class="link-btn" type="button" data-close>'+esc(t("continue"))+"</button>";
@@ -2163,6 +2255,12 @@ footer{padding:clamp(40px,6vw,72px) clamp(16px,4vw,56px) 28px}
     var ex=null;
     for(var i=0;i<cart.length;i++){if(cart[i].id===id&&cart[i].size===size&&cart[i].img===img){ex=cart[i];break}}
     if(ex)ex.qty++;else cart.push({id:id,title:P.title,img:img,price:P.price||null,size:size,qty:1});
+    saveCart();renderCart();toast(t("added_cart"));
+  }
+  function addToCartCustom(id,measurements){
+    var P=PRODUCTS[id];if(!P)return;
+    var m=$("#pvmain"),img=(m&&m.getAttribute("data-cur"))||P.imgs[0][0];
+    cart.push({id:id,title:P.title,img:img,price:Math.round((P.price||0)*1.3),size:t("mode_custom_short"),qty:1,custom:true,measurements:measurements});
     saveCart();renderCart();toast(t("added_cart"));
   }
 
@@ -2277,6 +2375,21 @@ footer{padding:clamp(40px,6vw,72px) clamp(16px,4vw,56px) 28px}
       openLb(curGalleryImgs.map(function(x){return [x[0],x[3]]}),gi===-1?0:gi);
       return;
     }
+    var mdb=el.closest("[data-mode]");
+    if(mdb){
+      var mode=mdb.getAttribute("data-mode"),mp=mdb.closest(".mode-pick");
+      $$(".mode-btn",mp).forEach(function(b){b.classList.toggle("on",b===mdb);b.setAttribute("aria-pressed",b===mdb?"true":"false")});
+      var stdBox=$("#stdSizes"),custBox=$("#customSizes"),pvv=$("#pvPriceVal");
+      if(stdBox)stdBox.hidden=mode==="custom";
+      if(custBox)custBox.hidden=mode!=="custom";
+      if(pvv){
+        var base=+pvv.getAttribute("data-base");
+        pvv.textContent=priceLine(mode==="custom"?Math.round(base*1.3):base);
+      }
+      var se0=$("#size-err");if(se0)se0.textContent="";
+      var me0=$("#measure-err");if(me0)me0.textContent="";
+      return;
+    }
     var szb=el.closest("[data-size]");
     if(szb){
       $$(".sz",szb.closest(".size-pick")).forEach(function(b){b.setAttribute("aria-pressed","false")});
@@ -2286,9 +2399,22 @@ footer{padding:clamp(40px,6vw,72px) clamp(16px,4vw,56px) 28px}
     }
     var acb=el.closest("[data-add-cart]");
     if(acb){
+      var pid=acb.getAttribute("data-add-cart");
+      var customOn=$(".mode-btn[data-mode=\"custom\"].on");
+      if(customOn){
+        var mvals={},mok=true;
+        $$("#customSizes [data-measure]").forEach(function(inp){
+          var v=inp.value.trim();
+          if(!v)mok=false;
+          mvals[inp.getAttribute("data-measure")]=v;
+        });
+        if(!mok){var me2=$("#measure-err");if(me2)me2.textContent=t("err_measure_fill");return}
+        addToCartCustom(pid,mvals);
+        return;
+      }
       var szsel=$('.size-pick .sz[aria-pressed="true"]');
       if(!szsel){var se2=$("#size-err");if(se2)se2.textContent=t("err_size_pick");return}
-      addToCart(acb.getAttribute("data-add-cart"),szsel.getAttribute("data-size"));
+      addToCart(pid,szsel.getAttribute("data-size"));
       return;
     }
     var crm=el.closest("[data-cart-rm]");
