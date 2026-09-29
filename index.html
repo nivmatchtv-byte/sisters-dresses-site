@@ -2085,8 +2085,15 @@ footer{padding:clamp(40px,6vw,72px) clamp(16px,4vw,56px) 28px}
     el.textContent=priceLine(total);
     if(sv)sv.textContent=save>0?t("os_save").replace("{n}",priceLine(save)):"";
   }
-  var FAB_N=25;
   var FAB_CATS=["cotton","linen","silk","chiffon","satin","jacquard"];
+  var FAB_ITEMS={
+    cotton:[1,2,3,4,5,6,7,8,9,10,12,13,14,15,16,17,18,19,20,21,22,23,24,25].map(function(i){return "fab"+i}),
+    linen:["fab11"],
+    silk:[],
+    chiffon:[],
+    satin:[],
+    jacquard:[]
+  };
   function customHTML(){
     return '<div class="page-in"><article class="prose"><a class="back" href="#top">← '+esc(t("back"))+'</a><h1 tabindex="-1">'+esc(t("custom_h"))+'</h1><p>'+esc(t("custom_p1"))+'</p><p>'+esc(t("custom_p2"))+'</p><p>'+esc(t("custom_p3"))+'</p>'+
       '<div class="more"><a href="#/collection">'+esc(t("custom_cta"))+' →</a></div><div class="more"><a href="#/measure">'+esc(t("ms_h"))+' →</a></div></article></div>';
@@ -2101,14 +2108,15 @@ footer{padding:clamp(40px,6vw,72px) clamp(16px,4vw,56px) 28px}
     if(!cat){
       var tiles="";
       FAB_CATS.forEach(function(c){
-        tiles+='<a class="tile'+(c==="cotton"?"":" tile-empty")+'" href="#/fabrics?cat='+c+'">'+(c==="cotton"?'<div class="ph" role="img" aria-label="'+esc(t("fab_cat_"+c))+'" style="--img:var(--i-fab1);--pos:50% 50%"></div>':"")+'<p><span class="nm">'+esc(t("fab_cat_"+c))+'</span><span class="go">'+esc(t("see"))+'</span></p></a>';
+        var cover=(FAB_ITEMS[c]||[])[0];
+        tiles+='<a class="tile'+(cover?"":" tile-empty")+'" href="#/fabrics?cat='+c+'">'+(cover?'<div class="ph" role="img" aria-label="'+esc(t("fab_cat_"+c))+'" style="--img:var(--i-'+cover+');--pos:50% 50%"></div>':"")+'<p><span class="nm">'+esc(t("fab_cat_"+c))+'</span><span class="go">'+esc(t("see"))+'</span></p></a>';
       });
       return '<div class="page-wide"><article class="prose"><a class="back" href="#top">← '+esc(t("back"))+'</a><h1 tabindex="-1">'+esc(t("fab_h"))+'</h1><p>'+esc(t("fab_hub_p"))+'</p></article><div class="gal">'+tiles+'</div></div>';
     }
-    var body;
-    if(cat==="cotton"){
+    var body,items=FAB_ITEMS[cat]||[];
+    if(items.length){
       var h="";
-      for(var i=1;i<=FAB_N;i++)h+='<button type="button" class="fab" data-fab="'+i+'" aria-label="'+esc(t("fab_item"))+' '+i+'"><span class="ph" style="--img:var(--i-fab'+i+')"></span></button>';
+      items.forEach(function(key,idx){h+='<button type="button" class="fab" data-fabcat="'+cat+'" data-fabidx="'+idx+'" aria-label="'+esc(t("fab_item"))+' '+(idx+1)+'"><span class="ph" style="--img:var(--i-'+key+')"></span></button>'});
       body='<div class="fab-grid">'+h+'</div>';
     }else{
       body='<p class="fab-soon">'+esc(t("fab_soon"))+'</p>';
@@ -2567,8 +2575,12 @@ footer{padding:clamp(40px,6vw,72px) clamp(16px,4vw,56px) 28px}
       collFilter();
       return;
     }
-    var fbb=el.closest("[data-fab]");
-    if(fbb){var fi=+fbb.getAttribute("data-fab"),flist=[];for(var fk=1;fk<=FAB_N;fk++)flist.push(["fab"+fk,"fab_item",fk]);openLb(flist,fi-1);return}
+    var fbb=el.closest("[data-fabcat]");
+    if(fbb){
+      var fcat=fbb.getAttribute("data-fabcat"),fidx=+fbb.getAttribute("data-fabidx"),fitems=FAB_ITEMS[fcat]||[];
+      var flist=fitems.map(function(key,idx){return [key,"fab_item",idx+1]});
+      openLb(flist,fidx);return;
+    }
     if(el.closest("[data-lbn]")){moveLb(+el.closest("[data-lbn]").getAttribute("data-lbn"));return}
     if(el.closest("[data-lbx]")||el===$("#lb")){closeLb();return}
     var pvb=el.closest("[data-pv]");
