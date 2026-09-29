@@ -295,6 +295,7 @@ footer{padding:clamp(40px,6vw,72px) clamp(16px,4vw,56px) 28px}
 .mob-nav summary{list-style:none;cursor:pointer;padding:16px 2px;font-size:17px;display:flex;justify-content:space-between}
 .mob-nav summary::-webkit-details-marker{display:none}
 .mob-nav summary::after{content:"+";font-size:20px;line-height:1}
+.mob-nav summary a{text-decoration:none;color:inherit}
 .mob-nav details[open] summary::after{content:"–"}
 .mob-nav ul{padding:0 2px 14px}
 .mob-nav li a{display:block;padding:8px 0;text-decoration:none;color:var(--ink-soft)}
@@ -2401,7 +2402,8 @@ footer{padding:clamp(40px,6vw,72px) clamp(16px,4vw,56px) 28px}
       var feats=n.f.length?'<div class="feat">'+n.f.map(function(f){return (HREF[n.l]?'<a href="'+HREF[n.l]+'">':'<a href="#" data-soon>')+'<div class="ph" style="--img:var(--i-'+f[0]+');--pos:'+f[2]+'"></div>'+esc(t(f[1]))+"</a>"}).join("")+"</div>":"";
       h1+='<li class="nav-item">'+lk(n.l,"nav-link")+'<div class="mega"><div class="mega-in">'+cols+feats+"</div></div></li>";
       var mob=n.cols.map(function(c){return (c.t?'<li class="sub">'+esc(t(c.t))+"</li>":"")+c.k.map(function(x){return "<li>"+lk(x)+"</li>"}).join("")}).join("");
-      h2+="<details><summary>"+esc(t(n.l))+"</summary><ul>"+mob+"</ul></details>";
+      var mobLabel=HREF[n.l]?'<a href="'+HREF[n.l]+'">'+esc(t(n.l))+"</a>":esc(t(n.l));
+      h2+="<details><summary>"+mobLabel+"</summary><ul>"+mob+"</ul></details>";
     });
     h1+='<li class="nav-item"><a class="nav-link nav-link-custom" href="#/custom">'+esc(t("n_custom"))+'</a></li>';
     h2+='<a class="mob-custom" href="#/custom">'+esc(t("n_custom"))+'</a>';
