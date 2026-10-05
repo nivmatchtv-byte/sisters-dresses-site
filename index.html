@@ -2751,6 +2751,8 @@ footer{padding:clamp(40px,6vw,72px) clamp(16px,4vw,56px) 28px}
   syncFooter();
   if(mq.addEventListener)mq.addEventListener("change",syncFooter);
 
+  if(location.search&&history.replaceState)history.replaceState(null,"",location.pathname+location.hash);
+
   window.addEventListener("hashchange",route);
   route();
 })();
