@@ -1927,7 +1927,7 @@ footer{padding:clamp(40px,6vw,72px) clamp(16px,4vw,56px) 28px}
             :'<a'+(cls?' class="'+cls+'"':'')+' href="#" data-soon>'+esc(t(key))+'</a>';
   }
   function littleHTML(){
-    var G=[["coconut","g1","50% 30%","cap1","#/sofa"],["ss1","ssa1","50% 8%","cap_ss","#/sofashorts"],["sk1","ska1","50% 15%","cap_sk","#/sofakimono"],["red","g2","50% 25%","cap2","#/mia"],["drink","g3","50% 60%","cap3","#/lidia"],["pants","g4","50% 50%","cap4","#/irina"],["irt1","lta1","50% 50%","cap_lyubatunic","#/lyubatunic"]],gal="";
+    var G=[["coconut","g1","50% 30%","cap1","#/sofa"],["ss1","ssa1","50% 8%","cap_ss","#/sofashorts"],["sk1","ska1","50% 15%","cap_sk","#/sofakimono"],["red","g2","50% 25%","cap2","#/mia"],["drink","g3","50% 60%","cap3","#/lidia"],["pants","g4","50% 50%","cap4","#/irina"],["lt11","lta11","50% 15%","cap_lyubatunic","#/lyubatunic"]],gal="";
     G.forEach(function(g){gal+='<a class="tile" '+(g[4]?'href="'+g[4]+'"':'href="#" data-soon')+'><div class="ph" role="img" aria-label="'+esc(t(g[1]))+'" style="--img:var(--i-'+g[0]+');--pos:'+g[2]+'"></div><p><span class="nm">'+esc(t(g[3]))+'</span><span class="go">'+esc(t("shop_now"))+'</span></p></a>'});
     return '<div class="page-wide"><article class="prose"><a class="back" href="#top">← '+esc(t("back"))+'</a><h1 tabindex="-1">'+esc(t("little_h"))+'</h1><p>'+esc(t("little_p1"))+'</p><p>'+esc(t("little_p2"))+'</p><p>'+esc(t("little_p2b"))+'</p><p>'+esc(t("little_p3"))+'</p></article>'+
       '<div class="gal">'+gal+'</div></div>';
