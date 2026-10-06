@@ -371,10 +371,13 @@ footer{padding:clamp(40px,6vw,72px) clamp(16px,4vw,56px) 28px}
   .page-photo{background-position:var(--posm,50% 10%)}
 }
 @media (max-width:760px){
-  .hero{display:block;min-height:0;background:var(--promo-bg)}
+  .hero{display:block;min-height:0;background:var(--promo-bg);color:var(--promo-ink)}
   .hero-stage{position:relative;inset:auto;z-index:auto;aspect-ratio:4/5}
   .hero-bg::after{display:none}
   .hero-copy{max-width:none;padding:28px 20px 38px}
+  .hero h1{text-shadow:none}
+  .hero .rule{background:var(--gold-ink)}
+  .hero-cta{color:var(--promo-ink)}
   .hero h1{font-size:42px}
   .hero .sub{margin-bottom:22px}
   .tile .nm{font-size:22px}
