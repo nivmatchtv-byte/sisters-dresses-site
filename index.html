@@ -6,6 +6,7 @@
 <title>Sisters’ Dresses | Ателье и гардеробный консьерж</title>
 <meta name="description" content="Sisters’ Dresses — курортное ателье в Дананге, Вьетнам.">
 <meta name="theme-color" content="#D2B65E">
+<link rel="icon" href="images/logo-mono.png" type="image/png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;0,9..144,900&family=Jost:wght@400;500&display=swap" rel="stylesheet">
@@ -303,7 +304,7 @@ footer{padding:clamp(40px,6vw,72px) clamp(16px,4vw,56px) 28px}
 .modal.on{visibility:visible;opacity:1}
 .dialog{position:relative;display:grid;grid-template-columns:.9fr 1.1fr;width:min(820px,100%);max-height:100%;overflow:auto;background:var(--bg);box-shadow:0 30px 80px -20px rgba(0,0,0,.5)}
 .dialog .ph{background:var(--i-evening) 50% 30%/cover;min-height:100%}
-.dialog .body{padding:clamp(26px,4vw,44px)}
+.dialog .body{padding:clamp(26px,4vw,44px);min-width:0}
 .dialog .logo-mono{width:54px;aspect-ratio:260/267;background:var(--l-mono) center/contain no-repeat;filter:var(--logo-filter);margin-bottom:12px}
 .dialog h2{font:500 clamp(30px,4vw,40px)/1.05 var(--serif);margin:0 0 8px}
 .dialog .x{position:absolute;top:8px;right:8px;z-index:2;background:var(--bg)}
@@ -1927,7 +1928,7 @@ footer{padding:clamp(40px,6vw,72px) clamp(16px,4vw,56px) 28px}
             :'<a'+(cls?' class="'+cls+'"':'')+' href="#" data-soon>'+esc(t(key))+'</a>';
   }
   function littleHTML(){
-    var G=[["coconut","g1","50% 30%","cap1","#/sofa"],["ss1","ssa1","50% 8%","cap_ss","#/sofashorts"],["sk1","ska1","50% 15%","cap_sk","#/sofakimono"],["red","g2","50% 25%","cap2","#/mia"],["drink","g3","50% 60%","cap3","#/lidia"],["pants","g4","50% 50%","cap4","#/irina"],["lt11","lta11","50% 75%","cap_lyubatunic","#/lyubatunic"]],gal="";
+    var G=[["coconut","g1","50% 30%","cap1","#/sofa"],["ss1","ssa1","50% 8%","cap_ss","#/sofashorts"],["sk1","ska1","50% 15%","cap_sk","#/sofakimono"],["mm","ma0","50% 30%","cap2","#/mia"],["lm","la0","50% 30%","cap3","#/lidia"],["pants","g4","50% 50%","cap4","#/irina"],["lt11","lta11","50% 75%","cap_lyubatunic","#/lyubatunic"]],gal="";
     G.forEach(function(g){gal+='<a class="tile" '+(g[4]?'href="'+g[4]+'"':'href="#" data-soon')+'><div class="ph lz" role="img" aria-label="'+esc(t(g[1]))+'" data-bg="'+g[0]+'" style="--pos:'+g[2]+'"></div><p><span class="nm">'+esc(t(g[3]))+'</span><span class="go">'+esc(t("shop_now"))+'</span></p></a>'});
     return '<div class="page-wide"><article class="prose"><a class="back" href="#top">← '+esc(t("back"))+'</a><h1 tabindex="-1">'+esc(t("little_h"))+'</h1><p>'+esc(t("little_p1"))+'</p><p>'+esc(t("little_p2"))+'</p><p>'+esc(t("little_p2b"))+'</p><p>'+esc(t("little_p3"))+'</p></article>'+
       '<div class="gal">'+gal+'</div></div>';
