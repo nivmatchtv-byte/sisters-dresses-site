@@ -224,10 +224,10 @@ a.pv-vh:hover{text-decoration:underline;color:var(--ink)}
 .crumb .back:hover{color:var(--ink);text-decoration:underline;text-underline-offset:4px}
 .pv{display:grid;grid-template-columns:minmax(0,.85fr) minmax(0,1.15fr);gap:clamp(28px,5vw,80px);align-items:start}
 .pv-main{aspect-ratio:4/5;background:#fff var(--img) center/contain no-repeat;touch-action:pan-y;cursor:zoom-in}
-.pv-main.cover{background:#fff var(--img) var(--pos,50% 30%)/cover no-repeat}
+.pv-main.cover{background:#fff var(--img) var(--pos,50% 30%)/var(--size,cover) no-repeat}
 .pv-thumbs{display:grid;grid-template-columns:repeat(auto-fill,minmax(54px,1fr));gap:8px;margin-top:10px}
 .pv-thumbs button{aspect-ratio:1;padding:0;border:1px solid var(--line);background:#fff var(--img) center/contain no-repeat}
-.pv-thumbs button.cover{background:#fff var(--img) var(--pos,50% 30%)/cover no-repeat}
+.pv-thumbs button.cover{background:#fff var(--img) var(--pos,50% 30%)/var(--size,cover) no-repeat}
 .pv-thumbs button[aria-current="true"]{outline:2px solid var(--gold);outline-offset:1px}
 .pv-thumbs button[aria-pressed="true"]{outline:2px solid var(--ink);outline-offset:1px}
 .combo-slot{margin:1.4em 0}
@@ -1981,7 +1981,7 @@ footer{padding:clamp(40px,6vw,72px) clamp(16px,4vw,56px) 28px}
     minshirt:{title:"minshirt_h",fabric:["cotton"],gender:"men",sizes:["XS-S","M-L","XL"],back:["#/brothers","n_b"],vh:"minshirtv_h",imgs:[["mh1","cover","50% 40%","mha1"],["mh2","cover","50% 40%","mha2"],["mh3","cover","50% 40%","mha3"]],variants:[["mh4","mha4"],["mh5","mha5"],["mh6","mha6"],["mh7","mha7"],["mh8","mha8"],["mh9","mha9"],["mh10","mha10"],["mh11","mha11"],["mh12","mha12"],["mh13","mha13"],["mh14","mha14"],["mh15","mha15"],["mh16","mha16"]],colors:[["mh4","mha4"],["mh5","mha5"],["mh6","mha6"],["mh7","mha7"],["mh8","mha8"],["mh9","mha9"],["mh10","mha10"],["mh11","mha11"],["mh12","mha12"],["mh13","mha13"],["mh14","mha14"],["mh15","mha15"],["mh16","mha16"]],texts:["minshirt_t1","minshirt_t2"],price:1500000,predict:["ip_pl","minshirt_pt"]},
     agatapants:{title:"agatapants_h",fabric:["silk"],back:["#/eldest","n_e"],vh:"agatapantsv_h",imgs:[["ag19","cover","50% 50%","aga19"],["ag20","","","aga20"],["ag21","","","aga21"],["ag22","","","aga22"],["ag23","","","aga23"],["ag1","","","aga1"],["ag2","","","aga2"],["ag3","","","aga3"]],variants:[["ag1","aga1"],["ag4","aga4"],["ag5","aga5"],["ag6","aga6"],["ag7","aga7"],["ag8","aga8"],["ag9","aga9"],["ag10","aga10"],["ag11","aga11"],["ag12","aga12"],["ag13","aga13"],["ag14","aga14"],["ag15","aga15"],["ag16","aga16"],["ag17","aga17"],["ag18","aga18"],["ag24","aga24"],["ag25","aga25"]],colors:[["ag1","aga1"],["ag4","aga4"],["ag5","aga5"],["ag6","aga6"],["ag7","aga7"],["ag8","aga8"],["ag9","aga9"],["ag10","aga10"],["ag11","aga11"],["ag12","aga12"],["ag13","aga13"],["ag14","aga14"],["ag15","aga15"],["ag16","aga16"],["ag17","aga17"],["ag18","aga18"],["ag24","aga24"],["ag25","aga25"]],texts:["agatapants_t1","agatapants_t2"],price:2000000,predict:["ip_pl","agatapants_pt"]},
     anna:{title:"anna_h",fabric:["linen"],back:["#/eldest","n_e"],vh:"annav_h",imgs:[["as1","cover","50% 10%","asa1"],["as2","cover","50% 10%","asa2"],["as3","cover","50% 10%","asa3"],["as4","cover","50% 10%","asa4"],["as5","","","asa5"],["as6","","","asa6"],["as7","","","asa7"]],variants:[["as5","asa5"],["as8","asa8"],["as9","asa9"],["as10","asa10"],["as11","asa11"],["as12","asa12"]],colors:[["as5","asa5"],["as8","asa8"],["as9","asa9"],["as10","asa10"],["as11","asa11"],["as12","asa12"]],texts:["anna_t1","anna_t2"],price:2000000,predict:["ip_pl","anna_pt"]},
-    annaskirt:{title:"annaskirt_h",fabric:["lace"],back:["#/eldest","n_e"],imgs:[["ask1","cover","50% 10%","aska1"],["ask2","cover","50% 10%","aska2"],["ask3","cover","50% 10%","aska3"],["ask4","cover","50% 10%","aska4"],["ask5","cover","50% 10%","aska5"]],texts:["annaskirt_t1"],price:1500000,predict:["ip_pl","annaskirt_pt"]},
+    annaskirt:{title:"annaskirt_h",fabric:["lace"],back:["#/eldest","n_e"],imgs:[["ask1","cover","50% 10%","aska1"],["ask2","cover","50% 10%","aska2"],["ask3","cover","50% 10%","aska3"],["ask4","cover","50% 10%","aska4"],["ask5","cover","30% 64%","aska5","115%"]],texts:["annaskirt_t1"],price:1500000,predict:["ip_pl","annaskirt_pt"]},
     romanshirt:{title:"romanshirt_h",fabric:["linen","silk"],gender:"men",sizes:["XS-S","M-L","XL"],back:["#/brothers","n_b"],vh:"romanshirtv_h",imgs:[["rs17","cover","50% 18%","rsa17"],["rs1","cover","50% 15%","rsa1"],["rs2","cover","50% 8%","rsa2"],["rs5","","","rsa5"],["rs15","","","rsa15"],["rs16","","","rsa16"]],variants:[["rs5","rsa5"],["rs6","rsa6"],["rs7","rsa7"],["rs8","rsa8"],["rs9","rsa9"],["rs10","rsa10"],["rs11","rsa11"],["rs12","rsa12"],["rs13","rsa13"],["rs14","rsa14"],["rs18","rsa18"],["rs19","rsa19"],["rs20","rsa20"],["rs21","rsa21"]],colors:[["rs5","rsa5"],["rs6","rsa6"],["rs7","rsa7"],["rs8","rsa8"],["rs9","rsa9"],["rs10","rsa10"],["rs11","rsa11"],["rs12","rsa12"],["rs13","rsa13"],["rs14","rsa14"],["rs18","rsa18"],["rs19","rsa19"],["rs20","rsa20"],["rs21","rsa21"]],texts:["romanshirt_t1"],price:1700000,predict:["ip_pl","romanshirt_pt"]},
     max:{title:"max_h",fabric:["jacquard","silk"],gender:"men",sizes:["XS-S","M-L","XL"],back:["#/brothers","n_b"],vh:"maxv_h",imgs:[["mx1","cover","50% 35%","mxa1"],["mx2","cover","50% 15%","mxa2"],["mx3","cover","50% 15%","mxa3"],["mx4","cover","50% 15%","mxa4"],["mx5","","","mxa5"],["mx6","","","mxa6"],["mx7","","","mxa7"],["mx8","","","mxa8"],["mx12","","","mxa12"],["mx13","","","mxa13"]],variants:[["mx11","mxa11"],["mx9","mxa9"],["mx10","mxa10"]],colors:[["mx11","mxa11"],["mx9","mxa9"],["mx10","mxa10"]],texts:["max_t1","max_t2"],price:4000000,predict:["ip_pl","max_pt"]},
     minshorts:{title:"minshorts_h",fabric:["linen"],gender:"men",sizes:["XS-S","M-L","XL"],back:["#/brothers","n_b"],vh:"minshortsv_h",imgs:[["ms21","cover","50% 8%","msa21"],["ms18","cover","50% 8%","msa18"],["ms19","cover","50% 8%","msa19"],["ms20","cover","50% 8%","msa20"],["ms2","","","msa2"],["ms3","","","msa3"]],variants:[["ms1","msa1"],["ms4","msa4"],["ms5","msa5"],["ms6","msa6"],["ms7","msa7"],["ms8","msa8"],["ms9","msa9"],["ms10","msa10"],["ms11","msa11"],["ms12","msa12"],["ms13","msa13"],["ms14","msa14"],["ms15","msa15"],["ms16","msa16"],["ms17","msa17"]],colors:[["ms1","msa1"],["ms4","msa4"],["ms5","msa5"],["ms6","msa6"],["ms7","msa7"],["ms8","msa8"],["ms9","msa9"],["ms10","msa10"],["ms11","msa11"],["ms12","msa12"],["ms13","msa13"],["ms14","msa14"],["ms15","msa15"],["ms16","msa16"],["ms17","msa17"]],texts:["minshorts_t1","minshorts_t2"],price:1000000,predict:["ip_pl","minshorts_pt"]},
@@ -2018,7 +2018,7 @@ footer{padding:clamp(40px,6vw,72px) clamp(16px,4vw,56px) 28px}
     var P=PRODUCTS[id],I=P.imgs,th="",body="";
     curGalleryImgs=I;
     I.forEach(function(x,i){
-      th+='<button type="button" class="'+(x[1]||"")+'" data-pv="'+x[0]+'" data-fit="'+x[1]+'" data-pos="'+x[2]+'" data-alt="'+x[3]+'" aria-label="'+esc(t(x[3]))+'"'+(i===0?' aria-current="true"':'')+' style="--img:var(--i-'+x[0]+');--pos:'+(x[2]||"50% 50%")+'"></button>';
+      th+='<button type="button" class="'+(x[1]||"")+'" data-pv="'+x[0]+'" data-fit="'+x[1]+'" data-pos="'+x[2]+'" data-size="'+(x[4]||"")+'" data-alt="'+x[3]+'" aria-label="'+esc(t(x[3]))+'"'+(i===0?' aria-current="true"':'')+' style="--img:var(--i-'+x[0]+');--pos:'+(x[2]||"50% 50%")+';--size:'+(x[4]||"cover")+'"></button>';
     });
     P.texts.forEach(function(k){body+="<p>"+esc(t(k))+"</p>"});
     if(P.link)body+='<p><a href="'+P.link[0]+'" style="text-underline-offset:5px">'+esc(t(P.link[1]))+' →</a></p>';
@@ -2045,7 +2045,7 @@ footer{padding:clamp(40px,6vw,72px) clamp(16px,4vw,56px) 28px}
       vr='<p class="pv-vh">'+esc(t(P.vh||"v_h"))+'</p><div class="pv-thumbs">'+vb+'</div>';
     }
     return '<div class="page-wide"><p class="crumb"><a class="back" href="'+bk[0]+'">← '+esc(t(bk[1]))+'</a></p><div class="pv"><div class="pv-gallery">'+
-      '<div class="pv-main cover" id="pvmain" data-cur="'+I[0][0]+'" role="img" aria-label="'+esc(t(I[0][3]))+'" style="--img:var(--i-'+I[0][0]+');--pos:'+I[0][2]+'"></div>'+(I.length>1||P.variants?'<div class="pv-thumbs">'+th+'</div>':'')+vr+'</div>'+
+      '<div class="pv-main cover" id="pvmain" data-cur="'+I[0][0]+'" role="img" aria-label="'+esc(t(I[0][3]))+'" style="--img:var(--i-'+I[0][0]+');--pos:'+I[0][2]+';--size:'+(I[0][4]||"cover")+'"></div>'+(I.length>1||P.variants?'<div class="pv-thumbs">'+th+'</div>':'')+vr+'</div>'+
       '<div class="prose"><h1 tabindex="-1">'+esc(t(P.title))+'</h1>'+body+'</div></div></div>';
   }
   function pvSet(btn){
@@ -2053,6 +2053,7 @@ footer{padding:clamp(40px,6vw,72px) clamp(16px,4vw,56px) 28px}
     m.setAttribute("data-cur",btn.getAttribute("data-pv"));
     m.style.setProperty("--img","var(--i-"+btn.getAttribute("data-pv")+")");
     m.style.setProperty("--pos",btn.getAttribute("data-pos")||"50% 50%");
+    m.style.setProperty("--size",btn.getAttribute("data-size")||"cover");
     m.className="pv-main"+(btn.getAttribute("data-fit")?" "+btn.getAttribute("data-fit"):"");
     m.setAttribute("aria-label",btn.getAttribute("data-alt-text")||t(btn.getAttribute("data-alt")));
     $$(".pv-thumbs button").forEach(function(b){b.removeAttribute("aria-current")});
@@ -2062,7 +2063,7 @@ footer{padding:clamp(40px,6vw,72px) clamp(16px,4vw,56px) 28px}
     var P=PRODUCTS[pid],I=P.imgs,th="";
     curGalleryImgs=I;
     I.forEach(function(x,i){
-      th+='<button type="button" class="'+(x[1]||"")+'" data-pv="'+x[0]+'" data-fit="'+x[1]+'" data-pos="'+x[2]+'" data-alt="'+x[3]+'" aria-label="'+esc(t(x[3]))+'"'+(i===0?' aria-current="true"':'')+' style="--img:var(--i-'+x[0]+');--pos:'+(x[2]||"50% 50%")+'"></button>';
+      th+='<button type="button" class="'+(x[1]||"")+'" data-pv="'+x[0]+'" data-fit="'+x[1]+'" data-pos="'+x[2]+'" data-size="'+(x[4]||"")+'" data-alt="'+x[3]+'" aria-label="'+esc(t(x[3]))+'"'+(i===0?' aria-current="true"':'')+' style="--img:var(--i-'+x[0]+');--pos:'+(x[2]||"50% 50%")+';--size:'+(x[4]||"cover")+'"></button>';
     });
     var body="";
     P.texts.forEach(function(k){body+="<p>"+esc(t(k))+"</p>"});
