@@ -2017,6 +2017,7 @@ footer{padding:clamp(40px,6vw,72px) clamp(16px,4vw,56px) 28px}
   function productHTML(id){
     var P=PRODUCTS[id],I=P.imgs,th="",body="";
     curGalleryImgs=I;
+    curVariants=P.variants||[];
     I.forEach(function(x,i){
       th+='<button type="button" class="'+(x[1]||"")+'" data-pv="'+x[0]+'" data-fit="'+x[1]+'" data-pos="'+x[2]+'" data-size="'+(x[4]||"")+'" data-alt="'+x[3]+'" aria-label="'+esc(t(x[3]))+'"'+(i===0?' aria-current="true"':'')+' style="--img:var(--i-'+x[0]+');--pos:'+(x[2]||"50% 50%")+';--size:'+(x[4]||"cover")+'"></button>';
     });
@@ -2062,6 +2063,7 @@ footer{padding:clamp(40px,6vw,72px) clamp(16px,4vw,56px) 28px}
   function comboSetHTML(pid){
     var P=PRODUCTS[pid],I=P.imgs,th="";
     curGalleryImgs=I;
+    curVariants=[];
     I.forEach(function(x,i){
       th+='<button type="button" class="'+(x[1]||"")+'" data-pv="'+x[0]+'" data-fit="'+x[1]+'" data-pos="'+x[2]+'" data-size="'+(x[4]||"")+'" data-alt="'+x[3]+'" aria-label="'+esc(t(x[3]))+'"'+(i===0?' aria-current="true"':'')+' style="--img:var(--i-'+x[0]+');--pos:'+(x[2]||"50% 50%")+';--size:'+(x[4]||"cover")+'"></button>';
     });
@@ -2161,7 +2163,7 @@ footer{padding:clamp(40px,6vw,72px) clamp(16px,4vw,56px) 28px}
     return '<div class="page-wide"><article class="prose"><a class="back" href="#/fabrics">← '+esc(t("fab_h"))+'</a><h1 tabindex="-1">'+esc(t("fab_cat_"+cat))+'</h1><p>'+esc(t(descKey))+'</p></article>'+body+'</div>';
   }
   var lbList=[],lbI=0,lbOpen=false,lbFrom=null;
-  var curGalleryImgs=[],justSwiped=false;
+  var curGalleryImgs=[],curVariants=[],justSwiped=false;
   function lbShow(){
     var it=lbList[lbI];if(!it)return;
     $("#lbimg").style.setProperty("--img","var(--i-"+it[0]+")");
@@ -2645,8 +2647,10 @@ footer{padding:clamp(40px,6vw,72px) clamp(16px,4vw,56px) 28px}
     if(pvb){pvSet(pvb);return}
     if(!justSwiped&&el.closest("#pvmain")&&curGalleryImgs.length){
       var pm=$("#pvmain"),curKey=pm&&pm.getAttribute("data-cur");
-      var gi=curGalleryImgs.findIndex(function(x){return x[0]===curKey});
-      openLb(curGalleryImgs.map(function(x){return [x[0],x[3]]}),gi===-1?0:gi);
+      var lbSrc=curGalleryImgs.map(function(x){return [x[0],x[3]]});
+      curVariants.forEach(function(v){if(!lbSrc.some(function(x){return x[0]===v[0]}))lbSrc.push([v[0],v[1]])});
+      var gi=lbSrc.findIndex(function(x){return x[0]===curKey});
+      openLb(lbSrc,gi===-1?0:gi);
       return;
     }
     var mdb=el.closest("[data-mode]");
