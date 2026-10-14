@@ -2182,7 +2182,7 @@ footer{padding:clamp(40px,6vw,72px) clamp(16px,4vw,56px) 28px}
     G.forEach(function(g){gal+='<a class="tile" href="'+g[4]+'"><div class="ph lz" role="img" aria-label="'+esc(t(g[1]))+'" data-bg="'+g[0]+'" style="--pos:'+g[2]+';--size:'+(g[5]||"cover")+'"></div><p><span class="nm">'+esc(t(g[3]))+'</span><span class="go">'+esc(t("shop_now"))+'</span></p></a>'});
     return '<div class="page-wide"><article class="prose"><a class="back" href="#top">← '+esc(t("back"))+'</a><h1 tabindex="-1">'+esc(t("n_m"))+'</h1><p>'+esc(t("middle_p1"))+'</p><p>'+esc(t("middle_p2"))+'</p><p>'+esc(t("middle_p3"))+'</p><p>'+esc(t("middle_p4"))+'</p></article><div class="gal">'+gal+'</div></div>';
   }
-  var COLL_SETS=[["cf1","cfa1","olga_h","#/olga"],["cf2","cfa2","sofa_h","#/sofa"],["cf5","cfa5","vic_h","#/victoria"],["cf4","cfa4","toma_h","#/toma"],["kgset3","kgsa3","kongset_h","#/kongset"],["mrset2","mra2","mariaset_h","#/mariaset"],["jo30","joa30","johnnyset_h","#/johnnyset"],["yj11","yja11","yanaset_h","#/yanaset"]];
+  var COLL_SETS=[["cf1","cfa1","olga_h","#/olga"],["cf2","cfa2","sofa_h","#/sofa"],["cf5","cfa5","vic_h","#/victoria"],["cf4","cfa4","toma_h","#/toma"],["kgset3","kgsa3","kongset_h","#/kongset"],["mrset2","mra2","mariaset_h","#/mariaset"],["jo30","joa30","johnnyset_h","#/johnnyset"],["yj11","yja11","yanaset_h","#/yanaset"],["ds1","dsa1","dimaset_h","#/dimaset"],["gs1","gsa1","guyset_h","#/guyset"],["agset1","agseta1","agataset_h","#/agataset"]];
   var COLL_ORDER=["karina","olgaskirt","irina","sofakimono","roza","victoriablouse","tomashirt","vera","olgablouse","sofashorts","mia","victoriapants","kristina","olgatop","annushka","tomapants","lera","lerablouse","yanashorts","yanajacket","yanashirtdress","yanatop","lyubatunic","lidia","kong","konglong","mariavest","mariapants","johnny","johnnypants","guykimono","guypants","guytshirt","bugi","lolita","marina","dimashirt","dimapants","minshorts","minshirt","romanshirt","agatapants","anna","annaskirt","max","polina","agatashirt","bugidress"];
   var COLL_CAT={
     karina:"dress",roza:"dress",mia:"dress",kristina:"dress",vera:"dress",annushka:"dress",lera:"dress",lidia:"dress",kong:"dress",yanashirtdress:"dress",
@@ -2204,7 +2204,7 @@ footer{padding:clamp(40px,6vw,72px) clamp(16px,4vw,56px) 28px}
     olga_h:"ольга",sofa_h:"софа",vic_h:"виктория",toma_h:"тома",kongset_h:"конг kong",mariaset_h:"мария maria",mariavest:"мария maria",mariapants:"мария maria",johnnyset_h:"джонни johnny",yanaset_h:"яна yana"
   };
   var COLL_EXCLUDE={roza:["rz3"],mia:["mm"],tomashirt:["tm3"],tomapants:["tm4"]};
-  var COLL_GENDER={johnny:"men",johnnypants:"men",johnnyset_h:"men",guykimono:"men",guypants:"men",guytshirt:"men",dimashirt:"men",dimapants:"men",minshorts:"men",minshirt:"men",romanshirt:"men",max:"men"};
+  var COLL_GENDER={johnny:"men",johnnypants:"men",johnnyset_h:"men",guykimono:"men",guypants:"men",guytshirt:"men",dimashirt:"men",dimapants:"men",minshorts:"men",minshirt:"men",romanshirt:"men",max:"men",dimaset_h:"men",guyset_h:"men"};
   function collectionTiles(){
     var groups=[COLL_SETS.map(function(s){var ti=t(s[2]);return {img:s[0],alt:s[1],title:ti,search:ti+" "+(COLL_ALIAS[s[2]]||""),cat:"set",gender:COLL_GENDER[s[2]]||"women",href:s[3]}})];
     COLL_ORDER.forEach(function(id){
