@@ -2183,12 +2183,13 @@ footer{padding:clamp(40px,6vw,72px) clamp(16px,4vw,56px) 28px}
     return '<div class="page-wide"><article class="prose"><a class="back" href="#top">← '+esc(t("back"))+'</a><h1 tabindex="-1">'+esc(t("n_m"))+'</h1><p>'+esc(t("middle_p1"))+'</p><p>'+esc(t("middle_p2"))+'</p><p>'+esc(t("middle_p3"))+'</p><p>'+esc(t("middle_p4"))+'</p></article><div class="gal">'+gal+'</div></div>';
   }
   var COLL_SETS=[["cf1","cfa1","olga_h","#/olga"],["cf2","cfa2","sofa_h","#/sofa"],["cf5","cfa5","vic_h","#/victoria"],["cf4","cfa4","toma_h","#/toma"],["kgset3","kgsa3","kongset_h","#/kongset"],["mrset2","mra2","mariaset_h","#/mariaset"],["jo30","joa30","johnnyset_h","#/johnnyset"],["yj11","yja11","yanaset_h","#/yanaset"]];
-  var COLL_ORDER=["karina","olgaskirt","irina","sofakimono","roza","victoriablouse","tomashirt","vera","olgablouse","sofashorts","mia","victoriapants","kristina","olgatop","annushka","tomapants","lera","lerablouse","yanashorts","yanajacket","yanashirtdress","yanatop","lyubatunic","lidia","kong","konglong","mariavest","mariapants","johnny","johnnypants","guykimono","guypants","guytshirt","bugi","lolita","marina","dimashirt","dimapants","minshorts","minshirt","romanshirt","agatapants"];
+  var COLL_ORDER=["karina","olgaskirt","irina","sofakimono","roza","victoriablouse","tomashirt","vera","olgablouse","sofashorts","mia","victoriapants","kristina","olgatop","annushka","tomapants","lera","lerablouse","yanashorts","yanajacket","yanashirtdress","yanatop","lyubatunic","lidia","kong","konglong","mariavest","mariapants","johnny","johnnypants","guykimono","guypants","guytshirt","bugi","lolita","marina","dimashirt","dimapants","minshorts","minshirt","romanshirt","agatapants","anna","annaskirt","max","polina","agatashirt","bugidress"];
   var COLL_CAT={
     karina:"dress",roza:"dress",mia:"dress",kristina:"dress",vera:"dress",annushka:"dress",lera:"dress",lidia:"dress",kong:"dress",yanashirtdress:"dress",
     irina:"pants",lyubatunic:"kimono",victoriapants:"pants",tomapants:"pants",mariapants:"pants",johnnypants:"pants",guypants:"pants",
     olgablouse:"blouse",victoriablouse:"blouse",lerablouse:"blouse",
-    olgaskirt:"skirt",olgatop:"top",yanatop:"top",tomashirt:"shirt",johnny:"shirt",sofakimono:"kimono",sofashorts:"shorts",yanashorts:"shorts",konglong:"kimono",guykimono:"kimono",mariavest:"vest",bugi:"jacket",yanajacket:"jacket",guytshirt:"tshirt",lolita:"kimono",marina:"kimono",dimashirt:"shirt",dimapants:"pants",minshorts:"shorts",minshirt:"shirt",romanshirt:"shirt",agatapants:"pants"
+    olgaskirt:"skirt",olgatop:"top",yanatop:"top",tomashirt:"shirt",johnny:"shirt",sofakimono:"kimono",sofashorts:"shorts",yanashorts:"shorts",konglong:"kimono",guykimono:"kimono",mariavest:"vest",bugi:"jacket",yanajacket:"jacket",guytshirt:"tshirt",lolita:"kimono",marina:"kimono",dimashirt:"shirt",dimapants:"pants",minshorts:"shorts",minshirt:"shirt",romanshirt:"shirt",agatapants:"pants",
+    anna:"set",annaskirt:"skirt",max:"jacket",polina:"set",agatashirt:"shirt",bugidress:"dress"
   };
   var COLL_CATS=["dress","set","blouse","top","skirt","pants","shirt","kimono","shorts","vest","jacket","tshirt"];
   var COLL_CAT_LABEL={dress:"l_dresses",set:"l_sets",blouse:"l_blouses",top:"l_tops",skirt:"l_skirts",pants:"l_trousers",shirt:"l_shirts",kimono:"l_kimonos",shorts:"l_shorts",vest:"l_vests",jacket:"l_jackets",tshirt:"l_tshirts"};
@@ -2199,10 +2200,11 @@ footer{padding:clamp(40px,6vw,72px) clamp(16px,4vw,56px) 28px}
     sofakimono:"софа",sofashorts:"софа",
     tomashirt:"тома",tomapants:"тома",
     johnny:"джонни johnny",johnnypants:"джонни johnny",guykimono:"гай guy",guypants:"гай guy",guytshirt:"гай guy",bugi:"буги bugi",lolita:"лолита lolita",marina:"марина marina",dimashirt:"дима dima",dimapants:"дима dima",minshorts:"мин min",minshirt:"мин min",romanshirt:"роман roman",agatapants:"агата agata",
+    anna:"анна anna",annaskirt:"анна anna",max:"макс max",polina:"полина polina",agatashirt:"агата agata",bugidress:"буги bugi",
     olga_h:"ольга",sofa_h:"софа",vic_h:"виктория",toma_h:"тома",kongset_h:"конг kong",mariaset_h:"мария maria",mariavest:"мария maria",mariapants:"мария maria",johnnyset_h:"джонни johnny",yanaset_h:"яна yana"
   };
   var COLL_EXCLUDE={roza:["rz3"],mia:["mm"],tomashirt:["tm3"],tomapants:["tm4"]};
-  var COLL_GENDER={johnny:"men",johnnypants:"men",johnnyset_h:"men",guykimono:"men",guypants:"men",guytshirt:"men",dimashirt:"men",dimapants:"men",minshorts:"men",minshirt:"men",romanshirt:"men"};
+  var COLL_GENDER={johnny:"men",johnnypants:"men",johnnyset_h:"men",guykimono:"men",guypants:"men",guytshirt:"men",dimashirt:"men",dimapants:"men",minshorts:"men",minshirt:"men",romanshirt:"men",max:"men"};
   function collectionTiles(){
     var groups=[COLL_SETS.map(function(s){var ti=t(s[2]);return {img:s[0],alt:s[1],title:ti,search:ti+" "+(COLL_ALIAS[s[2]]||""),cat:"set",gender:COLL_GENDER[s[2]]||"women",href:s[3]}})];
     COLL_ORDER.forEach(function(id){
