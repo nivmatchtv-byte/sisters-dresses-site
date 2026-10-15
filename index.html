@@ -31,7 +31,6 @@
     --btn-bg:#CEBF6F; --btn-ink:#341214;
     --logo-filter:brightness(0) invert(1);
   }
-  :root:not([data-theme="light"]) .gal-compact .tile .ph{background-color:#fff;mix-blend-mode:normal}
 }
 :root[data-theme="dark"]{
   --bg:#241015; --bg-soft:#2E161B; --ink:#F4E9D8; --ink-soft:#CBB9AE; --line:#3D2229;
@@ -40,7 +39,6 @@
   --btn-bg:#CEBF6F; --btn-ink:#341214;
   --logo-filter:brightness(0) invert(1);
 }
-:root[data-theme="dark"] .gal-compact .tile .ph{background-color:#fff;mix-blend-mode:normal}
 html{scroll-padding-top:calc(env(safe-area-inset-top,0px) + 120px);-webkit-text-size-adjust:100%}
 *,*::before,*::after{box-sizing:inherit}
 body{margin:0;background:var(--bg);color:var(--ink);font:400 16px/1.55 var(--sans);-webkit-font-smoothing:antialiased}
@@ -166,7 +164,8 @@ ul{list-style:none;margin:0;padding:0}
 .gal-compact{grid-template-columns:repeat(3,1fr);gap:6px}
 .gal-compact .tile{aspect-ratio:1/1}
 .gal-compact .tile::after{display:none}
-.gal-compact .tile .ph{background:var(--bg) var(--img) center/contain no-repeat;mix-blend-mode:multiply}
+.gal-compact .tile .ph{background:#fff var(--img) center/contain no-repeat}
+.coll-white{background:#fff;padding:12px;margin-left:calc(50% - 50vw);margin-right:calc(50% - 50vw);width:100vw}
 .tile-empty{background:var(--bg-soft);display:flex;align-items:center;justify-content:center;text-align:center;border:1px solid var(--line)}
 .tile-empty::after{display:none}
 .tile-empty p{position:static;text-shadow:none;padding:0 18px}
@@ -2245,7 +2244,7 @@ footer{padding:clamp(40px,6vw,72px) clamp(16px,4vw,56px) 28px}
       COLL_CATS.map(function(c){return '<button type="button" class="'+(tabCat===c?"on":"")+'" data-coll-cat="'+c+'" aria-pressed="'+(tabCat===c?"true":"false")+'">'+esc(t(COLL_CAT_LABEL[c]))+'</button>'}).join("");
     return '<div class="page-wide"><article class="prose"><a class="back" href="#top">← '+esc(t("back"))+'</a><h1 tabindex="-1">'+esc(t("collection_h"))+'</h1></article>'+
       '<div class="coll-tools"><div class="coll-tabs coll-tabs-gender" role="group">'+genderTabs+'</div><div class="coll-tabs coll-tabs-cat" role="group">'+tabs+'</div><div class="coll-search"><input type="search" id="collSearch" placeholder="'+esc(t("coll_search_ph"))+'" aria-label="'+esc(t("coll_search_ph"))+'"></div></div>'+
-      '<div class="gal gal-compact" id="collGrid">'+gal+'</div></div>';
+      '<div class="gal gal-compact coll-white" id="collGrid">'+gal+'</div></div>';
   }
   var collActiveCat="all",collActiveGender="women";
   function collFilter(){
