@@ -31,6 +31,7 @@
     --btn-bg:#CEBF6F; --btn-ink:#341214;
     --logo-filter:brightness(0) invert(1);
   }
+  :root:not([data-theme="light"]) .gal-compact .tile .ph{background-color:#fff;mix-blend-mode:normal}
 }
 :root[data-theme="dark"]{
   --bg:#241015; --bg-soft:#2E161B; --ink:#F4E9D8; --ink-soft:#CBB9AE; --line:#3D2229;
@@ -39,6 +40,7 @@
   --btn-bg:#CEBF6F; --btn-ink:#341214;
   --logo-filter:brightness(0) invert(1);
 }
+:root[data-theme="dark"] .gal-compact .tile .ph{background-color:#fff;mix-blend-mode:normal}
 html{scroll-padding-top:calc(env(safe-area-inset-top,0px) + 120px);-webkit-text-size-adjust:100%}
 *,*::before,*::after{box-sizing:inherit}
 body{margin:0;background:var(--bg);color:var(--ink);font:400 16px/1.55 var(--sans);-webkit-font-smoothing:antialiased}
@@ -164,7 +166,7 @@ ul{list-style:none;margin:0;padding:0}
 .gal-compact{grid-template-columns:repeat(3,1fr);gap:6px}
 .gal-compact .tile{aspect-ratio:1/1}
 .gal-compact .tile::after{display:none}
-.gal-compact .tile .ph{background:#fff var(--img) center/contain no-repeat}
+.gal-compact .tile .ph{background:var(--bg) var(--img) center/contain no-repeat;mix-blend-mode:multiply}
 .tile-empty{background:var(--bg-soft);display:flex;align-items:center;justify-content:center;text-align:center;border:1px solid var(--line)}
 .tile-empty::after{display:none}
 .tile-empty p{position:static;text-shadow:none;padding:0 18px}
