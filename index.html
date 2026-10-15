@@ -198,7 +198,7 @@ ul{list-style:none;margin:0;padding:0}
 .fab:hover .ph{opacity:.9}
 .lb{position:fixed;inset:0;z-index:120;background:rgba(6,14,9,.97);display:grid;place-items:center;visibility:hidden;opacity:0;transition:opacity .15s}
 .lb.on{visibility:visible;opacity:1}
-.lb-img{width:min(92vw,900px);height:min(80svh,900px);background:var(--img) center/contain no-repeat}
+.lb-img{width:min(92vw,900px);height:min(80svh,900px);object-fit:contain}
 .lb-cap{position:absolute;left:0;right:0;bottom:calc(env(safe-area-inset-bottom,0px) + 16px);margin:0;text-align:center;color:#EFE8D8;font-size:15px}
 .lb-x{position:absolute;top:calc(env(safe-area-inset-top,0px) + 10px);right:10px;color:#fff;z-index:2}
 .lb-dl{position:absolute;top:calc(env(safe-area-inset-top,0px) + 10px);right:58px;color:#fff;z-index:2;text-decoration:none}
@@ -649,7 +649,7 @@ footer{padding:clamp(40px,6vw,72px) clamp(16px,4vw,56px) 28px}
   <button class="icon lb-x" type="button" data-lbx data-i18n-aria="close"><svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
   <a class="icon lb-dl" href="#" download data-lbdl data-i18n-aria="lb_download"><svg viewBox="0 0 24 24"><path d="M12 3v12m0 0l-5-5m5 5l5-5M5 20h14"/></svg></a>
   <button class="lb-nav prev" type="button" data-lbn="-1" data-i18n-aria="lb_prev"><svg viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7"/></svg></button>
-  <div class="lb-img" id="lbimg" role="img"></div>
+  <img class="lb-img" id="lbimg" alt="">
   <button class="lb-nav next" type="button" data-lbn="1" data-i18n-aria="lb_next"><svg viewBox="0 0 24 24"><path d="M9 5l7 7-7 7"/></svg></button>
   <p class="lb-cap" id="lbcap"></p>
 </div>
@@ -2173,8 +2173,8 @@ footer{padding:clamp(40px,6vw,72px) clamp(16px,4vw,56px) 28px}
   var curGalleryImgs=[],curVariants=[],justSwiped=false;
   function lbShow(){
     var it=lbList[lbI];if(!it)return;
-    $("#lbimg").style.setProperty("--img","var(--i-"+it[0]+")");
-    $("#lbimg").setAttribute("aria-label",it[1]?t(it[1])+(it[2]?" "+it[2]:""):"");
+    $("#lbimg").src="images/"+it[0]+".jpg";
+    $("#lbimg").alt=it[1]?t(it[1])+(it[2]?" "+it[2]:""):"";
     var dl=$(".lb-dl");if(dl){dl.href="images/"+it[0]+".jpg";dl.setAttribute("download","sistersdresses-"+it[0]+".jpg")}
     $("#lbcap").textContent=(lbI+1)+" / "+lbList.length;
   }
